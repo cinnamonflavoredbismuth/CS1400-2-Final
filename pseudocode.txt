@@ -43,11 +43,17 @@ PROCEDURE- Display streak
     Get user's account info from csv file
     DISPLAY "Your streak is:" user's streak
 
-PROCEDURE- Update streak
-
 PROCEDURE- Unit
     Get user's account info from csv file
-    IF user is on the final q
+    IF user is on the final quiz
+        Set the quiz to have every question in its question bank
+    ELSE
+        Find which unit the user is on and set the lesson and quiz for that unit
+        DISPLAY the lesson content
+    CALL Lesson/Quiz Procedure
+
+PROCEDURE- Update streak
+    
 
 Tate's Psuedocode -----------------------------------------------------
 
