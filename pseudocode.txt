@@ -3,8 +3,53 @@ Psuedocode  -Cecily Strong, Luke Murdock, Tate Morgan, Hasan De La Cruz
 
 Cecily's Psuedocode ---------------------------------------------------
 
+
 Luke's Psuedocode -----------------------------------------------------
 
+PROCEDURE- Menu
+    LOOP until choice is Log out 
+        INPUT option of either Display streak, Do next unit, or Log out
+        IF choice is Display streak
+            CALL Display Streak Procedure
+        IF choice is Do next unit
+            CALL Unit Procedure
+        IF choice is Log out
+            CALL the Sign In Procedure
+            EXIT loop
+        ELSE
+            DISPLAY that the user's input isn't an option
+
+PROCEDURE- Sign In
+    LOOP until choice is Exit
+        INPUT option of either Log in, Sign up, or Exit
+            IF choice is Sign up
+                INPUT username and password
+                Creates an account object with inputted and starting info
+                Saves it to a file 
+            IF choice is Log in 
+                INPUT username and password
+                If it is in the file
+                    CALL Menu Procedure
+                ELSE   
+                    DISPLAY that the info isn't correct
+            IF choice is Exit 
+                END the program
+            ELSE
+                DISPLAY that the user's input isn't an option
+
+CALL Sign In Procedure when the program starts
+
+PROCEDURE- Display streak
+    Get user's account info from csv file
+    DISPLAY "Your streak is:" user's streak
+
+PROCEDURE- Update streak
+
+PROCEDURE- Unit
+    Get user's account info from csv file
+    IF user is on the final q
+
 Tate's Psuedocode -----------------------------------------------------
+
 
 Hasan's Psuedocode ----------------------------------------------------
