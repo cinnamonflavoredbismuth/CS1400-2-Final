@@ -28,7 +28,9 @@ PROCEDURE- Sign In
                 Saves it to a file 
             IF choice is Log in 
                 INPUT username and password
-                If it is in the file
+                IF it is in the file
+                    IF yesterday's date wasn't saved on their account
+                        Change their streak to 0
                     CALL Menu Procedure
                 ELSE   
                     DISPLAY that the info isn't correct
@@ -52,7 +54,11 @@ PROCEDURE- Unit
         DISPLAY the lesson content
     CALL Lesson/Quiz Procedure
 
-PROCEDURE- Update streak
+PROCEDURE- Streak add
+    Get user's account info from csv file
+    IF today's date isn't already saved to their account
+        Add 1 to the active user's streak
+        Save today's date to their account
     
 
 Tate's Psuedocode -----------------------------------------------------
