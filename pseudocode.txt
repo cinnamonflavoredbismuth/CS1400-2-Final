@@ -3,11 +3,48 @@ Psuedocode  -Cecily Strong, Luke Murdock, Tate Morgan, Hasan De La Cruz
 
 Cecily's Psuedocode (Account Handling) ---------------------------------------------------
 
-Define Load account
+class user
+    user.name is name
+    user.unit is unit
+    user.streak is streak
+    user.date is date
+    user.lives is lives
+    DEFINE update_streak
+        if user.date is yesterday's date
+            user.streak + 1
+        else:
+            user.streak is 0
+        user.date is current date
+    DEFINE export_dic
+        return {name: user.name, unit:user.unit, streak: user.streak, date:user.date, }
 
-Define edit account (this is for deleting or editing them)
+Define Load account
+    get name from user
+    open account csv as read
+    for line in csv
+        if the name on line = name:
+            save line to user class
+            return user
+    
+
+Define edit account 
+    get name from user
+    open account csv as read
+    for line in csv
+        if the name on line is name:
+            save line to user class
+            user.update_streak
+            save user.export_dic to dic
+        else: 
+            save line to dic
+    open acc as write
+        dict write the updated information
 
 Define new account
+    get name from user
+    user is user(name,0,0,date)
+    open account csv as append
+        write line from user
 
 Luke's Psuedocode -----------------------------------------------------
 
@@ -66,7 +103,42 @@ PROCEDURE- Streak add
         Save today's date to their account
     
 
-Tate's Psuedocode -----------------------------------------------------
+Tate's Psuedocode and Hasan's-----------------------------------------------------
+DEFINE get question function:
+    get all question banks
+    Are there any questions left in mai
+    Are there any questions left in main question bank
+    IF yes:
+        Pull random question from main question bank and save as question
+    ELSE IF no:
+        Are there any questions left in incorrect bank
+        IF yes:
+            Pull random question from incorrect question bank and save as question
+        ELSE IF:
+            DISPLAY you completed your lesson
+            CALL save account function
+            CLEAR incorrect and correct question banks
+            RETURN to main menu
+    
+
+DEFINE check function:
+    get user INPUT and check if its the same as the answer 
+    IF yes:
+        DISPLAY that you got it correct and save question in correct bank
+        RETURN
+    ELSE IF no:
+        DISPLAY that you got it wrong and save question in incorrect bank
+        subtract a life
+        RETURN
 
 
-Hasan's Psuedocode ----------------------------------------------------
+
+DEFINE lesson function:
+    CHECKS if there are any lives left
+    IF yes:
+        CALL question function
+        DISPLAY question and options
+        CALL check function 
+    ELSE IF:
+        DISPLAY there are no more lives left wait some time for some more
+        RETURN to main menu
