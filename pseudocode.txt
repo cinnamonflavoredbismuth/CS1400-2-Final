@@ -6,6 +6,7 @@ Cecily's Psuedocode (Account Handling) -----------------------------------------
 class user
     user.name is name
     user.unit is unit
+    user.lesson is lesson
     user.streak is streak
     user.date is date
     user.lives is lives
