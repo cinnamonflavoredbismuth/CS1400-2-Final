@@ -1,4 +1,4 @@
-Psuedocode  -Cecily Strong, Luke Murdock, Tate Morgan, Hasan De La Cruz
+Psuedocode  -Cecily Strong, Luke Murdock, Tate Morgan, Fairus De La Cruz
 
 
 Cecily's Psuedocode (Account Handling) ---------------------------------------------------
@@ -103,7 +103,7 @@ PROCEDURE- Streak add
         Save today's date to their account
     
 
-Tate's Psuedocode and Hasan's-----------------------------------------------------
+Tate's Psuedocode and Fairus -----------------------------------------------------
 DEFINE get question function:
     get all question banks
     Are there any questions left in mai

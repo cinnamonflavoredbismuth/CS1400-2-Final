@@ -46,6 +46,21 @@ def sign_in(): #
             if found == False:
                 print('\nUsername or password couldn\'t be found')
                 continue
+
+            def log_in(): # Picks the pet the user wanted if it exists and then goes to the menu
+                nonlocal pets
+                name = display_pets(pets)
+                for ind, pet in enumerate(pets):
+                    if name.lower() == pet.name.lower():
+                        pets[ind].active = True
+                        write_file(pets)
+                        print(f'\nYou have successfully picked your pet, {pets[ind].name}!')
+                        return True
+                print(f'\nThe pet "{name}" could not be found')
+                return False
+                    
+            if log_in() == True:
+                menu()
         elif choice == '2':
             sign_up_user_name = input('\nusername: ').strip()
             check = False
@@ -71,6 +86,9 @@ def sign_in(): #
             
 print("\n\n\nWelcome to this Program, where you can .")
 sign_in()
+
+
+
 
 
 
