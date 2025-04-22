@@ -42,7 +42,8 @@ Not used for this class
 ## Author's Information
 ---
 + The author of this project is Luke Murdock and he is a student at UCAS, currently taking a programming class and creating projects like this one to help him learn python and the basics of programming. He mostly enjoys coding, expecially when it doesn't have many bugs and has a fun end product. He enjoys lots of other things including reading and playing games, including video games. He thinks it would be fun to eventually make some sort of actual game in the future if he ever gets the oppurtunity.  
-+ 
++ Cecily Strong
+I am an ametuer programmer with an interest in learning more. I love math and solving puzzles, and intend to apply these interests in my programs. I have been programming for around a year and have graduated a CS 1400 class.
 
 ## Change Log
 ---
