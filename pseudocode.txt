@@ -17,7 +17,7 @@ class user
             user.streak is 0
         user.date is current date
     DEFINE export_dic
-        return {name: user.name, unit:user.unit, streak: user.streak, date:user.date, lives:user.lives}
+        return {name: user.name, unit:user.unit, streak: user.streak, date:user.date, lives:user.lives, lesson: user.lesson}
 
 Define Load account
     get name from user
