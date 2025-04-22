@@ -26,13 +26,13 @@ def menu(): # Introduces the program and then lets the user choose one of the op
             print("\nInvalid Input (Insert a Corresponding Number)")
 
 def sign_in(): # 
-    accounts = read_file()
-    for account in accounts:
-        account["Active"] = False
+    # accounts = read_file()
+    # for account in accounts:
+    #     account["Active"] = False
     while True:
         choice = input("\nWhat would you like to do?:\n1. Log in\n2. Sign up\n3. Quit\n\nChoice: ").strip()
         if choice == '1':
-            found = False
+            
             user_name = input('\nUsername: ').strip()
             password = input('Password: ').strip()
             for ind, user in enumerate(user_profiles):
@@ -42,25 +42,24 @@ def sign_in(): #
                     print('\nYou have logged in!')
                     found = True
                     menu()
-                    user_profiles = read_file()
-            if found == False:
-                print('\nUsername or password couldn\'t be found')
-                continue
+                    
 
             def log_in(): # Picks the pet the user wanted if it exists and then goes to the menu
-                nonlocal pets
-                name = display_pets(pets)
+                # nonlocal 
+                user_name = input('\nUsername: ').strip()
+            password = input('Password: ').strip()
                 for ind, pet in enumerate(pets):
                     if name.lower() == pet.name.lower():
                         pets[ind].active = True
                         write_file(pets)
-                        print(f'\nYou have successfully picked your pet, {pets[ind].name}!')
+                        print('\nYou have logged in as {name}!')
                         return True
                 print(f'\nThe pet "{name}" could not be found')
                 return False
                     
             if log_in() == True:
                 menu()
+
         elif choice == '2':
             sign_up_user_name = input('\nusername: ').strip()
             check = False
