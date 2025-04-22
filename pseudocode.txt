@@ -1,8 +1,13 @@
 Psuedocode  -Cecily Strong, Luke Murdock, Tate Morgan, Hasan De La Cruz
 
 
-Cecily's Psuedocode ---------------------------------------------------
+Cecily's Psuedocode (Account Handling) ---------------------------------------------------
 
+Define Load account
+
+Define edit account (this is for deleting or editing them)
+
+Define new account
 
 Luke's Psuedocode -----------------------------------------------------
 
