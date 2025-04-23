@@ -1,24 +1,75 @@
 unit, lesson, question, answer
+
+
 Basics, 1, What is 'Yes' in spanish, Si
+Basics, 1, What is 'No' in spanish, No
+Basics, 1, What is 'Please' in spanish, Por favor
+Basics, 1, What is 'Thank you' in spanish, Gracias
+Basics, 1, What is 'Excuse me' in spanish, Disculpe me
+
 Basics, 2, What is 'Hello' in spanish, Hola
-Basics, 3, What is 'Goodbye' in spanish, Adios
-Basics, 4, What is 'How are you' in spanish, Cómo estás
-Basics, 5, What is 'Im good' in spanish, Estoy bien
-Basics, 6, What is 'Im bad' in spanish, Estoy mal
-Basics, 7, What is 'My name is' in spanish, Me llamo
+Basics, 2, What is 'Goodbye' in spanish, Adios
+Basics, 2, What is 'My name is' in spanish, Me llamo
+Basics, 2, What is 'What is your name' in spanish, Como te llamas
+Basics, 2, What is "What is your social security number" in spanish, Cual es tu numero de seguro social
 
-Directions, 1, What is 'Im from Utah America' in spanish, soy de Utah Estados Unidos
-Directions, 2, What is 'Do you speak english' in spanish, Puedes hablar ingles
-Directions, 3, What is 'Excuse me' in spanish, Disculpe me
-Directions, 4, What is 'Sorry' in spanish, Lo siento
-Directions, 5, What is 'Help' in spanish, Socorro O Ayúdeme
-Directions, 6, What is 'Thank you' in spanish, Gracias
-Directions, 7, What is 'I need a doctor' in spanish, Nessecito un doctor
+Basics, 3, What is 'How are you' in spanish, Cómo estás
+Basics, 3, What is 'Im good' in spanish, Estoy bien
+Basics, 3, What is 'Im bad' in spanish, Estoy mal
+Basics, 3, What is 'Im tired' in spanish, Estoy cansado
+Basics, 3, What is "Im hungry" in spanish, Tengo hambre
 
-Small Talk, 1, What is 'Yes' in spanish, Si
-Small Talk, 2, What is 'Hello' in spanish, Hola
-Small Talk, 3, What is 'Goodbye' in spanish, Adios
-Small Talk, 4, What is 'How are you' in spanish, Cómo estás
-Small Talk, 5, What is 'Im good' in spanish, Estoy bien
-Small Talk, 6, What is 'Im bad' in spanish, Estoy mal
-Small Talk, 7, What is 'My name is' in spanish, Me llamo
+
+
+
+
+
+Directions, 1, What is "Where is the bathroom" in spanish, Donde esta el baño
+Directions, 2, What is "Where is the airport" in spanish, Donde esta el aeropuerto
+Directions, 3, What is "It's over there" in spanish, Esta por alla
+Directions, 4, What is "Where is the doctor's office" in spanish, Donde esta la oficina del doctor
+Directions, 5, What is "Where is the nearest resteraunt" in spanish, Donde esta el restaurante mas cercano
+Directions, 6, What is "It is right here" in spanish, Esta justo aqui
+Directions, 7, What is "Where is that" in spanish, Donde esta eso
+
+Small Talk, 1, What is 'Im from Utah America' in spanish, soy de Utah Estados Unidos
+Small Talk, 2, What is 'Do you speak english' in spanish, Puedes hablar ingles
+Small Talk, 4, What is 'Sorry' in spanish, Lo siento
+Small Talk, 5, What is 'Help' in spanish, Socorro O Ayúdeme
+Small Talk, 7, What is 'I need a doctor' in spanish, Nessecito un doctor
+
+
+
+
+
+
+Food, 1, What is "Water" in spanish, Agua
+Food, 1, What is "Do you have anything to drink" in spanish, Tienes algo para beber
+Food, 1, What is "Soda" in spanish, La gaseosa
+Food, 1, What is "Beer" in spanish, Cerveza
+Food, 1, What is "Wine" in spanish, Vino
+
+Food, 2, What is "Food" in spanish, Comida
+Food, 2, What is "Do you have anything to eat" in spanish, Tienes algo para comer
+Food, 2, What is "Chicken" in spanish, Pollo
+Food, 2, What is "Hamburger" in spanish, Hamburguesa
+Food, 2, What is "Egg" in spanish, Huevo
+
+Food, 3, What is "Im allergic to" in spanish, Soy alergico a
+Food, 3, What is "Nuts" in spanish, Nueces
+Food, 3, What is "Peanuts" in spanish, Mani
+Food, 3, What is "Milk" in spanish, Mariscos
+Food, 3, What is "Fish" in spanish, Pescado
+
+Food, 4, What is "Do you have mcdonalds" in spanish, Tu tienes mcdonalds
+Food, 4, What is "Do you have chicken" in spanish, Tu tienes Pollo
+Food, 4, What is "Do you have a menu" in spanish, Tu tienes un menu
+Food, 4, What is "Do you have a table" in spanish, Tu tienes una mesa
+Food, 4, What is "Do you have a reservation" in spanish, Tu tienes una reservacion
+
+Food, 5, What is "I like eating" in spanish, Me gusta comer
+Food, 5, What is "I don't like eating" in spanish, No me gusta comer cocos
+Food, 5, What is "I like drinking" in spanish, Me gusta beber
+Food, 5, What is "I don't like drinking" in spanish, No me gusta beber
+Food, 5, What is "I ate" in spanish, Comí
+
