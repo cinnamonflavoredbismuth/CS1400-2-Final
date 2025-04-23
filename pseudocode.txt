@@ -1,11 +1,148 @@
-Psuedocode  -Cecily Strong, Luke Murdock, Tate Morgan, Hasan De La Cruz
+Psuedocode  -Cecily Strong, Luke Murdock, Tate Morgan, Fairus De La Cruz
 
 
-Cecily's
+Cecily's Psuedocode (Account Handling) ---------------------------------------------------
 
-Luke's
+class user
+    user.name is name
+    user.unit is unit
+    user.lesson is lesson
+    user.streak is streak
+    user.date is date
+    user.lives is lives
+    DEFINE update_streak
+        if user.date is yesterday's date
+            user.streak + 1
+        else:
+            user.streak is 0
+        user.date is current date
+    DEFINE export_dic
+        return {name: user.name, unit:user.unit, streak: user.streak, date:user.date, lives:user.lives, lesson: user.lesson}
 
-Tate's
+Define Load account
+    get name from user
+    open account csv as read
+    for line in csv
+        if the name on line = name:
+            save line to user class
+            return user
+    
+
 
 Hasan's
 
+Define edit account 
+    get name from user
+    open account csv as read
+    for line in csv
+        if the name on line is name:
+            save line to user class
+            user.update_streak
+            save user.export_dic to dic
+        else: 
+            save line to dic
+    open acc as write
+        dict write the updated information
+
+Define new account
+    get name from user
+    user is user(name,0,0,date)
+    open account csv as append
+        write line from user
+
+Luke's Psuedocode -----------------------------------------------------
+
+PROCEDURE- Menu
+    LOOP until choice is Log out 
+        INPUT option of either Display streak, Do next unit, or Log out
+        IF choice is Display streak
+            CALL Display Streak Procedure
+        IF choice is Do next unit
+            CALL Unit Procedure
+        IF choice is Log out
+            CALL the Sign In Procedure
+            EXIT loop
+        ELSE
+            DISPLAY that the user's input isn't an option
+
+PROCEDURE- Sign In
+    LOOP until choice is Exit
+        INPUT option of either Log in, Sign up, or Exit
+            IF choice is Sign up
+                INPUT username and password
+                Creates an account object with inputted and starting info
+                Saves it to a file 
+            IF choice is Log in 
+                INPUT username and password
+                IF it is in the file
+                    IF yesterday's date wasn't saved on their account
+                        Change their streak to 0
+                    CALL Menu Procedure
+                ELSE   
+                    DISPLAY that the info isn't correct
+            IF choice is Exit 
+                END the program
+            ELSE
+                DISPLAY that the user's input isn't an option
+
+CALL Sign In Procedure when the program starts
+
+PROCEDURE- Display streak
+    Get user's account info from csv file
+    DISPLAY "Your streak is:" user's streak
+
+PROCEDURE- Unit
+    Get user's account info from csv file
+    IF user is on the final quiz
+        Set the quiz to have every question in its question bank
+    ELSE
+        Find which unit the user is on and set the lesson and quiz for that unit
+        DISPLAY the lesson content
+    CALL Lesson/Quiz Procedure
+
+PROCEDURE- Streak add
+    Get user's account info from csv file
+    IF today's date isn't already saved to their account
+        Add 1 to the active user's streak
+        Save today's date to their account
+    
+
+Tate's Psuedocode and Fairus -----------------------------------------------------
+DEFINE get question function:
+    get all question banks
+    Are there any questions left in mai
+    Are there any questions left in main question bank
+    IF yes:
+        Pull random question from main question bank and save as question
+    ELSE IF no:
+        Are there any questions left in incorrect bank
+        IF yes:
+            Pull random question from incorrect question bank and save as question
+        ELSE IF:
+            DISPLAY you completed your lesson
+            CALL save account function
+            CLEAR incorrect and correct question banks
+            RETURN to main menu
+    
+
+DEFINE check function:
+    get user INPUT and check if its the same as the answer 
+    IF yes:
+        DISPLAY that you got it correct and save question in correct bank
+        RETURN
+    ELSE IF no:
+        DISPLAY that you got it wrong and save question in incorrect bank
+        subtract a life
+        RETURN
+
+
+
+DEFINE lesson function:
+    CHECKS if there are any lives left
+    IF yes:
+        CALL question function
+        DISPLAY question and options
+        CALL check function 
+    ELSE IF:
+        DISPLAY there are no more lives left wait some time for some more
+        RETURN to main menu
