@@ -1,5 +1,5 @@
 # Account Handler -Cecily Strong,  Luke
-
+import matplotlib.pyplot as plt
 
 class User: # 
     def __init__(self, name,password,unit,lesson,streak,date,lives): # 
@@ -29,21 +29,10 @@ class User: #
         #     Add 1 to the active user's streak
         #     Save today's date to their account
 
-    # good name?
-    def start_unit(): # 
-        pass
-        # Get user's account info from csv file
-        #if acc.unit == final quiz
-        #     Set the quiz to have every question in its question bank
-        # else:
-        #     if user.unit ==  on and set the lesson and quiz for that unit
-        #     input(f"The lesson content:\n{}\nPress Enter to Continue\n")
-        # lesson/quiz()
-
     def display_streak(): # 
         pass
         # Get user's account info from csv file
-        # input(f"Your streak is: {user.streak}\nPress Enter to Continue\n")
+        # input(f"Your streak is: {self.streak}\nPress Enter to Continue\n")
 
 
 def load_account(): # 
@@ -92,3 +81,28 @@ def new_account(): #
     # # Adding to file
     # # user_profiles.append(new_acc)
     # # write_file(user_accs)
+
+
+# Luke's dislocated Functions
+
+def accuracy_visual(correct, questions): # Displays a pie chart for the accuracy of an amount of questions with an amount of correctly answered ones
+    
+    correct_perc = round((int(correct) / int(questions)) * 100)
+    data = [100-correct_perc, correct_perc] # Add up to 100
+    labels = ['Incorrect', 'Correct']
+    colors = ['tab:red', 'tab:green']
+    explode = (0.1, 0)
+
+    plt.pie(data, labels=labels, colors=colors, explode=explode, shadow=True, autopct='%1.0f%%')
+    plt.title('Accuracy')
+    plt.show()
+
+def do_unit(): # 
+    pass
+    # Get user's account info from csv file
+    #if acc.unit == final quiz
+    #     Set the quiz to have every question in its question bank
+    # else:
+    #     if user.unit ==  on and set the lesson and quiz for that unit
+    #     # input(f"The lesson content:\n{}\nPress Enter to Continue\n")
+    # lesson/quiz()

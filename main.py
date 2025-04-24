@@ -59,11 +59,11 @@ def sign_in(): # Lets the user sign up if they don't have an account and log in 
             print("\nCreated new account") # Now they can log into that account
             
         elif choice == '3':
-            print('\n\nThank you for using this program!\n\n\n')
+            print('\n\nThank you for using Spanish or Vanish!\n\n\n')
             exit()
         else:
             print('\nInvalid Input (Insert a Corresponding Number)')
             
             
-print("\n\n\nWelcome to this Program, where you can .")
+print("\n\n\nWelcome to Spanish or Vanish, where you can do lessons everyday to keep up your streak and .")
 sign_in()
