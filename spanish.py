@@ -13,6 +13,7 @@ pygame.init()
 # Set up the display
 screen = pygame.display.set_mode((1200, 800))
 pygame.display.set_caption('Spanish or Vanish')
+pygame.display.set_icon()
 
 # Set up fonts
 font = pygame.font.Font(None, 36)
