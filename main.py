@@ -1,13 +1,14 @@
 # Program  -Cecily Strong, Luke Murdock, Tate Morgan, Hasan De La Cruz
 # Main File -Luke Murdock
-from user_class import User
+from account_handler import User, load_account, edit_account, new_account
 
+# Finish
 def menu(): # Introduces the program and then lets the user choose one of the options
     # accs = read_file()
     # acc = active_pet(accs)
 
     while True:
-        choice = input("\nWhat would you like to do?:\n1. \n2. \n3. \n4. \n5. \n6. \n7. Log out\n\nChoice: ").strip()
+        choice = input("\nWhat would you like to do?:\n1. Display Streak\n2. Play(?)\n3. \n4. \n5. \n6. \n7. Log out\n\nChoice: ").strip()
         if choice == '1':
             acc.()
         elif choice == '2':
@@ -27,7 +28,8 @@ def menu(): # Introduces the program and then lets the user choose one of the op
             print("\nInvalid Input (Insert a Corresponding Number)")
         # write_file(pets)
 
-def sign_in(): # 
+# Finish
+def sign_in(): # Lets the user sign up if they don't have an account and log in if they do, and once logged in will bring them to the menu
     # accs = read_file()
     # for acc in acc:
     #     acc.active = False
@@ -52,19 +54,8 @@ def sign_in(): #
                 menu()
 
         elif choice == '2':
-            new_name = input('\nusername: ').strip()
-            check = False
-            for acc in accs:
-                if new_name == acc.accs:
-                    print('\nThat username has already been taken.\n')
-                    check = True
-            if check == True:
-                continue       
-            new_password = input('\npassword: ').strip()
-
-            new_acc = User(new_name, new_password, )
-            # user_profiles.append(new_acc)
-            # write_file(user_accs)
+            # Finish
+            new_account()
             print("\nCreated new account") # Now they can log into that account
             
         elif choice == '3':
