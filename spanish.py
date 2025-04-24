@@ -1,11 +1,17 @@
 import pygame
 import csv
+import random
+
+# Define the Spanish or Vanish game
+# This is a simple game where the user selects the correct answer from multiple options.
+# The game will display a lesson and multiple options, and the user has to select the correct one.
+# The game will be played using Pygame, a popular library for creating games in Python.
 
 # Initialize Pygame
 pygame.init()
 
 # Set up the display
-screen = pygame.display.set_mode((800, 600))
+screen = pygame.display.set_mode((1200, 800))
 pygame.display.set_caption('Spanish or Vanish')
 
 # Set up fonts
@@ -30,53 +36,43 @@ button_rects = [
     pygame.Rect(50, 300, 700, 40),  # Option 4
 ]
 
+
 # Main loop
 running = True
 while running:
-    screen.fill((255, 255, 255))  # Clear screen with white background
+    screen.fill((255, 255, 255))  # Clear the screen with a white background
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_pos = event.pos
+            mouse_pos = pygame.mouse.get_pos()  # Get mouse position
             for i, rect in enumerate(button_rects):
-                if rect.collidepoint(mouse_pos):
-                    selected_option = i  # Set the selected option
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT:  # Go to the next lesson
-                current_lesson = min(current_lesson + 1, len(lessons) - 1)
-                selected_option = -1  # Reset selection
-            elif event.key == pygame.K_LEFT:  # Go to the previous lesson
-                current_lesson = max(current_lesson - 1, 0)
-                selected_option = -1  # Reset selection
+                if rect.collidepoint(mouse_pos):  # Check if mouse click is inside a button
+                    selected_option = i  # Update selected option
 
-    # Display the current lesson
-    if lessons:
-        lesson_title = font.render(f"Lesson {lessons[current_lesson][0]}: {lessons[current_lesson][1]}", True, (0, 0, 0))
-        screen.blit(lesson_title, (50, 50))
+    # Display the options
+    for i, option in enumerate(lessons[current_lesson][1:]):
+        option_surface = font.render(option, True, (0, 0, 0))
+        screen.blit(option_surface, (50, 150 + i * 50))
+        if selected_option == i:
+            pygame.draw.rect(screen, (255, 0, 0), button_rects[i], 2)  # Highlight selected option
+        else:
+            pygame.draw.rect(screen, (0, 0, 0), button_rects[i], 2)
 
-        # Display the question
-        question = font.render(lessons[current_lesson][2], True, (0, 0, 0))
-        screen.blit(question, (50, 100))
-
-        # Display the options as buttons
-        for i, rect in enumerate(button_rects):
-            option_text = lessons[current_lesson][3 + i]
-            color = (0, 0, 255) if selected_option == i else (0, 0, 0)  # Highlight selected option
-            pygame.draw.rect(screen, (200, 200, 200), rect)  # Draw button background
-            pygame.draw.rect(screen, (0, 0, 0), rect, 2)  # Draw button border
-            option = font.render(option_text, True, color)
-            screen.blit(option, (rect.x + 10, rect.y + 5))
-
-        # Check if the selected option is correct
-        if selected_option != -1:
-            correct_answer = lessons[current_lesson][7]  # Correct answer column
-            feedback = "Correct!" if selected_option == int(correct_answer) else "Wrong!"
-            feedback_text = font.render(feedback, True, (0, 128, 0) if feedback == "Correct!" else (255, 0, 0))
-            screen.blit(feedback_text, (50, 400))
+    # Draw the buttons
+    for rect in button_rects:
+        pygame.draw.rect(screen, (0, 0, 0), rect, 2)  # Draw the button outline
 
     pygame.display.flip()  # Update the display
+    pygame.time.delay(100)  # Delay to control frame rate
 
+# End of the game loop
+final_message = "Thank you for playing!"
+final_surface = font.render(final_message, True, (0, 0, 0))
+screen.fill((255, 255, 255))  # Clear the screen for the final message
+screen.blit(final_surface, (50, 50))
+pygame.display.flip()  # Update the display
+pygame.time.delay(2000)  # Wait for 2 seconds before quitting
 # Quit Pygame
 pygame.quit()
