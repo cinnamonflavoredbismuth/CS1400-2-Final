@@ -19,7 +19,7 @@ font = pygame.font.Font(None, 36)
 
 # Load lessons and questions from CSV
 lessons = []
-with open('lessons.csv', 'r') as file:
+with open('Lessons.csv', 'r') as file:
     reader = csv.reader(file)
     for row in reader:
         lessons.append(row)
