@@ -143,7 +143,7 @@ def accuracy_visual(correct, questions): # Displays a pie chart for the accuracy
     plt.show()
 
 def do_unit(): # 
-    pass
+    acc = load_account(name) #?
     # Get user's account info from csv file
     #if acc.unit == final quiz
     #     Set the quiz to have every question in its question bank
@@ -151,3 +151,13 @@ def do_unit(): #
     #     if user.unit ==  on and set the lesson and quiz for that unit
     #     # input(f"The lesson content:\n{}\nPress Enter to Continue\n")
     # lesson/quiz()
+
+def social():
+    accs = load_all()
+    print("\nStreak Leaderboard\n")
+    streaks = []
+    for acc in accs:
+        streaks.append([acc.streak, acc.name])
+    ranked_streaks = sorted(streaks, key=lambda acc: int(acc[0]), reverse=True)
+    for rank, streak in enumerate(ranked_streaks[:10]):
+        print(f"{rank+1}. {streak[1]} - {streak[0]} days")
