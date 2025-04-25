@@ -13,12 +13,17 @@ pygame.init()
 # Set up the display
 screen = pygame.display.set_mode((1200, 800))
 pygame.display.set_caption('Spanish or Vanish')
-pygame.display.set_icon(pygame.image.load('logo_uwu.jpg'))
+pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
 
 
 # Image background
 background_image = pygame.image.load('BG.webp')  # Load the image
 background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
+bird1 = pygame.image.load("logo_uwu.png")
+bird2 = pygame.image.load("logo_uwu.png")
+bird2 = pygame.transform.flip(bird2, True, False)  # Flip the image horizontally
+bird1 = pygame.transform.scale(bird1, (200, 200))  # Scale the image to fit the screen 
+bird2 = pygame.transform.scale(bird2, (200, 200))  # Scale the image to fit the screen
 
 # Set up fonts
 font = pygame.font.Font(None, 36)
@@ -116,7 +121,8 @@ while running:
     quit_btn(Quit_btn)
     account_create_btn(Account_create_btn)
     log_in_btn(Log_in_btn)
-    
+    screen.blit(bird1, (30, 0)) # Draw the first bird image at (0, 0)
+    screen.blit(bird2, (900,0))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
