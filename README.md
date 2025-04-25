@@ -16,10 +16,10 @@ Paragraph describing how to use the project
 
 ## Used Technologies
 ---
++ Pygame
+`pip install pygame`
 + Matplotlib
 `pip install matplotlib`
-+ Second library in the repository
-`pip install code for the library`
 + Third library in the repository
 `pip install code for the library`  
 
