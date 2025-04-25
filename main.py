@@ -1,6 +1,9 @@
 # Program  -Cecily Strong, Luke Murdock, Tate Morgan, Hasan De La Cruz
 # Main File -Luke Murdock
+from user_class import User
+from spanish import game
 from account_handler import User, load_account, edit_account, new_account
+
 
 # Finish
 def menu(): # Introduces the program and then lets the user choose one of the options
