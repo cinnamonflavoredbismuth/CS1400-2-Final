@@ -111,7 +111,3 @@ def new_account(name,password): #
             print('account already exists')
             return False
         
-new_account("cecily","789")
-acc=load("cecily")
-print(acc)
-acc.edit()
