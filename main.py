@@ -4,7 +4,7 @@ from spanish import game
 from account_handler import *
 
 
-# Finish
+'''# Finish
 def menu(): # Introduces the program and then lets the user choose one of the options
     # accs = read_file()
     # acc = active_pet(accs)
@@ -28,7 +28,7 @@ def menu(): # Introduces the program and then lets the user choose one of the op
             break
         else:
             print("\nInvalid Input (Insert a Corresponding Number)")
-        # write_file(pets)
+        # write_file(pets)'''
 
 # Finish
 def sign_in(): # Lets the user sign up if they don't have an account and log in if they do, and once logged in will bring them to the menu

@@ -111,15 +111,4 @@ def new_account(name,password): #
         else:
             print('account already exists')
             return False
-        
-def log_in(name, password): # Checks to see if the user's inputted account exists
-    accs = load_all()
-    for acc in accs:
-        if acc.name == name and acc.pasword == password:
-            return True
-    return False
-        
-new_account("cecily","789")
-acc=load("cecily")
-print(acc)
-acc.edit()
+   
