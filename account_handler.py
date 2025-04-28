@@ -1,7 +1,7 @@
+
 # Account Handler -Cecily Strong,  Luke
 from datetime import datetime, timedelta
 import csv
-import matplotlib.pyplot as plt
 
 class User: # 
     def __init__(self, name,password,unit,lesson,streak,date,lives): # 
@@ -55,25 +55,9 @@ Name: {self.name}
         return (self.name,self.password,self.unit,self.lesson,self.streak,datetime.today(),self.lives)
 
     def display_streak(self): # displays streak
-    def update_streak(self): # 
-        pass
-        # if self.date == yesterday's date
-            # self.streak + 1
-        # else:
-        #     user.streak = 0
-        #     user.date = current date
-
-        # ----------Luke's Rough Code -----------
-        # Get user's account info from csv file
-        # IF today's date isn't already saved to their account
-        #     Add 1 to the active user's streak
-        #     Save today's date to their account
-
-    def display_streak(): # 
         pass
         # Get user's account info from csv file
         input(f"Your streak is: {self.streak}\nPress Enter to Continue\n")
-        # input(f"Your streak is: {self.streak}\nPress Enter to Continue\n")
 
     def edit(self,delete=False): # FIX THIS LATER
         toWrite = []
@@ -104,41 +88,38 @@ def load(name): # loads account from csv
         else: # stupid proofing
             #print("Account not found.")
             return False
+        
+def load_all(): # loads all accounts from csv
+    accs=[]
+    with open("users.csv", "r") as file:
+        reader = csv.reader(file)
+        for line in reader:
+            accs.append(User(line[0], line[1], line[2], line[3], line[4], line[5], line[6]))
+            return accs
 
-def edit_account(): # 
-    pass
-    # get name from user
-    # open account csv as read
-    # for line in csv
-    #     if the name on line is name:
-    #         save line to user class
-    #         user.update_streak
-    #         save user.export_dic to dic
-    #     else: 
-    #         save line to dic
-    # open acc as write
-    #     dict write the updated information
-
-def new_account(): # 
-    pass
-    # get name and other info (password) from user
-    # user is user(name,0,0,date)
-    # open account csv as append
-    #     write line from user
-
-    # ----------Luke's Rough Code -----------
-    # new_name = input('\nusername: ').strip()
-    # check = True
-    # for acc in accs:
-    #     if new_name == acc.accs:
-    #         print('\nThat username has already been taken.\n')
-    #         check = False
-    # if check == True:
-    #     continue       
-    # new_password = input('\nPassword: ').strip()
-
-    # new_acc = User(new_name, new_password, )
-
-    # # Adding to file
-    # # user_profiles.append(new_acc)
-    # # write_file(user_accs)
+def new_account(name,password): # 
+        name=name.strip()
+        password=password.strip()
+        acc=User(name,password,1,1,0,datetime.today(),3)
+        acc.basic()
+        exists=load(name)
+        if exists==False:
+            with open("users.csv", "a", newline='') as file:
+                writer = csv.writer(file)
+                writer.writerow(acc.export())
+            print('account successfully created')
+        else:
+            print('account already exists')
+            return False
+        
+def log_in(name, password): # Checks to see if the user's inputted account exists
+    accs = load_all()
+    for acc in accs:
+        if acc.name == name and acc.pasword == password:
+            return True
+    return False
+        
+new_account("cecily","789")
+acc=load("cecily")
+print(acc)
+acc.edit()
