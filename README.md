@@ -46,6 +46,8 @@ Not used for this class
 I am an ametuer programmer with an interest in learning more. I love math and solving puzzles, and intend to apply these interests in my programs. I have been programming for around a year and have graduated a CS 1400 class.
 + Fairus De La Cruz
 I am an intermediate programmer interested in learning more. I also want to be a game developer, and I am making some games at the moment. I mainly make 3d games and I will learn on how to make some 2d. email: fairus.delacruz@ucas-ede.net
++ Tate Morgan
+  I am an intermediate programmer wishing to learn new programming languages. I love puzzles and challenges and try to make little projects with my friends.
 ## Change Log
 ---
 Not used for this class  

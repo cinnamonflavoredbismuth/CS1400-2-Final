@@ -13,13 +13,11 @@ class User: #
         self.date = date
         self.lives = lives
 
-    def basic(self,name,password): # Basic account for new users
-        self.name=name
-        self.password=password
+    def basic(self): # Basic account for new users
         self.unit=0
         self.lesson=1
         self.streak=0
-        self.date = datetime.now()
+        self.date = datetime.today()
         self.lives=3 # default lives for new users
 
     def subtract_life(self): #subtract life 
@@ -50,11 +48,11 @@ Name: {self.name}
     Unit: {self.unit}
     Streak: {self.streak} days
     Streak last updated: {self.date}
-    Lives left{self.lives}
+    Lives left: {self.lives}
     Lesson: {self.lesson}"""
 
-    def export_dic(self): # used to save account info to csv
-        return f"{self.name},{self.password},{self.unit},{self.lesson},{self.streak},{self.date},{self.lives}"
+    def export(self): # used to save account info to csv
+        return (self.name,self.password,self.unit,self.lesson,self.streak,datetime.today(),self.lives)
 
     def display_streak(self): # displays streak
     def update_streak(self): # 
@@ -77,8 +75,26 @@ Name: {self.name}
         input(f"Your streak is: {self.streak}\nPress Enter to Continue\n")
         # input(f"Your streak is: {self.streak}\nPress Enter to Continue\n")
 
+    def edit(self,delete=False): # FIX THIS LATER
+        toWrite = []
+        with open("users.csv", "r") as file:
+            reader = csv.reader(file)
+            for row in reader:
+                if row[0] == self.name:
+                    if delete==False:
+                        exported=self.export()
+                        toWrite.append({'name':exported[0], 'password':exported[1], 'unit':exported[2], 'lesson':exported[3], 'streak':exported[3], 'date':exported[4], 'lives':exported[5]})
+                    else: pass
+                else:
+                    toWrite.append({'name':row[0], 'password':row[1], 'unit':row[2], 'lesson':row[3], 'streak':row[4], 'date':row[5], 'lives':row[6]})
+        print(toWrite)
+        with open("users.csv", "w", newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=["name", "password", "unit", "lesson", "streak", "date", "lives"])
+            writer.writerows(toWrite)
 
-def load_account(name): # loads account from csv
+
+
+def load(name): # loads account from csv
     with open("users.csv", "r") as file:
         reader = csv.reader(file)
         for line in reader:
@@ -86,7 +102,7 @@ def load_account(name): # loads account from csv
                user = User(line[0], line[1], line[2], line[3], line[4], line[5], line[6])
                return user
         else: # stupid proofing
-            print("Account not found.")
+            #print("Account not found.")
             return False
 
 def edit_account(): # 
@@ -126,38 +142,3 @@ def new_account(): #
     # # Adding to file
     # # user_profiles.append(new_acc)
     # # write_file(user_accs)
-
-
-# Luke's dislocated Functions
-
-def accuracy_visual(correct, questions): # Displays a pie chart for the accuracy of an amount of questions with an amount of correctly answered ones
-    
-    correct_perc = round((int(correct) / int(questions)) * 100)
-    data = [100-correct_perc, correct_perc] # Add up to 100
-    labels = ['Incorrect', 'Correct']
-    colors = ['tab:red', 'tab:green']
-    explode = (0.1, 0)
-
-    plt.pie(data, labels=labels, colors=colors, explode=explode, shadow=True, autopct='%1.0f%%')
-    plt.title('Accuracy')
-    plt.show()
-
-def do_unit(): # 
-    acc = load_account(name) #?
-    # Get user's account info from csv file
-    #if acc.unit == final quiz
-    #     Set the quiz to have every question in its question bank
-    # else:
-    #     if user.unit ==  on and set the lesson and quiz for that unit
-    #     # input(f"The lesson content:\n{}\nPress Enter to Continue\n")
-    # lesson/quiz()
-
-def social():
-    accs = load_all()
-    print("\nStreak Leaderboard\n")
-    streaks = []
-    for acc in accs:
-        streaks.append([acc.streak, acc.name])
-    ranked_streaks = sorted(streaks, key=lambda acc: int(acc[0]), reverse=True)
-    for rank, streak in enumerate(ranked_streaks[:10]):
-        print(f"{rank+1}. {streak[1]} - {streak[0]} days")
