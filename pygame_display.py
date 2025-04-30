@@ -130,4 +130,4 @@ def main_menu():
         pygame.quit()
 
 
-main_menu()
+#main_menu()
