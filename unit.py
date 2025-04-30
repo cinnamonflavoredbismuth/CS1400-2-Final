@@ -39,6 +39,7 @@ def unit_select():
         "hover_color": (80,80,80),
         "main_color": (40,40,40),
         "text_offset": 215,
+        "verticle_text_offset": 0,
         "text_color": (255,255,255)
         }
         unit2_btn = {
@@ -51,6 +52,7 @@ def unit_select():
         "hover_color": (80,80,80),
         "main_color": (40,40,40),
         "text_offset": 215,
+        "verticle_text_offset": 0,
         "text_color": (255,255,255)
         }
         unit3_btn = {
@@ -63,6 +65,7 @@ def unit_select():
         "hover_color": (80,80,80),
         "main_color": (40,40,40),
         "text_offset": 215,
+        "verticle_text_offset": 0,
         "text_color": (255,255,255)
         }
         unit4_btn = {
@@ -75,6 +78,7 @@ def unit_select():
         "hover_color": (80,80,80),
         "main_color": (40,40,40),
         "text_offset": 215,
+        "verticle_text_offset": 0,
         "text_color": (255,255,255)
         }
         return_btn = {
@@ -87,6 +91,7 @@ def unit_select():
         "hover_color": (80,80,80),
         "main_color": (40,40,40),
         "text_offset": 75,
+        "verticle_text_offset": 0,
         "text_color": (255,255,255)
         }
 
@@ -154,4 +159,3 @@ def unit_select():
         pygame.display.flip()  # Update the display
         pygame.time.delay(2000)  # Wait for 2 seconds before quitting
         break
-
