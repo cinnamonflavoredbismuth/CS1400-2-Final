@@ -73,8 +73,7 @@ while True:
 '''
 
 white = (255, 255, 255)
-green = (0, 255, 0)
-blue = (0, 0, 128)
+black = (0, 0, 0)
 pygame.display.set_caption('Show Text')
  
 # create a font object.
@@ -85,26 +84,23 @@ font = pygame.font.Font('freesansbold.ttf', 32)
  
 # create a text surface object,
 # on which text is drawn on it.
-text = font.render('GeeksForGeeks', True, green, blue)
+text = font.render('a button was pressed', True, black)
  
 # create a rectangular object for the
 # text surface object
 textRect = text.get_rect()
  
 # set the center of the rectangular object.
-textRect.center = (X // 2, Y // 2)
+textRect.center = (1200 // 2, 800 // 2)
  
 # infinite loop
 while True:
  
     # completely fill the surface object
     # with white color
-    screen(white)
+    screen.fill(white)  # Clear the screen with a white background
  
-    # copying the text surface object
-    # to the display surface object
-    # at the center coordinate.
-    screen.blit(text, textRect)
+   
  
     # iterate over the list of Event objects
     # that was returned by pygame.event.get() method.
@@ -114,12 +110,12 @@ while True:
         # then quitting the pygame
         # and program both.
         if event.type == pygame.QUIT:
- 
             # deactivates the pygame library
             pygame.quit()
  
             # quit the program.
             quit()
- 
         # Draws the surface object to the screen.
+        elif event.type == pygame.KEYDOWN:
+            screen.blit(text, textRect)
         pygame.display.update()
