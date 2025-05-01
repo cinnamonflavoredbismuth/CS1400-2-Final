@@ -34,88 +34,152 @@ ex_dict = {
 "text_color": (255,255,255)
 }
 
-def user_input():
-    for event in pygame.event.get():
-        # checking if keydown event happened or not
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-            if event.type == pygame.KEYDOWN:
-                ex_dict = {
-                "width" : 500, # width of the button
-                "height" : 50, # height of the button
-                "StartPos": {"x" :  325,"y" : 630}, # Top left is 0,0
-                "text": "A key has been pressed", 
-                "font": "Arial",
-                "fontsize": 35,
-                "hover_color": (80,80,80),
-                "main_color": (40,40,40),
-                "text_offset": 225,
-                "text_color": ( 0, 0, 0)}
-                # if keydown event happened
-                # than printing a string to output
-                print("A key has been pressed")
-                text = str(ex_dict['text'])
-                font = pygame.font.Font(ex_dict['font'], ex_dict['fontsize'])
-                text = font.render(text, True, ex_dict["text_color"])
-                screen.blit(text, (325, 630))
-                #screen.blit(pygame.font.SysFont(ex_dict['font'],ex_dict['fontsize']).render(ex_dict['text'] , True , ex_dict["text_color"]),(ex_dict['StartPos']['x']+ex_dict["text_offset"],ex_dict['StartPos']['y']))
-'''
-while True:
-    running = True
-    while running:
-        white = [255, 255, 255]
-        screen.fill(white)  # Clear the screen with a white background
-        pygame.display.flip()
-        
-            
-        user_input()
-'''
+
+
+def text(msg):
+    black = (0, 0, 0)
+    font = pygame.font.Font('freesansbold.ttf', 32)
+    return font.render(f"Key {msg} has been pressed", True, black)
+
+def letter_input():
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_a:
+                screen.blit(text(f'a'), (x,y))
+                return f'a'
+        elif event.key == pygame.K_b:
+                screen.blit(text(f'b'), (x,y))
+                return f'b'
+        elif event.key == pygame.K_c:
+                screen.blit(text(f'c'), (x,y))
+                return f'c'
+        elif event.key == pygame.K_d:     
+                screen.blit(text(f'd'), (x,y))
+                return f'd'
+        elif event.key == pygame.K_e:
+                screen.blit(text(f'e'), (x,y))
+                return f'e'
+        elif event.key == pygame.K_f:
+                screen.blit(text(f'f'), (x,y))
+                return f'f'
+        elif event.key == pygame.K_g:
+                screen.blit(text(f'g'), (x,y))
+                return f'g'
+        elif event.key == pygame.K_h:
+                screen.blit(text(f'h'), (x,y))
+                return f'h'
+        elif event.key == pygame.K_i:
+                screen.blit(text(f'i'), (x,y))
+                return f'i'
+        elif event.key == pygame.K_j:
+                screen.blit(text(f'j'), (x,y))
+                return f'j'
+        elif event.key == pygame.K_k:
+                screen.blit(text(f'k'), (x,y))
+                return f'k'
+        elif event.key == pygame.K_l:
+                screen.blit(text(f'l'), (x,y))
+                return f'l'
+        elif event.key == pygame.K_m:
+                screen.blit(text(f'm'), (x,y))
+                return f'm'
+        elif event.key == pygame.K_n:
+                screen.blit(text(f'n'), (x,y))
+                return f'n'
+        elif event.key == pygame.K_o:
+                screen.blit(text(f'o'), (x,y))
+                return f'o'
+        elif event.key == pygame.K_p:
+                screen.blit(text(f'p'), (x,y))
+                return f'p'
+        elif event.key == pygame.K_q:
+                screen.blit(text(f'q'), (x,y))
+                return f'q'
+        elif event.key == pygame.K_r:
+                screen.blit(text(f'r'), (x,y))
+                return f'r'
+        elif event.key == pygame.K_s:
+                screen.blit(text(f's'), (x,y))
+                return f's'
+        elif event.key == pygame.K_t:
+                screen.blit(text(f't'), (x,y))
+                return f't'
+        elif event.key == pygame.K_u:
+                screen.blit(text(f'u'), (x,y))
+                return f'u'
+        elif event.key == pygame.K_v:
+                screen.blit(text(f'v'), (x,y))
+                return f'v'
+        elif event.key == pygame.K_w:
+                screen.blit(text(f'w'), (x,y))
+                return f'w'
+        elif event.key == pygame.K_x:
+                screen.blit(text(f'x'), (x,y))
+                return f'x'
+        elif event.key == pygame.K_y:
+                screen.blit(text(f'y'), (x,y))
+                return f'y'
+        elif event.key == pygame.K_z:
+                screen.blit(text(f'z'), (x,y))
+                return f'z'
+        elif event.key == pygame.K_0:
+                screen.blit(text(f'0'), (x,y))
+                return f'0'
+        elif event.key == pygame.K_1:
+                screen.blit(text(f'1'), (x,y))
+                return f'1'
+        elif event.key == pygame.K_2:
+                screen.blit(text(f'2'), (x,y))
+                return f'2'
+        elif event.key == pygame.K_3:
+                screen.blit(text(f'3'), (x,y))
+                return f'3'
+        elif event.key == pygame.K_4:
+                screen.blit(text(f'4'), (x,y))
+                return f'4'
+        elif event.key == pygame.K_5:
+                screen.blit(text(f'5'), (x,y))
+                return f'5'
+        elif event.key == pygame.K_6:
+                screen.blit(text(f'6'), (x,y))
+                return f'6'
+        elif event.key == pygame.K_7:
+                screen.blit(text(f'7'), (x,y))
+                return f'7'
+        elif event.key == pygame.K_8:
+                screen.blit(text(f'8'), (x,y))
+                return f'8'
+        elif event.key == pygame.K_9:
+                screen.blit(text(f'9'), (x,y))
+                return f'9'
+        elif event.key == pygame.K_BREAK:
+               return 'break'
+    
+    else: return None
+
+
+x= 1200 // 2
+y= 800 // 2
 
 white = (255, 255, 255)
-black = (0, 0, 0)
-pygame.display.set_caption('Show Text')
- 
-# create a font object.
-# 1st parameter is the font file
-# which is present in pygame.
-# 2nd parameter is size of the font
-font = pygame.font.Font('freesansbold.ttf', 32)
- 
-# create a text surface object,
-# on which text is drawn on it.
-text = font.render('a button was pressed', True, black)
- 
-# create a rectangular object for the
-# text surface object
-textRect = text.get_rect()
- 
-# set the center of the rectangular object.
-textRect.center = (1200 // 2, 800 // 2)
- 
-# infinite loop
-while True:
- 
-    # completely fill the surface object
-    # with white color
+user_txt=[]
+run=True
+while run==True:
+
     screen.fill(white)  # Clear the screen with a white background
  
-   
- 
-    # iterate over the list of Event objects
-    # that was returned by pygame.event.get() method.
     for event in pygame.event.get():
  
-        # if event object type is QUIT
-        # then quitting the pygame
-        # and program both.
         if event.type == pygame.QUIT:
-            # deactivates the pygame library
+            
             pygame.quit()
- 
-            # quit the program.
             quit()
-        # Draws the surface object to the screen.
-        elif event.type == pygame.KEYDOWN:
-            screen.blit(text, textRect)
+            break
+        else:
+            letter=letter_input()
+            if letter!=None:
+                print(letter)
+                user_txt.append(letter)
+
+
         pygame.display.update()
+        print(user_txt)
