@@ -17,13 +17,13 @@ pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
 # Image background
 background_image = pygame.image.load('BG.webp')  # Load the image
 background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
-bird1 = pygame.image.load("logo_uwu.png")
-bird2 = pygame.image.load("logo_uwu.png")
+bird1 = pygame.image.load("logo_uwu.png")     #Load Image
+bird2 = pygame.image.load("logo_uwu.png")     #Load Image
 bird2 = pygame.transform.flip(bird2, True, False)  # Flip the image horizontally
 bird1 = pygame.transform.scale(bird1, (200, 200))  # Scale the image to fit the screen 
 bird2 = pygame.transform.scale(bird2, (200, 200))  # Scale the image to fit the screen
 
-#Create Button date
+#Create Button data
 option1_btn = {
         "width" : 300, # width of the button
         "height" : 150, # height of the button
@@ -92,19 +92,35 @@ quit_btn = {
 # Set up fonts
 font = pygame.font.Font(None, 36)
 title_font = pygame.font.Font(None, 72)  # Larger font for the title
-def lessons():
-    question_text = title_font.render('What is yes in spanish', True, (0, 0, 0))  # White color
 
-    # Position the title at the top center of the screen
+
+def question_gather():
+    questions = []
+    with open('Lessons.csv', 'r') as file:
+        reader = csv.reader(file)
+        for line in reader:
+            if line[0] == 'Basics':
+                print(line)
+                if line[1] == ' 1':
+                    print(line[2])
+                    questions.append(line[2])
+    return questions
+def lesson():
+    
+    questions = question_gather()
+    question_text = title_font.render(random.choice(questions), True, (0, 0, 0))  # White color
+
+     #Position the title at the top center of the screen
     question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
 
     while True:
         running = True
         while running:
             screen.fill((255, 255, 255))  # Clear the screen with a white background
-            screen.blit(background_image, (0,0))
-            screen.blit(question_text, question_rect)
+            screen.blit(background_image, (0,0))   #This Places the background
+            screen.blit(question_text, question_rect)   #This will display the question
 
+            #This is where we will call the buttons 
             btn(option1_btn)
             btn(option2_btn)
             btn(option3_btn)
@@ -146,5 +162,7 @@ def lessons():
         pygame.display.flip()  # Update the display
         pygame.time.delay(2000)  # Wait for 2 seconds before quitting
         # Quit Pygame
-        
-lessons()
+        break
+    
+lesson()
+#print(question_gather())

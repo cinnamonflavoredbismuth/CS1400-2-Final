@@ -1,7 +1,7 @@
 import pygame
 import csv
 import random
-from spanish import *
+from spanish import lessons
 from basic_functions import btn
 
 # Define the Spanish or Vanish game
@@ -13,9 +13,9 @@ from basic_functions import btn
 pygame.init()
 
 # Set up the display
-screen = pygame.display.set_mode((1200, 800))
-pygame.display.set_caption('Spanish or Vanish')
-pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
+screen = pygame.display.set_mode((1200, 800))  #This sets the screen size
+pygame.display.set_caption('Spanish or Vanish') #This sets the tab name
+pygame.display.set_icon(pygame.image.load('logo_uwu.png')) #This sets the logo
 
 
 # Image background
