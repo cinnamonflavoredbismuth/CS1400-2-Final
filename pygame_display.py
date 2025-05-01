@@ -2,7 +2,7 @@ import pygame
 import csv
 import random
 from spanish import lessons
-from basic_functions import btn
+from basic_functions import btn, display
 
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
@@ -106,9 +106,25 @@ def main_menu():
 
                     elif Account_create_btn['StartPos']['x'] <= event.pos[0] <= Account_create_btn['StartPos']['x'] + Account_create_btn['width'] and Account_create_btn['StartPos']['y'] <= event.pos[1] <= Account_create_btn['StartPos']['y'] + Account_create_btn['height']:
                         lessons()
+                        
+                        # # Sign Up code
+                        # name = input('\nUsername: ').strip()
+                        # password = input('Password: ').strip()
+                        # new_account(name, password)
 
                     elif Log_in_btn['StartPos']['x'] <= event.pos[0] <= Log_in_btn['StartPos']['x'] + Log_in_btn['width'] and Log_in_btn['StartPos']['y'] <= event.pos[1] <= Log_in_btn['StartPos']['y'] + Log_in_btn['height']:
                         running = False
+
+                        # # Log In code
+                        # name = input('\nUsername: ').strip()
+                        # password = input('Password: ').strip()
+
+                        # if log_in(name, password) == True:
+                        #     display(f'\nYou have logged in as {name}!')
+                        #     acc = load(name)
+                        #     menu(acc)
+                        # else:
+                        #     display(f'\nUsername or password could not be found')
 
                     
                     
@@ -118,16 +134,11 @@ def main_menu():
             pygame.display.flip()  # Update the display
             pygame.time.delay(100)  # Delay to control frame rate
 
-        # End of the game loop
-        final_message = "Thank you for playing!"
-        final_surface = font.render(final_message, True, (0, 0, 0))
-        screen.fill((255, 255, 255))  # Clear the screen for the final message
-        screen.blit(background_image, (0,0))
-        screen.blit(final_surface, (50, 50))
-        pygame.display.flip()  # Update the display
-        pygame.time.delay(2000)  # Wait for 2 seconds before quitting
-        # Quit Pygame
+
+        display("Thank you for playing!",3)
         pygame.quit()
+        break
 
-
+display("Welcome to Spanish or Vanish!",2)
+display("Keep up your streak by doing Spanish language lessons everyday",4)
 main_menu()
