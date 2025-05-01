@@ -100,14 +100,14 @@ def main_menu():
                 if event.type == pygame.QUIT:
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if Quit_btn['StartPos']['x'] <= event.pos[0] <= Quit_btn['StartPos']['x'] + Quit_btn['width'] and Quit_btn['StartPos']['y'] <= event.pos[1] <= Quit_btn['StartPos']['y'] + Quit_btn['height']:
+                    if Quit_btn['StartPos']['x'] <= event.pos[0] <= Quit_btn['StartPos']['x'] + Quit_btn['width'] and Quit_btn['StartPos']['y'] <= event.pos[1] <= Quit_btn['StartPos']['y'] + Quit_btn['height']: # If  quit button clicked
                         # Go back to the main menu
                         running = False
 
-                    elif Account_create_btn['StartPos']['x'] <= event.pos[0] <= Account_create_btn['StartPos']['x'] + Account_create_btn['width'] and Account_create_btn['StartPos']['y'] <= event.pos[1] <= Account_create_btn['StartPos']['y'] + Account_create_btn['height']:
+                    elif Account_create_btn['StartPos']['x'] <= event.pos[0] <= Account_create_btn['StartPos']['x'] + Account_create_btn['width'] and Account_create_btn['StartPos']['y'] <= event.pos[1] <= Account_create_btn['StartPos']['y'] + Account_create_btn['height']: # If Account Create button clicked
                         lessons()
 
-                    elif Log_in_btn['StartPos']['x'] <= event.pos[0] <= Log_in_btn['StartPos']['x'] + Log_in_btn['width'] and Log_in_btn['StartPos']['y'] <= event.pos[1] <= Log_in_btn['StartPos']['y'] + Log_in_btn['height']:
+                    elif Log_in_btn['StartPos']['x'] <= event.pos[0] <= Log_in_btn['StartPos']['x'] + Log_in_btn['width'] and Log_in_btn['StartPos']['y'] <= event.pos[1] <= Log_in_btn['StartPos']['y'] + Log_in_btn['height']: # If Log In button clicked
                         running = False
 
                     
@@ -130,4 +130,4 @@ def main_menu():
         pygame.quit()
 
 
-main_menu()
+#main_menu()
