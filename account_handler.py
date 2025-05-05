@@ -55,7 +55,6 @@ Name: {self.name}
         return (self.name,self.password,self.unit,self.lesson,self.streak,datetime.today(),self.lives)
 
     def display_streak(self): # displays streak
-        pass
         # Get user's account info from csv file
         input(f"Your streak is: {self.streak}\nPress Enter to Continue\n")
 
@@ -98,19 +97,19 @@ def load_all(): # loads all accounts from csv
             return accs
 
 def new_account(name,password): # 
-        name=name.strip()
-        password=password.strip()
-        acc=User(name,password,1,1,0,datetime.today(),3)
-        acc.basic()
-        exists=load(name)
-        if exists==False:
-            with open("users.csv", "a", newline='') as file:
-                writer = csv.writer(file)
-                writer.writerow(acc.export())
-            print('account successfully created')
-        else:
-            print('account already exists')
-            return False
+    name=name.strip()
+    password=password.strip()
+    acc=User(name,password,1,1,0,datetime.today(),3)
+    acc.basic()
+    exists=load(name)
+    if exists==False:
+        with open("users.csv", "a", newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(acc.export())
+        print('account successfully created')
+    else:
+        print('account already exists')
+        return False
    
 def log_in(name, password): # Checks to see if the user's inputted account exists
     accs = load_all()

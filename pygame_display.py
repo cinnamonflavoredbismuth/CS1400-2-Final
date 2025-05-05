@@ -13,9 +13,9 @@ from basic_functions import btn, display
 pygame.init()
 
 # Set up the display
-screen = pygame.display.set_mode((1200, 800))
-pygame.display.set_caption('Spanish or Vanish')
-pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
+screen = pygame.display.set_mode((1200, 800))  #This sets the screen size
+pygame.display.set_caption('Spanish or Vanish') #This sets the tab name
+pygame.display.set_icon(pygame.image.load('logo_uwu.png')) #This sets the logo
 
 
 # Image background
@@ -48,6 +48,7 @@ Quit_btn = {
 "hover_color": (80,80,80),
 "main_color": (40,40,40),
 "text_offset": 225,
+"verticle_text_offset": 0,
 "text_color": (255,255,255)
 }
 Account_create_btn = {
@@ -60,6 +61,7 @@ Account_create_btn = {
 "hover_color": (80,80,80),
 "main_color": (40,40,40),
 "text_offset": 150,
+"verticle_text_offset": 0,
 "text_color": (255,255,255)
 }
 Log_in_btn = {
@@ -72,6 +74,7 @@ Log_in_btn = {
 "hover_color": (80,80,80),
 "main_color": (40,40,40),
 "text_offset": 200,
+"verticle_text_offset": 0,
 "text_color": (255,255,255)
 }
 
@@ -100,19 +103,18 @@ def main_menu():
                 if event.type == pygame.QUIT:
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if Quit_btn['StartPos']['x'] <= event.pos[0] <= Quit_btn['StartPos']['x'] + Quit_btn['width'] and Quit_btn['StartPos']['y'] <= event.pos[1] <= Quit_btn['StartPos']['y'] + Quit_btn['height']:
+                    if Quit_btn['StartPos']['x'] <= event.pos[0] <= Quit_btn['StartPos']['x'] + Quit_btn['width'] and Quit_btn['StartPos']['y'] <= event.pos[1] <= Quit_btn['StartPos']['y'] + Quit_btn['height']: # If  quit button clicked
                         # Go back to the main menu
                         running = False
 
-                    elif Account_create_btn['StartPos']['x'] <= event.pos[0] <= Account_create_btn['StartPos']['x'] + Account_create_btn['width'] and Account_create_btn['StartPos']['y'] <= event.pos[1] <= Account_create_btn['StartPos']['y'] + Account_create_btn['height']:
+                    elif Account_create_btn['StartPos']['x'] <= event.pos[0] <= Account_create_btn['StartPos']['x'] + Account_create_btn['width'] and Account_create_btn['StartPos']['y'] <= event.pos[1] <= Account_create_btn['StartPos']['y'] + Account_create_btn['height']: # If Account Create button clicked
                         lessons()
-                        
                         # # Sign Up code
                         # name = input('\nUsername: ').strip()
                         # password = input('Password: ').strip()
                         # new_account(name, password)
 
-                    elif Log_in_btn['StartPos']['x'] <= event.pos[0] <= Log_in_btn['StartPos']['x'] + Log_in_btn['width'] and Log_in_btn['StartPos']['y'] <= event.pos[1] <= Log_in_btn['StartPos']['y'] + Log_in_btn['height']:
+                    elif Log_in_btn['StartPos']['x'] <= event.pos[0] <= Log_in_btn['StartPos']['x'] + Log_in_btn['width'] and Log_in_btn['StartPos']['y'] <= event.pos[1] <= Log_in_btn['StartPos']['y'] + Log_in_btn['height']: # If Log In button clicked
                         running = False
 
                         # # Log In code
@@ -141,4 +143,5 @@ def main_menu():
 
 display("Welcome to Spanish or Vanish!",2)
 display("Keep up your streak by doing Spanish language lessons everyday",4)
+
 main_menu()

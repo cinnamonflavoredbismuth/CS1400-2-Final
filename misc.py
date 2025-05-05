@@ -1,5 +1,6 @@
 # Miscellaneus
 
+
 # Luke's dislocated Functions
 import matplotlib.pyplot as plt
 
