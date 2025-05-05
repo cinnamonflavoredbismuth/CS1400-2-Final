@@ -13,9 +13,9 @@ from basic_functions import btn
 pygame.init()
 
 # Set up the display
-screen = pygame.display.set_mode((1200, 800))
-pygame.display.set_caption('Spanish or Vanish')
-pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
+screen = pygame.display.set_mode((1200, 800))  #This sets the screen size
+pygame.display.set_caption('Spanish or Vanish') #This sets the tab name
+pygame.display.set_icon(pygame.image.load('logo_uwu.png')) #This sets the logo
 
 
 # Image background
@@ -48,6 +48,7 @@ Quit_btn = {
 "hover_color": (80,80,80),
 "main_color": (40,40,40),
 "text_offset": 225,
+"verticle_text_offset": 0,
 "text_color": (255,255,255)
 }
 Account_create_btn = {
@@ -60,6 +61,7 @@ Account_create_btn = {
 "hover_color": (80,80,80),
 "main_color": (40,40,40),
 "text_offset": 150,
+"verticle_text_offset": 0,
 "text_color": (255,255,255)
 }
 Log_in_btn = {
@@ -72,6 +74,7 @@ Log_in_btn = {
 "hover_color": (80,80,80),
 "main_color": (40,40,40),
 "text_offset": 200,
+"verticle_text_offset": 0,
 "text_color": (255,255,255)
 }
 

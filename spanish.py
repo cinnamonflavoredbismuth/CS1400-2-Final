@@ -39,6 +39,7 @@ def lessons():
         "hover_color": (80,80,80),
         "main_color": (40,40,40),
         "text_offset": 225,
+        "verticle_text_offset": 0,
         "text_color": (255,255,255)
         }
         Start_btn = {
@@ -51,6 +52,7 @@ def lessons():
         "hover_color": (80,80,80),
         "main_color": (40,40,40),
         "text_offset": 215,
+        "verticle_text_offset": 0,
         "text_color": (255,255,255)
         }
 
