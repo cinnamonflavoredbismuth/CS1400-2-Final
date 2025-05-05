@@ -58,5 +58,5 @@ def sign_in(): # Lets the user sign up if they don't have an account and log in 
             print('\nInvalid Input (Insert a Corresponding Number)')
             
             
-print("\n\n\nWelcome to Spanish or Vanish, where you can do lessons everyday to keep up your streak and .")
-sign_in()
+# print("\n\n\nWelcome to Spanish or Vanish, where you can do lessons everyday to keep up your streak and .")
+# sign_in()

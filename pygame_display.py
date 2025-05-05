@@ -109,6 +109,7 @@ def main_menu():
 
                     elif Account_create_btn['StartPos']['x'] <= event.pos[0] <= Account_create_btn['StartPos']['x'] + Account_create_btn['width'] and Account_create_btn['StartPos']['y'] <= event.pos[1] <= Account_create_btn['StartPos']['y'] + Account_create_btn['height']: # If Account Create button clicked
                         lessons()
+                        
                         # # Sign Up code
                         # name = input('\nUsername: ').strip()
                         # password = input('Password: ').strip()
