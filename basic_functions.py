@@ -42,7 +42,7 @@ def text(msg):
     font = pygame.font.Font('freesansbold.ttf', 32)
     return font.render(f"Key {msg} has been pressed", True, black)
 
-def letter_input():
+'''def letter_input():
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_a:
                 screen.blit(text(f'a'), (x,y))
@@ -163,24 +163,24 @@ y= 800 // 2
 
 white = (255, 255, 255)
 user_txt=[]
-run=True
-while run==True:
+run=True'''
+#while run==True:
 
-    screen.fill(white)  # Clear the screen with a white background
+    #screen.fill(white)  # Clear the screen with a white background
  
-    for event in pygame.event.get():
+    #for event in pygame.event.get():
  
-        if event.type == pygame.QUIT:
+       # if event.type == pygame.QUIT:
             
-            pygame.quit()
-            quit()
-            break
-        else:
-            letter=letter_input()
-            if letter!=None:
-                print(letter)
-                user_txt.append(letter)
+        #    pygame.quit()
+       #     quit()
+       #     break
+       # else:
+        #    letter=letter_input()
+       #     if letter!=None:
+              #  print(letter)
+              #  user_txt.append(letter)
 
 
-        pygame.display.update()
-        print(user_txt)
+       # pygame.display.update()
+       # print(user_txt)
