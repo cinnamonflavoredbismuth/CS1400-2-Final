@@ -34,19 +34,6 @@ def display(message, sec): # Displays a message on the screen by itself for a ce
     pygame.display.flip()  # Update the display
     pygame.time.delay(sec * 1000)  # Wait for 3 seconds before quitting
 
-ex_dict = {
-"width" : 500, # width of the button
-"height" : 50, # height of the button
-"StartPos": {"x" :  325,"y" : 630}, # Top left is 0,0
-"text": "Quit", 
-"font": "Arial",
-"fontsize": 35,
-"hover_color": (80,80,80),
-"main_color": (40,40,40),
-"text_offset": 225,
-"verticle_text_offset": 0,
-"text_color": (255,255,255)
-}
 
 
 
@@ -178,26 +165,26 @@ def letter_input(txt=[],x=0,y=0,event=None):
 
 
 def txt_input(x,y):
-        white = (255, 255, 255)
         user_txt=[]
         run=True
         while run==True:
-                screen.fill(white)  # Clear the screen with a white background
+                #screen.fill(white)  # Clear the screen with a white background
                 for event in pygame.event.get():
                         if event.type == pygame.QUIT:
                                 pygame.quit()
                                 quit()
                                 break
-                        else:   
-                                x2=x+5
-                                screen.blit(text(''.join(user_txt)),(x,y))
-                                letter=letter_input(txt=user_txt,x=x2,y=y,event=event)
+                        else:  
+                                x=x+5
+                                letter=letter_input(txt=user_txt,x=x,y=y,event=event)
                                 if letter != None:
                                         if letter!='enter':
                                                 user_txt.append(letter)
                                         else:
                                                 user_txt=''.join(user_txt)
                                                 return user_txt
-                        pygame.time.delay(10) # delay .01 seconds
+                         
                         pygame.display.update()
-txt_input(0,0)
+                        pygame.time.delay(10)# delay .01 seconds
+'''screen.fill((255, 255, 255))  # Clear the screen with a white background
+txt_input(0,0)'''
