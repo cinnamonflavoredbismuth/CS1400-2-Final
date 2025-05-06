@@ -4,6 +4,7 @@ from spanish import game
 from account_handler import log_in, new_account, load
 
 
+
 '''# Finish
 def menu(): # Introduces the program and then lets the user choose one of the options
     # accs = read_file()
