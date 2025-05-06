@@ -114,6 +114,6 @@ def new_account(name,password): #
 def log_in(name, password): # Checks to see if the user's inputted account exists
     accs = load_all()
     for acc in accs:
-        if acc.name == name and acc.pasword == password:
+        if acc.name == name and acc.password == password:
             return True
     return False
