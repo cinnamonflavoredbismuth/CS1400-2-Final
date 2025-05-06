@@ -21,8 +21,6 @@ def btn(dict):
             pygame.draw.rect(screen,dict['main_color'],[dict['StartPos']['x'],dict['StartPos']['y'],dict['width'],dict['height']]) # If mouse is not touching
         screen.blit(pygame.font.SysFont(dict['font'],dict['fontsize']).render(dict['text'] , True , dict["text_color"]),(dict['StartPos']['x']+dict["text_offset"],dict['StartPos']['y']+dict['verticle_text_offset'])) # Putting text on the button
 
-
-
 def text(msg):
     black = (0, 0, 0)
     font = pygame.font.Font('freesansbold.ttf', 32)

@@ -100,7 +100,7 @@ def lessons():
             pygame.time.delay(100)  # Delay to control frame rate
 
         # End of the game loop
-        final_message = "Returning to Stat page!"
+        final_message = "Returning to Main Menu!"
         final_surface = font.render(final_message, True, (0, 0, 0))
         screen.fill((255, 255, 255))  # Clear the screen for the final message
         screen.blit(background_image, (0,0))
