@@ -1,7 +1,8 @@
 # Program  -Cecily Strong, Luke Murdock, Tate Morgan, Hasan De La Cruz
 # Main File -Luke Murdock
-from stat import *
-from account_handler import *
+from spanish import game
+from account_handler import log_in, new_account, load
+
 
 
 '''# Finish
