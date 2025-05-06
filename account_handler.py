@@ -2,6 +2,7 @@
 # Account Handler -Cecily Strong,  Luke
 from datetime import datetime, timedelta
 import csv
+from basic_functions import display
 
 class User: # 
     def __init__(self, name,password,unit,lesson,streak,date,lives): # 
@@ -24,7 +25,7 @@ class User: #
         if self.lives > 0:
             self.lives -= 1
         else:
-            print("No lives left")
+            display("No lives left",3)
             # return to main menu or exit
 
     def streak_update(self): #update streak
@@ -56,7 +57,7 @@ Name: {self.name}
 
     def display_streak(self): # displays streak
         # Get user's account info from csv file
-        input(f"Your streak is: {self.streak}\nPress Enter to Continue\n")
+        display(f"Your streak is: {self.streak}",4)
 
     def edit(self,delete=False): # FIX THIS LATER
         toWrite = []
@@ -106,9 +107,9 @@ def new_account(name,password): #
         with open("users.csv", "a", newline='') as file:
             writer = csv.writer(file)
             writer.writerow(acc.export())
-        print('account successfully created')
+        display('account successfully created',3)
     else:
-        print('account already exists')
+        display('account already exists',3)
         return False
    
 def log_in(name, password): # Checks to see if the user's inputted account exists
