@@ -129,16 +129,24 @@ def unit_select():
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     if unit1_btn['StartPos']['x'] <= event.pos[0] <= unit1_btn['StartPos']['x'] + unit1_btn['width'] and unit1_btn['StartPos']['y'] <= event.pos[1] <= unit1_btn['StartPos']['y'] + unit1_btn['height']:
                         # Go back to the main menu
-                        lesson_select()
+                        unit = 'Basics'
+                        lesson_select(unit)
+                        running = False
 
                     elif unit2_btn['StartPos']['x'] <= event.pos[0] <= unit2_btn['StartPos']['x'] + unit2_btn['width'] and unit2_btn['StartPos']['y'] <= event.pos[1] <= unit2_btn['StartPos']['y'] + unit2_btn['height']:
-                        lesson_select()
+                        unit = 'Directions'
+                        lesson_select(unit)
+                        running = False
 
                     elif unit3_btn['StartPos']['x'] <= event.pos[0] <= unit3_btn['StartPos']['x'] + unit3_btn['width'] and unit3_btn['StartPos']['y'] <= event.pos[1] <= unit3_btn['StartPos']['y'] + unit3_btn['height']:
-                        lesson_select()
+                        unit = 'Small Talk'
+                        lesson_select(unit)
+                        running = False
                     
                     elif unit4_btn['StartPos']['x'] <= event.pos[0] <= unit4_btn['StartPos']['x'] + unit4_btn['width'] and unit4_btn['StartPos']['y'] <= event.pos[1] <= unit4_btn['StartPos']['y'] + unit4_btn['height']:
-                        lesson_select()
+                        unit = 'Food'
+                        lesson_select(unit)
+                        running = False
 
                     elif return_btn['StartPos']['x'] <= event.pos[0] <= return_btn['StartPos']['x'] + return_btn['width'] and return_btn['StartPos']['y'] <= event.pos[1] <= return_btn['StartPos']['y'] + return_btn['height']:
                         # Go back to the main menu
