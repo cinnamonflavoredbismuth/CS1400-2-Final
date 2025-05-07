@@ -33,7 +33,8 @@ def display(message, sec, x=50, y=50): # Displays a message on the screen by its
     screen.blit(background_image, (0,0))
     screen.blit(surface, (x, y))
     pygame.display.flip()  # Update the display
-    pygame.time.delay(sec * 1000)  # Wait for 3 seconds before quitting
+    if sec != 0:
+        pygame.time.delay(sec * 1000)  # Waits a certain amount of seconds before continuing
 
 
 def text(msg):

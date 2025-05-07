@@ -1,6 +1,5 @@
 # Log In -Luke Murdock
-from basic_functions import display
-# from basic_functions import txt_input, display
+from basic_functions import txt_input, display
 from account_handler import log_in, load
 from spanish import lessons
 
