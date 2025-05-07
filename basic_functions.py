@@ -21,8 +21,6 @@ def btn(dict):
             pygame.draw.rect(screen,dict['main_color'],[dict['StartPos']['x'],dict['StartPos']['y'],dict['width'],dict['height']]) # If mouse is not touching
         screen.blit(pygame.font.SysFont(dict['font'],dict['fontsize']).render(dict['text'] , True , dict["text_color"]),(dict['StartPos']['x']+dict["text_offset"],dict['StartPos']['y']+dict['verticle_text_offset'])) # Putting text on the button
 
-<<<<<<< HEAD
-=======
 def display(message, sec, x=50, y=50): # Displays a message on the screen by itself for a certain amount of seconds
     pygame.init()
     background_image = pygame.image.load('BG.webp')  # Load the image
@@ -52,7 +50,7 @@ ex_dict = {
 
 
 
->>>>>>> c8565f9520675096394b0ac76f49628606ae7be1
+
 def text(msg):
     black = (0, 0, 0)
     font = pygame.font.Font('freesansbold.ttf', 32)
@@ -336,3 +334,17 @@ def txt_input(x,y):
                                                 user_txt.append(letter)
                 pygame.display.update()
 """
+
+click_sound = pygame.mixer.Sound("click.mp3")
+startup_sound = pygame.mixer.Sound("startup.mp3")
+
+def click():
+    ####################################
+    pygame.mixer.Sound.play(click_sound)
+
+def start_up():
+        pygame.mixer.Sound.play(startup_sound)
+
+def bgm():
+    pygame.mixer.music.load("background.mp3")
+    pygame.mixer.music.play(-1)  # Loop the music indefinitely

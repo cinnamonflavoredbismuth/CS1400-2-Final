@@ -2,6 +2,8 @@ import pygame
 import csv
 import random
 from basic_functions import btn
+from basic_functions import click
+
 # from sign_up_screen import * 
 
 # Define the Spanish or Vanish game
@@ -197,19 +199,24 @@ def lesson(unit, _lesson):
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     if option1_btn['StartPos']['x'] <= event.pos[0] <= option1_btn['StartPos']['x'] + option1_btn['width'] and option1_btn['StartPos']['y'] <= event.pos[1] <= option1_btn['StartPos']['y'] + option1_btn['height']:
                         # Go back to the main menu
+                        click()
                         running = False
 
                     elif option2_btn['StartPos']['x'] <= event.pos[0] <= option2_btn['StartPos']['x'] + option2_btn['width'] and option2_btn['StartPos']['y'] <= event.pos[1] <= option2_btn['StartPos']['y'] + option2_btn['height']:
+                        click()
                         running = False
 
                     elif option3_btn['StartPos']['x'] <= event.pos[0] <= option3_btn['StartPos']['x'] + option3_btn['width'] and option3_btn['StartPos']['y'] <= event.pos[1] <= option3_btn['StartPos']['y'] + option3_btn['height']:
+                        click()
                         running = False
                     
                     elif option4_btn['StartPos']['x'] <= event.pos[0] <= option4_btn['StartPos']['x'] + option4_btn['width'] and option4_btn['StartPos']['y'] <= event.pos[1] <= option4_btn['StartPos']['y'] + option4_btn['height']:
+                        click()
                         running = False
 
                     elif quit_btn['StartPos']['x'] <= event.pos[0] <= quit_btn['StartPos']['x'] + quit_btn['width'] and quit_btn['StartPos']['y'] <= event.pos[1] <= quit_btn['StartPos']['y'] + quit_btn['height']:
                         # Go back to the main menu
+                        click()
                         running = False
 
                     

@@ -3,7 +3,7 @@ import csv
 import random
 from unit import unit_select
 from basic_functions import btn
-
+from basic_functions import click
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
 # The game will display a lesson and multiple options, and the user has to select the correct one.
@@ -18,6 +18,7 @@ def lessons():
         screen = pygame.display.set_mode((1200, 800))
         pygame.display.set_caption('Spanish or Vanish')
         pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
+        #pygame.display.set_caption('Spanish or Vanish')
 
 
         # Image background
@@ -85,10 +86,12 @@ def lessons():
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     if Quit_btn['StartPos']['x'] <= event.pos[0] <= Quit_btn['StartPos']['x'] + Quit_btn['width'] and Quit_btn['StartPos']['y'] <= event.pos[1] <= Quit_btn['StartPos']['y'] + Quit_btn['height']:
+                        click()
                         # Go back to the main menu
                         running = False
 
                     elif Start_btn['StartPos']['x'] <= event.pos[0] <= Start_btn['StartPos']['x'] + Start_btn['width'] and Start_btn['StartPos']['y'] <= event.pos[1] <= Start_btn['StartPos']['y'] + Start_btn['height']:
+                        click()
                         unit_select()
 
                     

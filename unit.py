@@ -3,6 +3,7 @@ import csv
 import random
 from basic_functions import btn
 from lesson_select import lesson_select
+from basic_functions import click
 
 
 # Define the Spanish or Vanish game
@@ -130,26 +131,31 @@ def unit_select():
                     if unit1_btn['StartPos']['x'] <= event.pos[0] <= unit1_btn['StartPos']['x'] + unit1_btn['width'] and unit1_btn['StartPos']['y'] <= event.pos[1] <= unit1_btn['StartPos']['y'] + unit1_btn['height']:
                         # Go back to the main menu
                         unit = 'Basics'
+                        click()
                         lesson_select(unit)
                         running = False
 
                     elif unit2_btn['StartPos']['x'] <= event.pos[0] <= unit2_btn['StartPos']['x'] + unit2_btn['width'] and unit2_btn['StartPos']['y'] <= event.pos[1] <= unit2_btn['StartPos']['y'] + unit2_btn['height']:
                         unit = 'Directions'
+                        click()
                         lesson_select(unit)
                         running = False
 
                     elif unit3_btn['StartPos']['x'] <= event.pos[0] <= unit3_btn['StartPos']['x'] + unit3_btn['width'] and unit3_btn['StartPos']['y'] <= event.pos[1] <= unit3_btn['StartPos']['y'] + unit3_btn['height']:
                         unit = 'Small Talk'
+                        click()
                         lesson_select(unit)
                         running = False
                     
                     elif unit4_btn['StartPos']['x'] <= event.pos[0] <= unit4_btn['StartPos']['x'] + unit4_btn['width'] and unit4_btn['StartPos']['y'] <= event.pos[1] <= unit4_btn['StartPos']['y'] + unit4_btn['height']:
                         unit = 'Food'
+                        click()
                         lesson_select(unit)
                         running = False
 
                     elif return_btn['StartPos']['x'] <= event.pos[0] <= return_btn['StartPos']['x'] + return_btn['width'] and return_btn['StartPos']['y'] <= event.pos[1] <= return_btn['StartPos']['y'] + return_btn['height']:
                         # Go back to the main menu
+                        click()
                         running = False
                     
 

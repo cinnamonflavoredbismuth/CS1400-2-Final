@@ -8,17 +8,17 @@ Basics, 2, What is 'Hello' in spanish, Hola,100,60
 Basics, 2, What is 'Goodbye' in spanish, Adios,100,60
 Basics, 2, What is 'My name is' in spanish, Me llamo,75,60
 Basics, 2, What is 'What is your name?' in spanish, Como te llamas?,10,60
-Basics, 2, What is 'What is your social security number?' in spanish, Cual es tu numero de seguro social?   
-Basics, 3, What is 'How are you?' in spanish, Cómo estás?
-Basics, 3, What is 'I'm good' in spanish, Estoy bien
-Basics, 3, What is 'I'm bad' in spanish, Estoy mal
-Basics, 3, What is 'I'm tired' in spanish, Estoy cansado
-Basics, 3, What is 'I'm hungry' in spanish, Tengo hambre
-Basics, 4, What is 'I hate you' in spanish, Te odio
-Basics, 4, What is 'I love you' in spanish, Te quiero
-Basics, 4, What is 'I miss you' in spanish, Te extraño
-Basics, 4, What is 'I like you' in spanish, Me gustas
-Basics, 4, What is 'I don't like you' in spanish, No me gustas
+Basics, 2, What is 'What is your social security number?' in spanish, Cual es tu numero de seguro social?,0,60   
+Basics, 3, What is 'How are you?' in spanish, Como estas?,50,60
+Basics, 3, What is 'I'm good' in spanish, Estoy bien,65,60
+Basics, 3, What is 'I'm bad' in spanish, Estoy mal,65,60
+Basics, 3, What is 'I'm tired' in spanish, Estoy cansado,30,60
+Basics, 3, What is 'I'm hungry' in spanish, Tengo hambre,30,60
+Basics, 4, What is 'I hate you' in spanish, Te odio,90,60
+Basics, 4, What is 'I love you' in spanish, Te quiero,85,60
+Basics, 4, What is 'I miss you' in spanish, Te extrano,80,60
+Basics, 4, What is 'I like you' in spanish, Me gustas,86,60
+Basics, 4, What is 'I don't like you' in spanish, No me gustas,60,60
 Basics, 5, What is 'I am' in spanish, Soy
 Basics, 5, What is 'I am from' in spanish, Soy de
 Basics, 5, What is 'I am going to' in spanish, Voy a
