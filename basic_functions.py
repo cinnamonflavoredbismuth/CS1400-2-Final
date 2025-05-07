@@ -1,16 +1,19 @@
 import pygame
 
-pygame.init()
+def pystart():
+        pygame.init()
+        # Set up the display
+        screen = pygame.display.set_mode((1200, 800))
+        pygame.display.set_caption('Spanish or Vanish')
+        pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
+        return(screen)
 
-# Set up the display
-screen = pygame.display.set_mode((1200, 800))
-pygame.display.set_caption('Spanish or Vanish')
-pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
-
-
-# Image background
-background_image = pygame.image.load('BG.webp')  # Load the image
-background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
+def clear(screen=pystart()):
+        screen.fill((255, 255, 255))
+        background_image = pygame.image.load('BG.webp')  # Load the image
+        background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
+        screen.blit(background_image, (0,0))
+screen=pystart()
 
 #screen = pygame.display.set_mode((1200, 800))
 def btn(dict):
@@ -23,14 +26,12 @@ def btn(dict):
 
 
 def display(message, sec, x=50, y=50): # Displays a message on the screen by itself for a certain amount of seconds
-    pygame.init()
-    background_image = pygame.image.load('BG.webp')  # Load the image
-    background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
+    pystart()
     font = pygame.font.Font(None, 36)
 
     surface = font.render(message, True, (0, 0, 0))
     screen.fill((255, 255, 255))  # Clear the screen for the message
-    screen.blit(background_image, (0,0))
+    clear()
     screen.blit(surface, (x, y))
     pygame.display.flip()  # Update the display
     if sec != 0:
@@ -158,17 +159,17 @@ def letter_input(txt=[],x=0,y=0,event=None):
                         screen.blit(text(f'{txt}'), (x,y))
                         return 'enter'
                 else:
-                        screen.blit(text(f'Invalid character'),(x,y-20))
+                        screen.blit(text(f'Invalid character'),(x,y+20))
                         return None
         else: 
                 return None
 
 
 def txt_input(x,y):
+        x=x-40
         user_txt=[]
         run=True
         while run==True:
-                #screen.fill(white)  # Clear the screen with a white background
                 for event in pygame.event.get():
                         if event.type == pygame.QUIT:
                                 pygame.quit()
@@ -178,13 +179,12 @@ def txt_input(x,y):
                                 x=x+5
                                 letter=letter_input(txt=user_txt,x=x,y=y,event=event)
                                 if letter != None:
-                                        if letter!='enter':
-                                                user_txt.append(letter)
-                                        else:
+                                        if letter=='enter':
                                                 user_txt=''.join(user_txt)
                                                 return user_txt
-                         
+                                        else: 
+                                                user_txt.append(letter)
                         pygame.display.update()
                         pygame.time.delay(10)# delay .01 seconds
-'''screen.fill((255, 255, 255))  # Clear the screen with a white background
-txt_input(0,0)'''
+#screen.fill((255, 255, 255))  # Clear the screen with a white background
+#txt_input(0,0)
