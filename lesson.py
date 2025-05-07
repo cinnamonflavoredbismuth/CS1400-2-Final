@@ -23,23 +23,23 @@ bird2 = pygame.transform.flip(bird2, True, False)  # Flip the image horizontally
 bird1 = pygame.transform.scale(bird1, (200, 200))  # Scale the image to fit the screen 
 bird2 = pygame.transform.scale(bird2, (200, 200))  # Scale the image to fit the screen
 
-def question_gather():
+def question_gather(unit, _lesson):
     questions = []
     with open('Lessons.csv', 'r') as file:
         reader = csv.reader(file)
         for line in reader:
-            if line[0] == 'Basics':
-                if line[1] == ' 1':
+            if line[0] == unit:
+                if line[1] == _lesson:
                     questions.append(line[2])
     return questions
 
-def option_gather():
+def option_gather(unit, _lesson):
     options = []
     with open('Lessons.csv', 'r') as file:
         reader = csv.reader(file)
         for line in reader:
-            if line[0] == 'Basics':
-                if line[1] == ' 1':
+            if line[0] == unit:
+                if line[1] == _lesson:
                     options.append(line[3])
     return options
 
@@ -48,15 +48,15 @@ def answer_gather(question):
     with open('Lessons.csv', 'r') as file:
         reader = csv.reader(file)
         for line in reader:
-            if line[2] == question:
-                answer == line[3]
-            else:
-                continue
+            if question in line[2]:
+                answer = line[3]
     return answer
 
-def option_define(answer):
+def option_define(unit, _lesson):
     while True:
-        options = option_gather()
+        options = option_gather(unit, _lesson)
+        
+
         option1 = random.choice(options)
         option2 = random.choice(options)
         while option2 == option1:
@@ -67,11 +67,24 @@ def option_define(answer):
         option4 = random.choice(options)
         while option4 == option1 or option4 == option2 or option4 == option3:
             option4 = random.choice(options)
-        if option1 == answer or option2 == answer or option3 == answer or option4 == answer:
-            break
-        else:
-            print("Options not gathered")
+        break
     return option1, option2, option3, option4
+
+def xoffset_gather(option):
+    with open('Lessons.csv', 'r') as file:
+        reader = csv.reader(file)
+        for line in reader:
+            if option in line[3]:
+                xoffset = line[4]
+    return xoffset
+
+def yoffset_gather(option):
+    with open('Lessons.csv', 'r') as file:
+        reader = csv.reader(file)
+        for line in reader:
+            if option in line[3]:
+                yoffset = line[5]
+    return yoffset
 
 
 #Create Button data
@@ -82,64 +95,69 @@ title_font = pygame.font.Font(None, 72)  # Larger font for the title
 
 
 
-def lesson():
-    
-    questions = question_gather()
+def lesson(unit, _lesson):
+    questions = question_gather(unit, _lesson)
     question = random.choice(questions)
     question_text = title_font.render(question, True, (0, 0, 0)) # White color
-    answer = answer_gather(question)
-
-    option1, option2, option3, option4 = option_define(answer)
+    while True:
+        option1, option2, option3, option4 = option_define(unit, _lesson)
+        option3 = answer_gather(question)
+        if option3 == option1 or option3 == option2 or option3 == option4:
+            pass
+        else:
+            break
+    options = [option1, option2, option3, option4]
+    random.shuffle(options)
     option1_btn = {
             "width" : 300, # width of the button
             "height" : 150, # height of the button
             "StartPos": {"x" :  250,"y" : 330}, # Top left is 0,0
-            "text": option1, 
+            "text": options[0], 
             "font": "Arial",
             "fontsize": 35,
             "hover_color": (200,200,200),
             "main_color": (255,255,255),
-            "text_offset": 75,
-            "verticle_text_offset": 60,
+            "text_offset": int(xoffset_gather(options[0])),
+            "verticle_text_offset": int(yoffset_gather(options[0])),
             "text_color": (50,50,50)
             }
     option2_btn = {
             "width" : 300, # width of the button
             "height" : 150, # height of the button
             "StartPos": {"x" :  650,"y" : 330}, # Top left is 0,0
-            "text": option2, 
+            "text": options[1], 
             "font": "Arial",
             "fontsize": 35,
             "hover_color": (200,200,200),
             "main_color": (255,255,255),
-            "text_offset": 75,
-            "verticle_text_offset": 60,
+           "text_offset": int(xoffset_gather(options[1])),
+            "verticle_text_offset": int(yoffset_gather(options[1])),
             "text_color": (50,50,50)
             }
     option3_btn = {
             "width" : 300, # width of the button
             "height" : 150, # height of the button
             "StartPos": {"x" :  250,"y" : 530}, # Top left is 0,0
-            "text": option3, 
+            "text": options[2], 
             "font": "Arial",
             "fontsize": 35,
             "hover_color": (200,200,200),
             "main_color": (255,255,255),
-            "text_offset": 75,
-            "verticle_text_offset": 60,
+            "text_offset": int(xoffset_gather(options[2])),
+            "verticle_text_offset": int(yoffset_gather(options[2])),
             "text_color": (50,50,50)
             }
     option4_btn = {
             "width" : 300, # width of the button
             "height" : 150, # height of the button
             "StartPos": {"x" :  650,"y" : 530}, # Top left is 0,0
-            "text": option4, 
+            "text": options[3], 
             "font": "Arial",
             "fontsize": 35,
             "hover_color": (200,200,200),
             "main_color": (255,255,255),
-            "text_offset": 75,
-            "verticle_text_offset": 60,
+            "text_offset": int(xoffset_gather(options[3])),
+            "verticle_text_offset": int(yoffset_gather(options[3])),
             "text_color": (50,50,50)
             }
     quit_btn = {
@@ -210,5 +228,5 @@ def lesson():
         # Quit Pygame
         break
     
-lesson()
+#lesson()
 #print(question_gather())

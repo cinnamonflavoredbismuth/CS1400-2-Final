@@ -1,15 +1,15 @@
-unit, lesson, question, answer
-Basics, 1, What is 'Yes' in spanish, Si
-Basics, 1, What is 'No' in spanish, No
-Basics, 1, What is 'Please' in spanish, Por favor
-Basics, 1, What is 'Thank you' in spanish, Gracias
-Basics, 1, What is 'Excuse me' in spanish, Disculpe me
-Basics, 2, What is 'Hello' in spanish, Hola
-Basics, 2, What is 'Goodbye' in spanish, Adios
-Basics, 2, What is 'My name is' in spanish, Me llamo
-Basics, 2, What is 'What is your name?' in spanish, ¿Como te llamas?
-Basics, 2, What is 'What is your social security number?' in spanish, ¿Cual es tu numero de seguro social?   
-Basics, 3, What is 'How are you?' in spanish, ¿Cómo estás?
+unit, lesson, question, answer, x-offset, y-offset
+Basics, 1, What is 'Yes' in spanish, Si,120,60
+Basics, 1, What is 'No' in spanish, No,120,60
+Basics, 1, What is 'Please' in spanish, Por favor,75,60
+Basics, 1, What is 'Thank you' in spanish, Gracias,75,60
+Basics, 1, What is 'Excuse me' in spanish, Disculpe me,50,60
+Basics, 2, What is 'Hello' in spanish, Hola,100,60
+Basics, 2, What is 'Goodbye' in spanish, Adios,100,60
+Basics, 2, What is 'My name is' in spanish, Me llamo,75,60
+Basics, 2, What is 'What is your name?' in spanish, Como te llamas?,10,60
+Basics, 2, What is 'What is your social security number?' in spanish, Cual es tu numero de seguro social?   
+Basics, 3, What is 'How are you?' in spanish, Cómo estás?
 Basics, 3, What is 'I'm good' in spanish, Estoy bien
 Basics, 3, What is 'I'm bad' in spanish, Estoy mal
 Basics, 3, What is 'I'm tired' in spanish, Estoy cansado
@@ -22,95 +22,95 @@ Basics, 4, What is 'I don't like you' in spanish, No me gustas
 Basics, 5, What is 'I am' in spanish, Soy
 Basics, 5, What is 'I am from' in spanish, Soy de
 Basics, 5, What is 'I am going to' in spanish, Voy a
-Basics, 5, What is 'Where are you from?' in spanish, ¿De donde eres?
-Basics, 5, What is 'Where are you going?' in spanish, ¿A donde vas?
+Basics, 5, What is 'Where are you from?' in spanish, De donde eres?
+Basics, 5, What is 'Where are you going?' in spanish, A donde vas?
 Basics, 6, What is 'Gracias' in english, Thank you
 Basics, 6, What is 'Por favor' in english, Please
 Basics, 6, What is 'Hello' in english, Hola
 Basics, 6, What is 'Goodbye' in english, Adios
-Basics, 6, What is '¿Cual es tu numero de seguro social?' in english, What is your social security number?
-Basics, 7, What is '¿Cómo estás?' in english, How are you?
+Basics, 6, What is 'Cual es tu numero de seguro social?' in english, What is your social security number?
+Basics, 7, What is 'Cómo estás?' in english, How are you?
 Basics, 7, What is 'Estoy bien' in english, I'm good
 Basics, 7, What is 'Te quiero' in english, I love you
 Basics, 7, What is 'Me gustas' in english, I like you
 Basics, 7, What is 'Soy de' in english, I am from
-Directions, 1, What is 'It is right here' in spanish, ¿Esta justo aqui?
-Directions, 1, What is 'Where is that?' in spanish, ¿Donde esta eso?
+Directions, 1, What is 'It is right here' in spanish, Esta justo aqui?
+Directions, 1, What is 'Where is that?' in spanish, Donde esta eso?
 Directions, 1, What is 'It's over there' in spanish, Esta por alla
 Directions, 1, What is 'It's over here' in spanish, Esta por aqui
 Directions, 1, What is 'It's in front of you' in spanish, Esta enfrente de ti
-Directions, 2, What is 'Where is the bathroom?' in spanish, ¿Donde esta el baño?
-Directions, 2, What is 'Where is the airport?' in spanish, ¿Donde esta el aeropuerto?
-Directions, 2, What is 'Where is the doctor's office?' in spanish, ¿Donde esta la oficina del doctor?
-Directions, 2, What is 'Where is the nearest resteraunt?' in spanish, ¿Donde esta el restaurante mas cercano?
-Directions, 2, What is 'Where is the nearest hotel?' in spanish, ¿Donde esta el hotel mas cercano?
-Directions, 3, What is 'Where is the bus stop?' in spanish, ¿Donde esta la parada de autobus?
-Directions, 3, What is 'Where is the train station?' in spanish, ¿Donde esta la estacion de tren?
-Directions, 3, What is 'Where is the subway station?' in spanish, ¿Donde esta la estacion de metro?
-Directions, 3, What is 'Where is the taxi stand?' in spanish, ¿Donde esta la parada de taxi?
-Directions, 3, What is 'Where is the parking lot?' in spanish, ¿Donde esta el estacionamiento?
-Directions, 4, What is 'When will the bus arrive?' in spanish, ¿Cuando llega el autobus?
-Directions, 4, What is 'When will the train arrive?' in spanish, ¿Cuando llega el tren?
-Directions, 4, What is 'When will the taxi arrive?' in spanish, ¿Cuando llega el taxi?
-Directions, 4, What is 'When will the subway arrive?' in spanish, ¿Cuando llega el metro?
-Directions, 4, What is 'When will the plane arrive?' in spanish, ¿Cuando llega el avion?
-Directions, 5, What is 'How do I get to the bus stop?' in spanish, ¿Como llego a la parada de autobus?
-Directions, 5, What is 'How do I get to the train station?' in spanish, ¿Como llego a la estacion de tren?
-Directions, 5, What is 'How do I get to the subway station?' in spanish, ¿Como llego a la estacion de metro?
-Directions, 5, What is 'How do I get to the taxi stand?' in spanish, ¿Como llego a la parada de taxi?
-Directions, 5, What is 'How do I get to the parking lot?' in spanish, ¿Como llego al estacionamiento?
-Directions, 6, What is '¿Donde esta eso?' in english, Where is that?
+Directions, 2, What is 'Where is the bathroom?' in spanish, Donde esta el baño?
+Directions, 2, What is 'Where is the airport?' in spanish, Donde esta el aeropuerto?
+Directions, 2, What is 'Where is the doctor's office?' in spanish, Donde esta la oficina del doctor?
+Directions, 2, What is 'Where is the nearest resteraunt?' in spanish, Donde esta el restaurante mas cercano?
+Directions, 2, What is 'Where is the nearest hotel?' in spanish, Donde esta el hotel mas cercano?
+Directions, 3, What is 'Where is the bus stop?' in spanish, Donde esta la parada de autobus?
+Directions, 3, What is 'Where is the train station?' in spanish, Donde esta la estacion de tren?
+Directions, 3, What is 'Where is the subway station?' in spanish, Donde esta la estacion de metro?
+Directions, 3, What is 'Where is the taxi stand?' in spanish, Donde esta la parada de taxi?
+Directions, 3, What is 'Where is the parking lot?' in spanish, Donde esta el estacionamiento?
+Directions, 4, What is 'When will the bus arrive?' in spanish, Cuando llega el autobus?
+Directions, 4, What is 'When will the train arrive?' in spanish, Cuando llega el tren?
+Directions, 4, What is 'When will the taxi arrive?' in spanish, Cuando llega el taxi?
+Directions, 4, What is 'When will the subway arrive?' in spanish, Cuando llega el metro?
+Directions, 4, What is 'When will the plane arrive?' in spanish, Cuando llega el avion?
+Directions, 5, What is 'How do I get to the bus stop?' in spanish, Como llego a la parada de autobus?
+Directions, 5, What is 'How do I get to the train station?' in spanish, Como llego a la estacion de tren?
+Directions, 5, What is 'How do I get to the subway station?' in spanish, Como llego a la estacion de metro?
+Directions, 5, What is 'How do I get to the taxi stand?' in spanish, Como llego a la parada de taxi?
+Directions, 5, What is 'How do I get to the parking lot?' in spanish, Como llego al estacionamiento?
+Directions, 6, What is 'Donde esta eso?' in english, Where is that?
 Directions, 6, What is 'It's over there' in english, It's over there
-Directions, 6, What is '¿Donde esta el baño?' in english, Where is the bathroom?
-Directions, 6, What is '¿Donde esta el aeropuerto?' in english, Where is the airport?
-Directions, 6, What is '¿Donde esta la oficina del doctor?' in english, Where is the doctor's office?
-Directions, 7, What is '¿Donde esta la parada de autobus?' in english, Where is the bus stop?
-Directions, 7, What is '¿Donde esta la estacion de tren?' in english, Where is the train station?
-Directions, 7, What is '¿Cuando llega el autobus?' in english, When will the bus arrive?
-Directions, 7, What is '¿Cuando llega el tren?' in english, When will the train arrive?
-Directions, 7, What is '¿Como llego a la parada de autobus?' in english, How do I get to the bus stop?
+Directions, 6, What is 'Donde esta el baño?' in english, Where is the bathroom?
+Directions, 6, What is 'Donde esta el aeropuerto?' in english, Where is the airport?
+Directions, 6, What is 'Donde esta la oficina del doctor?' in english, Where is the doctor's office?
+Directions, 7, What is 'Donde esta la parada de autobus?' in english, Where is the bus stop?
+Directions, 7, What is 'Donde esta la estacion de tren?' in english, Where is the train station?
+Directions, 7, What is 'Cuando llega el autobus?' in english, When will the bus arrive?
+Directions, 7, What is 'Cuando llega el tren?' in english, When will the train arrive?
+Directions, 7, What is 'Como llego a la parada de autobus?' in english, How do I get to the bus stop?
 Small Talk, 1, What is 'I'm from the United States' in spanish, Soy de los Estados Unidos
 Small Talk, 1, What is 'I'm from Canada' in spanish, Soy de Canada
 Small Talk, 1, What is 'I'm from Mexico' in spanish, Soy de Mexico
 Small Talk, 1, What is 'I'm from Britain' in spanish, Soy de Gran Bretaña
 Small Talk, 1, What is 'I'm from Brazil' in spanish, Soy de Brasil
-Small Talk, 2, What is 'Do you speak english?' in spanish, ¿Puedes hablar ingles?
-Small Talk, 2, What is 'Do you speak spanish?' in spanish, ¿Puedes hablar español?
-Small Talk, 2, What is 'Do you speak french?' in spanish, ¿Puedes hablar frances?
-Small Talk, 2, What is 'Do you speak german?' in spanish, ¿Puedes hablar aleman?
-Small Talk, 2, What is 'Do you speak chinese?' in spanish, ¿Puedes hablar chino?
+Small Talk, 2, What is 'Do you speak english?' in spanish, Puedes hablar ingles?
+Small Talk, 2, What is 'Do you speak spanish?' in spanish, Puedes hablar español?
+Small Talk, 2, What is 'Do you speak french?' in spanish, Puedes hablar frances?
+Small Talk, 2, What is 'Do you speak german?' in spanish, Puedes hablar aleman?
+Small Talk, 2, What is 'Do you speak chinese?' in spanish, Puedes hablar chino?
 Small Talk, 3, What is 'I speak a little' in spanish, Hablo un poco
 Small Talk, 3, What is 'I speak a lot' in spanish, Hablo mucho
 Small Talk, 3, What is 'I don't speak' in spanish, No hablo
 Small Talk, 3, What is 'I don't understand' in spanish, No entiendo
 Small Talk, 3, What is 'I understand' in spanish, Entiendo
-Small Talk, 4, What is 'Are you ok?' in spanish, ¿Estas bien?
+Small Talk, 4, What is 'Are you ok?' in spanish, Estas bien?
 Small Talk, 4, What is 'Sorry' in spanish, Lo siento
 Small Talk, 4, What is 'I need help' in spanish, Necesito ayuda
 Small Talk, 4, What is 'Help' in spanish, Socorro O Ayúdeme
 Small Talk, 4, What is 'I need a doctor' in spanish, Nessecito un doctor
-Small Talk, 5, What is 'How has your day been?' in spanish, ¿Como ha sido tu dia?
-Small Talk, 5, What is 'How has your week been?' in spanish, ¿Como ha sido tu semana?
-Small Talk, 5, What is 'How has your month been?' in spanish, ¿Como ha sido tu mes?
-Small Talk, 5, What is 'How has your life been?' in spanish, ¿Como ha sido tu vida?
-Small Talk, 5, What is 'How have you been?' in spanish, ¿Como has estado?
+Small Talk, 5, What is 'How has your day been?' in spanish, Como ha sido tu dia?
+Small Talk, 5, What is 'How has your week been?' in spanish, Como ha sido tu semana?
+Small Talk, 5, What is 'How has your month been?' in spanish, Como ha sido tu mes?
+Small Talk, 5, What is 'How has your life been?' in spanish, Como ha sido tu vida?
+Small Talk, 5, What is 'How have you been?' in spanish, Como has estado?
 Small Talk, 6, What is 'Soy de los Estados Unidos' in english, I'm from the United States
 Small Talk, 6, What is 'Soy de Gran Bretaña' in english, I'm from Britain
-Small Talk, 6, What is '¿Puedes hablar ingles?' in english, Do you speak english?
-Small Talk, 6, What is '¿Puedes hablar español?' in english, Do you speak spanish?
-Small Talk, 6, What is '¿Puedes hablar frances?' in english, Do you speak french?
+Small Talk, 6, What is 'Puedes hablar ingles?' in english, Do you speak english?
+Small Talk, 6, What is 'Puedes hablar español?' in english, Do you speak spanish?
+Small Talk, 6, What is 'Puedes hablar frances?' in english, Do you speak french?
 Small Talk, 7, What is 'No entiendo' in english, I don't understand
 Small Talk, 7, What is 'Entiendo' in english , I understand
-Small Talk, 7, What is '¿Estas bi'en?' in english, Are you ok?
+Small Talk, 7, What is 'Estas bi'en?' in english, Are you ok?
 Small Talk, 7, What is 'Lo siento in english, Sorry
-Small Talk, 7, What is '¿Como ha sido tu dia?' in english, How has your day been?
+Small Talk, 7, What is 'Como ha sido tu dia?' in english, How has your day been?
 Food, 1, What is 'Water' in spanish, Agua
-Food, 1, What is 'Do you have anything to drink?' in spanish, ¿Tienes algo para beber?
+Food, 1, What is 'Do you have anything to drink?' in spanish, Tienes algo para beber?
 Food, 1, What is 'Soda' in spanish, La gaseosa
 Food, 1, What is 'Beer' in spanish, Cerveza
 Food, 1, What is 'Wine' in spanish, Vino
 Food, 2, What is 'Food' in spanish, Comida
-Food, 2, What is 'Do you have anything to eat?' in spanish, ¿Tienes algo para comer?
+Food, 2, What is 'Do you have anything to eat?' in spanish, Tienes algo para comer?
 Food, 2, What is 'Chicken' in spanish, Pollo
 Food, 2, What is 'Hamburger' in spanish, Hamburguesa
 Food, 2, What is 'Egg' in spanish, Huevo
@@ -119,11 +119,11 @@ Food, 3, What is 'Nuts' in spanish, Nueces
 Food, 3, What is 'Peanuts' in spanish, Mani
 Food, 3, What is 'Milk' in spanish, Mariscos
 Food, 3, What is 'Fish' in spanish, Pescado
-Food, 4, What is 'Do you have mcdonalds?' in spanish, ¿Tu tienes mcdonalds?
-Food, 4, What is 'Do you have chicken?' in spanish, ¿Tu tienes Pollo?
-Food, 4, What is 'Do you have a menu?' in spanish, ¿Tu tienes un menu?
-Food, 4, What is 'Do you have a table?' in spanish, ¿Tu tienes una mesa?
-Food, 4, What is 'Do you have a reservation?' in spanish, ¿Tu tienes una reservacion?
+Food, 4, What is 'Do you have mcdonalds?' in spanish, Tu tienes mcdonalds?
+Food, 4, What is 'Do you have chicken?' in spanish, Tu tienes Pollo?
+Food, 4, What is 'Do you have a menu?' in spanish, Tu tienes un menu?
+Food, 4, What is 'Do you have a table?' in spanish, Tu tienes una mesa?
+Food, 4, What is 'Do you have a reservation?' in spanish, Tu tienes una reservacion?
 Food, 5, What is 'I like eating' in spanish, Me gusta comer
 Food, 5, What is 'I don't like eating' in spanish, No me gusta comer cocos
 Food, 5, What is 'I like drinking' in spanish, Me gusta beber
@@ -136,6 +136,6 @@ Food, 6, What is 'Pollo' in english, Chicken
 Food, 6, What is 'Hamburguesa' in english, Hamburger
 Food, 7, What is 'Soy alergico a' in english, I'm allergic to
 Food, 7, What is 'Nueces' in english, Nuts
-Food, 7, What is '¿Tu tienes mcdonalds?' in english, Do you have mcdonalds?
-Food, 7, What is '¿Tu tienes Pollo?' in english, Do you have chicken?
+Food, 7, What is 'Tu tienes mcdonalds?' in english, Do you have mcdonalds?
+Food, 7, What is 'Tu tienes Pollo?' in english, Do you have chicken?
 Food, 7, What is 'Me gusta comer' in english, I like eating
