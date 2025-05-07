@@ -21,7 +21,7 @@ def btn(dict):
             pygame.draw.rect(screen,dict['main_color'],[dict['StartPos']['x'],dict['StartPos']['y'],dict['width'],dict['height']]) # If mouse is not touching
         screen.blit(pygame.font.SysFont(dict['font'],dict['fontsize']).render(dict['text'] , True , dict["text_color"]),(dict['StartPos']['x']+dict["text_offset"],dict['StartPos']['y']+dict['verticle_text_offset'])) # Putting text on the button
 
-def display(message, sec): # Displays a message on the screen by itself for a certain amount of seconds
+def display(message, sec, x=50, y=50): # Displays a message on the screen by itself for a certain amount of seconds
     pygame.init()
     background_image = pygame.image.load('BG.webp')  # Load the image
     background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
@@ -30,7 +30,7 @@ def display(message, sec): # Displays a message on the screen by itself for a ce
     surface = font.render(message, True, (0, 0, 0))
     screen.fill((255, 255, 255))  # Clear the screen for the message
     screen.blit(background_image, (0,0))
-    screen.blit(surface, (50, 50))
+    screen.blit(surface, (x, y))
     pygame.display.flip()  # Update the display
     pygame.time.delay(sec * 1000)  # Wait for 3 seconds before quitting
 
