@@ -3,6 +3,7 @@ import csv
 import random
 from spanish import lessons
 from basic_functions import btn, display
+from log_in import get_log_in
 
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
@@ -117,17 +118,7 @@ def main_menu():
 
                     elif Log_in_btn['StartPos']['x'] <= event.pos[0] <= Log_in_btn['StartPos']['x'] + Log_in_btn['width'] and Log_in_btn['StartPos']['y'] <= event.pos[1] <= Log_in_btn['StartPos']['y'] + Log_in_btn['height']: # If Log In button clicked
                         running = False
-
-                        # # Log In code
-                        # name = input('\nUsername: ').strip()
-                        # password = input('Password: ').strip()
-
-                        # if log_in(name, password) == True:
-                        #     display(f'\nYou have logged in as {name}!')
-                        #     acc = load(name)
-                        #     menu(acc)
-                        # else:
-                        #     display(f'\nUsername or password could not be found')
+                        get_log_in()
 
                     
                     
