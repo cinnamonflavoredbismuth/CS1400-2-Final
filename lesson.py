@@ -70,6 +70,22 @@ def option_define(unit, _lesson):
         break
     return option1, option2, option3, option4
 
+def xoffset_gather(option):
+    with open('Lessons.csv', 'r') as file:
+        reader = csv.reader(file)
+        for line in reader:
+            if option in line[3]:
+                xoffset = line[4]
+    return xoffset
+
+def yoffset_gather(option):
+    with open('Lessons.csv', 'r') as file:
+        reader = csv.reader(file)
+        for line in reader:
+            if option in line[3]:
+                yoffset = line[5]
+    return yoffset
+
 
 #Create Button data
 
@@ -101,8 +117,8 @@ def lesson(unit, _lesson):
             "fontsize": 35,
             "hover_color": (200,200,200),
             "main_color": (255,255,255),
-            "text_offset": 75,
-            "verticle_text_offset": 60,
+            "text_offset": int(xoffset_gather(options[0])),
+            "verticle_text_offset": int(yoffset_gather(options[0])),
             "text_color": (50,50,50)
             }
     option2_btn = {
@@ -114,8 +130,8 @@ def lesson(unit, _lesson):
             "fontsize": 35,
             "hover_color": (200,200,200),
             "main_color": (255,255,255),
-            "text_offset": 75,
-            "verticle_text_offset": 60,
+           "text_offset": int(xoffset_gather(options[1])),
+            "verticle_text_offset": int(yoffset_gather(options[1])),
             "text_color": (50,50,50)
             }
     option3_btn = {
@@ -127,8 +143,8 @@ def lesson(unit, _lesson):
             "fontsize": 35,
             "hover_color": (200,200,200),
             "main_color": (255,255,255),
-            "text_offset": 75,
-            "verticle_text_offset": 60,
+            "text_offset": int(xoffset_gather(options[2])),
+            "verticle_text_offset": int(yoffset_gather(options[2])),
             "text_color": (50,50,50)
             }
     option4_btn = {
@@ -140,8 +156,8 @@ def lesson(unit, _lesson):
             "fontsize": 35,
             "hover_color": (200,200,200),
             "main_color": (255,255,255),
-            "text_offset": 75,
-            "verticle_text_offset": 60,
+            "text_offset": int(xoffset_gather(options[3])),
+            "verticle_text_offset": int(yoffset_gather(options[3])),
             "text_color": (50,50,50)
             }
     quit_btn = {

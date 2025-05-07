@@ -1,13 +1,13 @@
-unit, lesson, question, answer
-Basics, 1, What is 'Yes' in spanish, Si
-Basics, 1, What is 'No' in spanish, No
-Basics, 1, What is 'Please' in spanish, Por favor
-Basics, 1, What is 'Thank you' in spanish, Gracias
-Basics, 1, What is 'Excuse me' in spanish, Disculpe me
-Basics, 2, What is 'Hello' in spanish, Hola
-Basics, 2, What is 'Goodbye' in spanish, Adios
-Basics, 2, What is 'My name is' in spanish, Me llamo
-Basics, 2, What is 'What is your name?' in spanish, Como te llamas?
+unit, lesson, question, answer, x-offset, y-offset
+Basics, 1, What is 'Yes' in spanish, Si,120,60
+Basics, 1, What is 'No' in spanish, No,120,60
+Basics, 1, What is 'Please' in spanish, Por favor,75,60
+Basics, 1, What is 'Thank you' in spanish, Gracias,75,60
+Basics, 1, What is 'Excuse me' in spanish, Disculpe me,50,60
+Basics, 2, What is 'Hello' in spanish, Hola,100,60
+Basics, 2, What is 'Goodbye' in spanish, Adios,100,60
+Basics, 2, What is 'My name is' in spanish, Me llamo,75,60
+Basics, 2, What is 'What is your name?' in spanish, Como te llamas?,10,60
 Basics, 2, What is 'What is your social security number?' in spanish, Cual es tu numero de seguro social?   
 Basics, 3, What is 'How are you?' in spanish, Cómo estás?
 Basics, 3, What is 'I'm good' in spanish, Estoy bien
