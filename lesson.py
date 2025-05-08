@@ -1,6 +1,7 @@
 import pygame
 import csv
 import random
+import time
 from basic_functions import btn
 from basic_functions import click
 
@@ -97,9 +98,23 @@ title_font = pygame.font.Font(None, 72)  # Larger font for the title
 
 
 
-def lesson(unit, _lesson):
-    questions = question_gather(unit, _lesson)
-    question = random.choice(questions)
+def lesson(unit, _lesson, correct, incorrect):
+    while True:
+        questions = question_gather(unit, _lesson)
+        question = random.choice(questions)
+        total_questions = correct + incorrect
+        if len(total_questions) == len(questions):
+            question_text = title_font.render("You completed your lesson!", True, (0, 255, 0))
+            question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
+            screen.blit(background_image, (0,0))   #This Places the background
+            screen.blit(question_text, question_rect)   #This will display the question
+            break
+        else:
+            if question in correct or question in incorrect:
+                continue
+            else:
+                break
+                
     question_text = title_font.render(question, True, (0, 0, 0)) # White color
     while True:
         option1, option2, option3, option4 = option_define(unit, _lesson)
@@ -200,22 +215,89 @@ def lesson(unit, _lesson):
                     if option1_btn['StartPos']['x'] <= event.pos[0] <= option1_btn['StartPos']['x'] + option1_btn['width'] and option1_btn['StartPos']['y'] <= event.pos[1] <= option1_btn['StartPos']['y'] + option1_btn['height']:
                         # Go back to the main menu
                         click()
-                        running = False
+                        if options[0] == option3:
+                            question_text = title_font.render("Correct!", True, (0, 255, 0))
+                            question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
+                            screen.fill((255, 255, 255))  # Clear the screen with a white background
+                            screen.blit(background_image, (0,0))   #This Places the background
+                            screen.blit(question_text, question_rect)   #This will display the question
+                            time.sleep(1)
+                            correct.append(question)
+                            lesson(unit, _lesson, correct, incorrect)
+                        elif options[0] != option3:
+                            question_text = title_font.render("Incorrect!", True, (0, 255, 0))
+                            question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
+                            screen.fill((255, 255, 255))  # Clear the screen with a white background
+                            screen.blit(background_image, (0,0))   #This Places the background
+                            screen.blit(question_text, question_rect)   #This will display the question
+                            time.sleep(1)
+                            incorrect.append(question)
+                            lesson(unit, _lesson, correct, incorrect)
 
                     elif option2_btn['StartPos']['x'] <= event.pos[0] <= option2_btn['StartPos']['x'] + option2_btn['width'] and option2_btn['StartPos']['y'] <= event.pos[1] <= option2_btn['StartPos']['y'] + option2_btn['height']:
                         click()
+                        if options[0] == option3:
+                            question_text = title_font.render("Correct!", True, (0, 255, 0))
+                            question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
+                            screen.blit(background_image, (0,0))   #This Places the background
+                            screen.blit(question_text, question_rect)   #This will display the question
+                            time.sleep(1)
+                            correct.append(question)
+                            lesson(unit, _lesson, correct, incorrect)
+                        elif options[0] != option3:
+                            question_text = title_font.render("Incorrect!", True, (0, 255, 0))
+                            question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
+                            screen.blit(background_image, (0,0))   #This Places the background
+                            screen.blit(question_text, question_rect)   #This will display the question
+                            time.sleep(1)
+                            incorrect.append(question)
+                            lesson(unit, _lesson, correct, incorrect)
                         running = False
 
                     elif option3_btn['StartPos']['x'] <= event.pos[0] <= option3_btn['StartPos']['x'] + option3_btn['width'] and option3_btn['StartPos']['y'] <= event.pos[1] <= option3_btn['StartPos']['y'] + option3_btn['height']:
                         click()
+                        if options[0] == option3:
+                            question_text = title_font.render("Correct!", True, (0, 255, 0))
+                            question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
+                            screen.blit(background_image, (0,0))   #This Places the background
+                            screen.blit(question_text, question_rect)   #This will display the question
+                            time.sleep(1)
+                            correct.append(question)
+                            lesson(unit, _lesson, correct, incorrect)
+                        elif options[0] != option3:
+                            question_text = title_font.render("Incorrect!", True, (0, 255, 0))
+                            question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
+                            screen.blit(background_image, (0,0))   #This Places the background
+                            screen.blit(question_text, question_rect)   #This will display the question
+                            time.sleep(1)
+                            incorrect.append(question)
+                            lesson(unit, _lesson, correct, incorrect)
                         running = False
                     
                     elif option4_btn['StartPos']['x'] <= event.pos[0] <= option4_btn['StartPos']['x'] + option4_btn['width'] and option4_btn['StartPos']['y'] <= event.pos[1] <= option4_btn['StartPos']['y'] + option4_btn['height']:
                         click()
+                        if options[0] == option3:
+                            question_text = title_font.render("Correct!", True, (0, 255, 0))
+                            question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
+                            screen.blit(background_image, (0,0))   #This Places the background
+                            screen.blit(question_text, question_rect)   #This will display the question
+                            time.sleep(1)
+                            correct.append(question)
+                            lesson(unit, _lesson, correct, incorrect)
+                        elif options[0] != option3:
+                            question_text = title_font.render("Incorrect!", True, (0, 255, 0))
+                            question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
+                            screen.blit(background_image, (0,0))   #This Places the background
+                            screen.blit(question_text, question_rect)   #This will display the question
+                            time.sleep(1)
+                            incorrect.append(question)
+                            lesson(unit, _lesson, correct, incorrect)
                         running = False
 
                     elif quit_btn['StartPos']['x'] <= event.pos[0] <= quit_btn['StartPos']['x'] + quit_btn['width'] and quit_btn['StartPos']['y'] <= event.pos[1] <= quit_btn['StartPos']['y'] + quit_btn['height']:
                         # Go back to the main menu
+                        correct.clear()
+                        incorrect.clear()
                         click()
                         running = False
 

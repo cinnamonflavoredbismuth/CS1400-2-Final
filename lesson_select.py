@@ -178,43 +178,43 @@ def lesson_select(unit):
                     # Go back to the main menu
                     _lesson = ' 1'
                     click()
-                    lesson(unit, _lesson)
+                    lesson(unit, _lesson, [], [])
                     running = False
 
                 elif lesson_2_btn['StartPos']['x'] <= event.pos[0] <= lesson_2_btn['StartPos']['x'] + lesson_2_btn['width'] and lesson_2_btn['StartPos']['y'] <= event.pos[1] <= lesson_2_btn['StartPos']['y'] + lesson_2_btn['height']:
                     _lesson = ' 2'
                     click()
-                    lesson(unit, _lesson)
+                    lesson(unit, _lesson, [], [])
                     running = False
 
                 elif lesson_3_btn['StartPos']['x'] <= event.pos[0] <= lesson_3_btn['StartPos']['x'] + lesson_3_btn['width'] and lesson_3_btn['StartPos']['y'] <= event.pos[1] <= lesson_3_btn['StartPos']['y'] + lesson_3_btn['height']:
                     _lesson = ' 3'
                     click()
-                    lesson(unit, _lesson)
+                    lesson(unit, _lesson, [], [])
                     running = False
                 
                 elif lesson_4_btn['StartPos']['x'] <= event.pos[0] <= lesson_4_btn['StartPos']['x'] + lesson_4_btn['width'] and lesson_4_btn['StartPos']['y'] <= event.pos[1] <= lesson_4_btn['StartPos']['y'] + lesson_4_btn['height']:
                     _lesson = ' 4'
                     click()
-                    lesson(unit, _lesson)
+                    lesson(unit, _lesson, [], [])
                     running = False
 
                 elif lesson_5_btn['StartPos']['x'] <= event.pos[0] <= lesson_5_btn['StartPos']['x'] + lesson_5_btn['width'] and lesson_5_btn['StartPos']['y'] <= event.pos[1] <= lesson_5_btn['StartPos']['y'] + lesson_5_btn['height']:
                     _lesson = ' 5'
                     click()
-                    lesson(unit, _lesson)
+                    lesson(unit, _lesson, [], [])
                     running = False
 
                 elif lesson_6_btn['StartPos']['x'] <= event.pos[0] <= lesson_6_btn['StartPos']['x'] + lesson_6_btn['width'] and lesson_6_btn['StartPos']['y'] <= event.pos[1] <= lesson_6_btn['StartPos']['y'] + lesson_6_btn['height']:
                     _lesson = ' 6'
                     click()
-                    lesson(unit, _lesson)
+                    lesson(unit, _lesson, [], [])
                     running = False
 
                 elif lesson_7_btn['StartPos']['x'] <= event.pos[0] <= lesson_7_btn['StartPos']['x'] + lesson_7_btn['width'] and lesson_7_btn['StartPos']['y'] <= event.pos[1] <= lesson_7_btn['StartPos']['y'] + lesson_7_btn['height']:
                     _lesson = ' 7'
                     click()
-                    lesson(unit, _lesson)
+                    lesson(unit, _lesson, [], [])
                     running = False
 
                 if return_btn['StartPos']['x'] <= event.pos[0] <= return_btn['StartPos']['x'] + return_btn['width'] and return_btn['StartPos']['y'] <= event.pos[1] <= return_btn['StartPos']['y'] + return_btn['height']:
