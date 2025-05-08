@@ -1,9 +1,9 @@
 # Miscellaneus
-
+import pygame
+import matplotlib.pyplot as plt
+from basic_functions import pystart
 
 # Luke's dislocated Functions
-import matplotlib.pyplot as plt
-
 def accuracy_visual(correct, questions): # Displays a pie chart for the accuracy of an amount of questions with an amount of correctly answered ones
     
     correct_perc = round((int(correct) / int(questions)) * 100)
@@ -16,18 +16,23 @@ def accuracy_visual(correct, questions): # Displays a pie chart for the accuracy
     plt.title('Accuracy')
     plt.show()
 
-def do_unit(): # 
-    acc = load(name) #?
-    # Get user's account info from csv file
-    #if acc.unit == final quiz
-    #     Set the quiz to have every question in its question bank
-    # else:
-    #     if user.unit ==  on and set the lesson and quiz for that unit
-    #     # input(f"The lesson content:\n{}\nPress Enter to Continue\n")
-    # lesson/quiz()
 
-def social():
-    accs = load_all()
+
+def display_streaks(acc):
+    screen=pystart()
+    font = pygame.font.Font(None, 36)
+
+    surface = font.render(f"Your streak is: {acc.streak}", True, (0, 0, 0))
+    screen.blit(surface, (50, 50))
+
+
+def leaderboard():
+    accs=[]
+    with open("users.csv", "r") as file:
+        reader = csv.reader(file)
+        for line in reader:
+            accs.append(User(line[0], line[1], line[2], line[3], line[4], line[5], line[6]))
+
     print("\nStreak Leaderboard\n")
     streaks = []
     for acc in accs:

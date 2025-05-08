@@ -1,3 +1,4 @@
+# Basic Functions
 import pygame
 
 def pystart():
