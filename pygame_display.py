@@ -2,8 +2,8 @@ import pygame
 import csv
 import random
 from spanish import lessons
-from basic_functions import btn, display
-from log_in import get_log_in
+from basic_functions import btn, display, click, start_up, bgm
+#from log_in import get_log_in
 
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
@@ -88,6 +88,7 @@ Log_in_btn = {
 
 # Main loop
 def main_menu():
+    bgm()
     while True:
         running = True
         while running:
@@ -106,9 +107,11 @@ def main_menu():
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     if Quit_btn['StartPos']['x'] <= event.pos[0] <= Quit_btn['StartPos']['x'] + Quit_btn['width'] and Quit_btn['StartPos']['y'] <= event.pos[1] <= Quit_btn['StartPos']['y'] + Quit_btn['height']: # If  quit button clicked
                         # Go back to the main menu
+                        click()
                         running = False
 
                     elif Account_create_btn['StartPos']['x'] <= event.pos[0] <= Account_create_btn['StartPos']['x'] + Account_create_btn['width'] and Account_create_btn['StartPos']['y'] <= event.pos[1] <= Account_create_btn['StartPos']['y'] + Account_create_btn['height']: # If Account Create button clicked
+                        click()
                         lessons()
                         
                         # # Sign Up code
@@ -117,8 +120,9 @@ def main_menu():
                         # new_account(name, password)
 
                     elif Log_in_btn['StartPos']['x'] <= event.pos[0] <= Log_in_btn['StartPos']['x'] + Log_in_btn['width'] and Log_in_btn['StartPos']['y'] <= event.pos[1] <= Log_in_btn['StartPos']['y'] + Log_in_btn['height']: # If Log In button clicked
+                        click()
                         running = False
-                        get_log_in()
+                        #get_log_in()
 
                     
                     
@@ -132,7 +136,7 @@ def main_menu():
         display("Thank you for playing!",3)
         pygame.quit()
         break
-
+start_up()
 display("Welcome to Spanish or Vanish!",2)
 display("Keep up your streak by doing Spanish language lessons everyday",4)
 
