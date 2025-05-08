@@ -1,6 +1,6 @@
 # Program  -Cecily Strong, Luke Murdock, Tate Morgan, Hasan De La Cruz
 # Main File -Luke Murdock
-from spanish import game
+#from spanish import game
 from account_handler import log_in, new_account, load
 
 
@@ -43,7 +43,7 @@ def sign_in(): # Lets the user sign up if they don't have an account and log in 
             if log_in(name, password) == True:
                 print(f'\nYou have logged in as {name}!')
                 acc = load(name)
-                menu(acc)
+                #menu(acc)
             else:
                 print(f'\nUsername or password could not be found')
                 

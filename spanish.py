@@ -2,7 +2,7 @@ import pygame
 import csv
 import random
 from unit import unit_select
-from basic_functions import btn
+from basic_functions import *
 
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
@@ -12,12 +12,7 @@ def lessons():
     while True:
         
         # Initialize Pygame
-        pygame.init()
-
-        # Set up the display
-        screen = pygame.display.set_mode((1200, 800))
-        pygame.display.set_caption('Spanish or Vanish')
-        pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
+        pystart()
 
 
         # Image background
@@ -29,33 +24,8 @@ def lessons():
         title_font = pygame.font.Font(None, 72)  # Larger font for the title
 
         #Set up buttons
-        Quit_btn = {
-        "width" : 500, # width of the button
-        "height" : 50, # height of the button
-        "StartPos": {"x" :  325,"y" : 630}, # Top left is 0,0
-        "text": "Quit", 
-        "font": "Arial",
-        "fontsize": 35,
-        "hover_color": (80,80,80),
-        "main_color": (40,40,40),
-        "text_offset": 225,
-        "verticle_text_offset": 0,
-        "text_color": (255,255,255)
-        }
-        Start_btn = {
-        "width" : 500, # width of the button
-        "height" : 50, # height of the button
-        "StartPos": {"x" :  325,"y" : 530}, # Top left is 0,0
-        "text": "Start", 
-        "font": "Arial",
-        "fontsize": 35,
-        "hover_color": (80,80,80),
-        "main_color": (40,40,40),
-        "text_offset": 215,
-        "verticle_text_offset": 0,
-        "text_color": (255,255,255)
-        }
-
+        Quit_btn = button(500, 50, {"x" :  325,"y" : 630},"Quit", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255))
+        Start_btn = button(500, 50, {"x" :  325,"y" : 530},"Start", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255))
 
 
 
@@ -75,8 +45,7 @@ def lessons():
         # Main loop
         running = True
         while running:
-            screen.fill((255, 255, 255))  # Clear the screen with a white background
-            screen.blit(background_image, (0,0))
+            clear()
             # Display the options
             btn(Quit_btn)
             btn(Start_btn)
@@ -84,11 +53,11 @@ def lessons():
                 if event.type == pygame.QUIT:
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if Quit_btn['StartPos']['x'] <= event.pos[0] <= Quit_btn['StartPos']['x'] + Quit_btn['width'] and Quit_btn['StartPos']['y'] <= event.pos[1] <= Quit_btn['StartPos']['y'] + Quit_btn['height']:
+                    if if_clicked(Quit_btn,event) == True: # If  quit button clicked
                         # Go back to the main menu
                         running = False
 
-                    elif Start_btn['StartPos']['x'] <= event.pos[0] <= Start_btn['StartPos']['x'] + Start_btn['width'] and Start_btn['StartPos']['y'] <= event.pos[1] <= Start_btn['StartPos']['y'] + Start_btn['height']:
+                    elif if_clicked(Start_btn,event) == True: # If Start button clicked
                         unit_select()
 
                     
@@ -102,8 +71,7 @@ def lessons():
         # End of the game loop
         final_message = "Returning to Main Menu!"
         final_surface = font.render(final_message, True, (0, 0, 0))
-        screen.fill((255, 255, 255))  # Clear the screen for the final message
-        screen.blit(background_image, (0,0))
+        clear()
         screen.blit(final_surface, (50, 50))
         pygame.display.flip()  # Update the display
         pygame.time.delay(2000)  # Wait for 2 seconds before quitting

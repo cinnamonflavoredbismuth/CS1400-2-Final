@@ -1,7 +1,7 @@
 import pygame
 import csv
 import random
-from basic_functions import btn
+from basic_functions import *
 from lesson import lesson
 
 # Define the Spanish or Vanish game
@@ -15,127 +15,24 @@ def lesson_select(unit):
     # The game will be played using Pygame, a popular library for creating games in Python.
 
     # Initialize Pygame
-    pygame.init()
-
-    # Set up the display
-    screen = pygame.display.set_mode((1200, 800))
-    pygame.display.set_caption('Spanish or Vanish')
-    pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
+    pystart()
 
 
-    # Image background
-    background_image = pygame.image.load('BG.webp')  # Load the image
-    background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
 
     # Set up fonts
     font = pygame.font.Font(None, 36)
     title_font = pygame.font.Font(None, 72)  # Larger font for the title
-
+    def lesson_btn(coords,num):
+        return button(500, 50, coords,f"Lesson {num}", "Arial", 35, (80,80,80), (40,40,40), 175, 0, (255,255,255))
     #Set up buttons
-    lesson_1_btn = {
-    "width" : 500, # width of the button
-    "height" : 50, # height of the button
-    "StartPos": {"x" :  50,"y" : 200}, # Top left is 0,0
-    "text": "Lesson 1", 
-    "font": "Arial",
-    "fontsize": 35,
-    "hover_color": (80,80,80),
-    "main_color": (40,40,40),
-    "text_offset": 175,
-    "verticle_text_offset": 0,
-    "text_color": (255,255,255)
-    }
-    lesson_2_btn = {
-    "width" : 500, # width of the button
-    "height" : 50, # height of the button
-    "StartPos": {"x" :  50,"y" : 300}, # Top left is 0,0
-    "text": "Lesson 2", 
-    "font": "Arial",
-    "fontsize": 35,
-    "hover_color": (80,80,80),
-    "main_color": (40,40,40),
-    "text_offset": 175,
-    "verticle_text_offset": 0,
-    "text_color": (255,255,255)
-    }
-    lesson_3_btn = {
-    "width" : 500, # width of the button
-    "height" : 50, # height of the button
-    "StartPos": {"x" :  50,"y" : 400}, # Top left is 0,0
-    "text": "Lesson 3", 
-    "font": "Arial",
-    "fontsize": 35,
-    "hover_color": (80,80,80),
-    "main_color": (40,40,40),
-    "text_offset": 175,
-    "verticle_text_offset": 0,
-    "text_color": (255,255,255)
-    }
-    lesson_4_btn = {
-    "width" : 500, # width of the button
-    "height" : 50, # height of the button
-    "StartPos": {"x" :  50,"y" : 500}, # Top left is 0,0
-    "text": "Lesson 4", 
-    "font": "Arial",
-    "fontsize": 35,
-    "hover_color": (80,80,80),
-    "main_color": (40,40,40),
-    "text_offset": 175,
-    "verticle_text_offset": 0,
-    "text_color": (255,255,255)
-    }
-    lesson_5_btn = {
-    "width" : 500, # width of the button
-    "height" : 50, # height of the button
-    "StartPos": {"x" :  650,"y" : 200}, # Top left is 0,0
-    "text": "Lesson 5", 
-    "font": "Arial",
-    "fontsize": 35,
-    "hover_color": (80,80,80),
-    "main_color": (40,40,40),
-    "text_offset": 175,
-    "verticle_text_offset": 0,
-    "text_color": (255,255,255)
-    }
-    lesson_6_btn = {
-    "width" : 500, # width of the button
-    "height" : 50, # height of the button
-    "StartPos": {"x" :  650,"y" : 300}, # Top left is 0,0
-    "text": "Lesson 6", 
-    "font": "Arial",
-    "fontsize": 35,
-    "hover_color": (80,80,80),
-    "main_color": (40,40,40),
-    "text_offset": 175,
-    "verticle_text_offset": 0,
-    "text_color": (255,255,255)
-    }
-    lesson_7_btn = {
-    "width" : 500, # width of the button
-    "height" : 50, # height of the button
-    "StartPos": {"x" :  650,"y" : 400}, # Top left is 0,0
-    "text": "Lesson 7", 
-    "font": "Arial",
-    "fontsize": 35,
-    "hover_color": (80,80,80),
-    "main_color": (40,40,40),
-    "text_offset": 175,
-    "verticle_text_offset": 0,
-    "text_color": (255,255,255)
-    }
-    return_btn = {
-    "width" : 500, # width of the button
-    "height" : 50, # height of the button
-    "StartPos": {"x" :  650,"y" : 500}, # Top left is 0,0
-    "text": "Return", 
-    "font": "Arial",
-    "fontsize": 35,
-    "hover_color": (80,80,80),
-    "main_color": (40,40,40),
-    "text_offset": 190,
-    "verticle_text_offset": 0,
-    "text_color": (255,255,255)
-    }
+    lesson_1_btn = lesson_btn({"x" :  50,"y" : 200},1)
+    lesson_2_btn = lesson_btn({"x" :  50,"y" : 300}, 2) 
+    lesson_3_btn = lesson_btn({"x" :  50,"y" : 400},3)
+    lesson_4_btn = lesson_btn({"x" :  50,"y" : 500},4)
+    lesson_5_btn = lesson_btn({"x" :  650,"y" : 200},5)
+    lesson_6_btn = lesson_btn({"x" :  650,"y" : 300},6)
+    lesson_7_btn = lesson_btn({"x" :  650,"y" : 400},7)
+    return_btn = button(500, 50, {"x" :  325,"y" : 630},"Return", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255))
 
     
 
@@ -157,8 +54,7 @@ def lesson_select(unit):
     # Main loop
     running = True
     while running:
-        screen.fill((255, 255, 255))  # Clear the screen with a white background
-        screen.blit(background_image, (0,0)) #Display the background
+        clear()
         # Display the options
         btn(lesson_1_btn)
         btn(lesson_2_btn)
@@ -172,43 +68,43 @@ def lesson_select(unit):
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                if lesson_1_btn['StartPos']['x'] <= event.pos[0] <= lesson_1_btn['StartPos']['x'] + lesson_1_btn['width'] and lesson_1_btn['StartPos']['y'] <= event.pos[1] <= lesson_1_btn['StartPos']['y'] + lesson_1_btn['height']:
+                if if_clicked(lesson_1_btn,event) == True: # If  quit button clicked
                     # Go back to the main menu
                     _lesson = ' 1'
                     lesson(unit, _lesson)
                     running = False
 
-                elif lesson_2_btn['StartPos']['x'] <= event.pos[0] <= lesson_2_btn['StartPos']['x'] + lesson_2_btn['width'] and lesson_2_btn['StartPos']['y'] <= event.pos[1] <= lesson_2_btn['StartPos']['y'] + lesson_2_btn['height']:
+                elif if_clicked(lesson_2_btn,event) == True:
                     _lesson = ' 2'
                     lesson(unit, _lesson)
                     running = False
 
-                elif lesson_3_btn['StartPos']['x'] <= event.pos[0] <= lesson_3_btn['StartPos']['x'] + lesson_3_btn['width'] and lesson_3_btn['StartPos']['y'] <= event.pos[1] <= lesson_3_btn['StartPos']['y'] + lesson_3_btn['height']:
+                elif if_clicked(lesson_3_btn,event) == True:
                     _lesson = ' 3'
                     lesson(unit, _lesson)
                     running = False
                 
-                elif lesson_4_btn['StartPos']['x'] <= event.pos[0] <= lesson_4_btn['StartPos']['x'] + lesson_4_btn['width'] and lesson_4_btn['StartPos']['y'] <= event.pos[1] <= lesson_4_btn['StartPos']['y'] + lesson_4_btn['height']:
+                elif if_clicked(lesson_4_btn,event) == True:
                     _lesson = ' 4'
                     lesson(unit, _lesson)
                     running = False
 
-                elif lesson_5_btn['StartPos']['x'] <= event.pos[0] <= lesson_5_btn['StartPos']['x'] + lesson_5_btn['width'] and lesson_5_btn['StartPos']['y'] <= event.pos[1] <= lesson_5_btn['StartPos']['y'] + lesson_5_btn['height']:
+                elif if_clicked(lesson_5_btn,event) == True:
                     _lesson = ' 5'
                     lesson(unit, _lesson)
                     running = False
 
-                elif lesson_6_btn['StartPos']['x'] <= event.pos[0] <= lesson_6_btn['StartPos']['x'] + lesson_6_btn['width'] and lesson_6_btn['StartPos']['y'] <= event.pos[1] <= lesson_6_btn['StartPos']['y'] + lesson_6_btn['height']:
+                elif if_clicked(lesson_6_btn,event) == True:
                     _lesson = ' 6'
                     lesson(unit, _lesson)
                     running = False
 
-                elif lesson_7_btn['StartPos']['x'] <= event.pos[0] <= lesson_7_btn['StartPos']['x'] + lesson_7_btn['width'] and lesson_7_btn['StartPos']['y'] <= event.pos[1] <= lesson_7_btn['StartPos']['y'] + lesson_7_btn['height']:
+                elif if_clicked(lesson_7_btn,event) == True:
                     _lesson = ' 7'
                     lesson(unit, _lesson)
                     running = False
 
-                if return_btn['StartPos']['x'] <= event.pos[0] <= return_btn['StartPos']['x'] + return_btn['width'] and return_btn['StartPos']['y'] <= event.pos[1] <= return_btn['StartPos']['y'] + return_btn['height']:
+                if if_clicked(return_btn,event) == True:
                     # Go back to the main menu
                     running = False
             
@@ -222,8 +118,7 @@ def lesson_select(unit):
     # End of the game loop
     final_message = "Returning to Unit Select Page!"
     final_surface = font.render(final_message, True, (0, 0, 0))
-    screen.fill((255, 255, 255))  # Clear the screen for the final message
-    screen.blit(background_image, (0,0))
+    clear()
     screen.blit(final_surface, (50, 50))
     pygame.display.flip()  # Update the display
     pygame.time.delay(2000)  # Wait for 2 seconds before quitting
