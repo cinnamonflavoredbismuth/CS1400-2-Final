@@ -55,22 +55,31 @@ def answer_gather(question):
                 answer = line[3]
     return answer
 
-def option_define(unit, _lesson):
-    while True:
-        options = option_gather(unit, _lesson)
-        
-
-        option1 = random.choice(options)
-        option2 = random.choice(options)
-        while option2 == option1:
-            option2 = random.choice(options)
-        option3 = random.choice(options)
-        while option3 == option1 or option3 == option2: 
-            option3 = random.choice(options)
-        option4 = random.choice(options)
-        while option4 == option1 or option4 == option2 or option4 == option3:
-            option4 = random.choice(options)
-        break
+def option_define(unit, _lesson, answered_questions):
+    # Gather all options for the given unit and lesson
+    options = option_gather(unit, _lesson)
+    
+    # Filter out already answered questions
+    unanswered_questions = [option for option in options if option not in answered_questions]
+    
+    # If there are fewer than 4 unanswered questions, return as many as possible
+    if len(unanswered_questions) < 4:
+        return unanswered_questions + [None] * (4 - len(unanswered_questions))
+    
+    if len (unanswered_questions) == 0:
+        return None, None, None, None
+    # Randomly select 4 unique options from the unanswered questions
+    option1 = random.choice(unanswered_questions)
+    unanswered_questions.remove(option1)
+    
+    option2 = random.choice(unanswered_questions)
+    unanswered_questions.remove(option2)
+    
+    option3 = random.choice(unanswered_questions)
+    unanswered_questions.remove(option3)
+    
+    option4 = random.choice(unanswered_questions)
+    
     return option1, option2, option3, option4
 
 def xoffset_gather(option):
@@ -99,30 +108,28 @@ title_font = pygame.font.Font(None, 72)  # Larger font for the title
 
 
 def lesson(unit, _lesson, correct, incorrect):
-    while True:
-        questions = question_gather(unit, _lesson)
-        question = random.choice(questions)
-        total_questions = correct + incorrect
-        if len(total_questions) == len(questions):
-            question_text = title_font.render("You completed your lesson!", True, (0, 255, 0))
-            question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
-            screen.blit(background_image, (0,0))   #This Places the background
-            screen.blit(question_text, question_rect)   #This will display the question
-            break
-        else:
-            if question in correct or question in incorrect:
-                continue
-            else:
-                break
-                
+    status = 'incomplete'
+    questions = question_gather(unit, _lesson)
+    question = random.choice(questions)
+    answered_questions = correct + incorrect
+    option1, option2, option3, option4 = option_define(unit, _lesson, answered_questions)
+    if option1 == None or option2 == None or option3 == None or option4 == None:
+        status = 'complete'
+    while option3 == option1 or option3 == option2 or option3 == option4:
+        option1, option2, option3, option4 = option_define(unit, _lesson, answered_questions)
     question_text = title_font.render(question, True, (0, 0, 0)) # White color
-    while True:
-        option1, option2, option3, option4 = option_define(unit, _lesson)
-        option3 = answer_gather(question)
-        if option3 == option1 or option3 == option2 or option3 == option4:
-            pass
-        else:
-            break
+    option3 = answer_gather(question)
+    if status == 'complete':
+        question_text = title_font.render("All questions answered!", True, (0, 0, 0))
+        question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
+        screen.fill((255, 255, 255))  # Clear the screen with a white background
+        screen.blit(background_image, (0,0))   #This Places the background
+        screen.blit(question_text, question_rect)   #This will display the question
+        pygame.display.flip()  # Update the display
+        pygame.time.delay(2000)  # Wait for 2 seconds before quitting
+        return  
+    if question in correct or question:
+        lesson(unit, _lesson, correct, incorrect)
     options = [option1, option2, option3, option4]
     random.shuffle(options)
     option1_btn = {
