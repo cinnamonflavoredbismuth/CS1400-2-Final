@@ -2,6 +2,10 @@ import pygame
 import csv
 import random
 from unit import unit_select
+<<<<<<< HEAD
+from basic_functions import *
+from account_handler import leaderboard
+=======
 
 from basic_functions import *
 
@@ -10,6 +14,7 @@ from basic_functions import btn, display, pystart, button, if_clicked, clear
 from basic_functions import click
 from misc import display_streaks
 
+>>>>>>> 3bb0c01f4fb49436861f2bd3a27556a9e2e65b0b
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
 # The game will display a lesson and multiple options, and the user has to select the correct one.
@@ -43,6 +48,7 @@ def lessons(acc):
         Quit_btn = button(500, 50, {"x" :  325,"y" : 630},"Quit", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255))
         Start_btn = button(500, 50, {"x" :  325,"y" : 530},"Start", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255))
 
+        Board = button(500, 50, {"x" :  325,"y" : 430},"Log In", "Arial", 35, (80,80,80), (40,40,40), 200, 0, (255,255,255))
 
 
         # Load lessons and questions from CSV
@@ -65,20 +71,36 @@ def lessons(acc):
             # Display the options
             btn(Quit_btn)
             btn(Start_btn)
-            # display_streaks(acc)
+
+            surface = font.render(f"{acc.name}'s Streak: {acc.streak}", True, (0, 0, 0))
+            screen.blit(surface, (450, 50))
+
+            # pygame.draw.rect(screen,Board.main_color,[Board.StartPos['x'],Board.StartPos['y'],Board.width,Board.height]) # If mouse is not touching
+            # "Streak Leaderboard"
+            ranked_streaks = leaderboard()
+            for rank, streak in enumerate(ranked_streaks[:5]):
+                surface = font.render(f"{rank+1}. {streak[1]} - {streak[0]} days", True, (0, 0, 0))
+                screen.blit(surface, (450, 150 + (rank*50)))
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3bb0c01f4fb49436861f2bd3a27556a9e2e65b0b
                     if if_clicked(Quit_btn,event) == True: # If  quit button clicked
                         # Go back to the main menu
                         running = False
 
                     elif if_clicked(Start_btn,event) == True: # If Start button clicked
+<<<<<<< HEAD
+=======
 
 
 
+>>>>>>> 3bb0c01f4fb49436861f2bd3a27556a9e2e65b0b
                         unit_select()
 
                     
@@ -90,6 +112,9 @@ def lessons(acc):
             pygame.time.delay(100)  # Delay to control frame rate
 
         # End of the game loop
+<<<<<<< HEAD
+        display("Returning to Main Menu!",2)
+=======
 
         final_message = "Returning to Main Menu!"
         final_surface = font.render(final_message, True, (0, 0, 0))
@@ -100,6 +125,7 @@ def lessons(acc):
 
         display("Returning to Main Menu!",2)
 
+>>>>>>> 3bb0c01f4fb49436861f2bd3a27556a9e2e65b0b
         break
 acc= ''
 lessons(acc)

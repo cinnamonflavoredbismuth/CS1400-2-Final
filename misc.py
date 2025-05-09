@@ -18,26 +18,7 @@ def accuracy_visual(correct, questions): # Displays a pie chart for the accuracy
     plt.show()
 
 
+# from basic_functions import button
 
-def display_streaks(acc):
-    screen=pystart()
-    font = pygame.font.Font(None, 36)
-
-    surface = font.render(f"Your streak is: {acc.streak}", True, (0, 0, 0))
-    screen.blit(surface, (50, 50))
-
-
-def leaderboard():
-    accs=[]
-    with open("users.csv", "r") as file:
-        reader = csv.reader(file)
-        for line in reader:
-            accs.append(User(line[0], line[1], line[2], line[3], line[4], line[5], line[6]))
-
-    print("\nStreak Leaderboard\n")
-    streaks = []
-    for acc in accs:
-        streaks.append([acc.streak, acc.name])
-    ranked_streaks = sorted(streaks, key=lambda acc: int(acc[0]), reverse=True)
-    for rank, streak in enumerate(ranked_streaks[:10]):
-        print(f"{rank+1}. {streak[1]} - {streak[0]} days")
+# Board = button(500, 50, {"x" :  325,"y" : 430},"Log In", "Arial", 35, (80,80,80), (40,40,40), 200, 0, (255,255,255))
+# print(Board)
