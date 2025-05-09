@@ -1,14 +1,17 @@
 # Log In -Luke Murdock
-from basic_functions import txt_input, display
+from basic_functions import display, txt_input
 from account_handler import log_in, load
+from spanish import lessons
 
 def get_log_in():
-    name = txt_input('\nUsername: ').strip()
-    password = txt_input('Password: ').strip()
+    display('Username: ',0,x=0,y=0)
+    name = txt_input(50,50).strip()
+    display('Password: ',0,x=0,y=0)
+    password = txt_input(50,50).strip()
 
     if log_in(name, password) == True:
-        display(f'\nYou have logged in as {name}!',3)
+        display(f'You have logged in as {name}!',2)
         acc = load(name)
-        menu(acc)
+        lessons(acc)
     else:
-        display(f'\nUsername or password could not be found',4)
+        display('Username or password could not be found',4)

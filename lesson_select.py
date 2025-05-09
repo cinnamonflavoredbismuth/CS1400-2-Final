@@ -3,6 +3,8 @@ import csv
 import random
 from basic_functions import *
 from lesson import lesson
+from basic_functions import click
+
 
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
@@ -71,41 +73,49 @@ def lesson_select(unit):
                 if if_clicked(lesson_1_btn,event) == True: # If  quit button clicked
                     # Go back to the main menu
                     _lesson = ' 1'
-                    lesson(unit, _lesson)
+                    click()
+                    lesson(unit, _lesson, [], [])
                     running = False
 
                 elif if_clicked(lesson_2_btn,event) == True:
                     _lesson = ' 2'
-                    lesson(unit, _lesson)
+                    click()
+                    lesson(unit, _lesson, [], [])
                     running = False
 
                 elif if_clicked(lesson_3_btn,event) == True:
                     _lesson = ' 3'
-                    lesson(unit, _lesson)
+                    click()
+                    lesson(unit, _lesson, [], [])
                     running = False
                 
                 elif if_clicked(lesson_4_btn,event) == True:
                     _lesson = ' 4'
-                    lesson(unit, _lesson)
+                    click()
+                    lesson(unit, _lesson, [], [])
                     running = False
 
                 elif if_clicked(lesson_5_btn,event) == True:
                     _lesson = ' 5'
-                    lesson(unit, _lesson)
+                    click()
+                    lesson(unit, _lesson, [], [])
                     running = False
 
                 elif if_clicked(lesson_6_btn,event) == True:
                     _lesson = ' 6'
-                    lesson(unit, _lesson)
+                    click()
+                    lesson(unit, _lesson, [], [])
                     running = False
 
                 elif if_clicked(lesson_7_btn,event) == True:
                     _lesson = ' 7'
-                    lesson(unit, _lesson)
+                    click()
+                    lesson(unit, _lesson, [], [])
                     running = False
 
                 if if_clicked(return_btn,event) == True:
                     # Go back to the main menu
+                    click()
                     running = False
             
                 

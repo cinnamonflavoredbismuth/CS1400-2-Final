@@ -1,3 +1,4 @@
+# Basic Functions
 import pygame
 
 def pystart():
@@ -58,6 +59,7 @@ def if_clicked(btn,event): # If the button is clicked
         else:
                 return False
 
+
 def display(message, sec, x=50, y=50): # Displays a message on the screen by itself for a certain amount of seconds
     pystart()
     font = pygame.font.Font(None, 36)
@@ -67,9 +69,8 @@ def display(message, sec, x=50, y=50): # Displays a message on the screen by its
     clear()
     screen.blit(surface, (x, y))
     pygame.display.flip()  # Update the display
-    pygame.time.delay(sec * 1000)  # Wait for 3 seconds before quitting
-
-
+    if sec != 0:
+        pygame.time.delay(sec * 1000)  # Waits a certain amount of seconds before continuing
 
 
 def text(msg):
@@ -221,7 +222,25 @@ def txt_input(x,y):
                                                 screen.blit(text(''.join(user_txt)), (x,y))
                                         else: 
                                                 user_txt.append(letter)
-                        pygame.display.update()
-                        pygame.time.delay(10)# delay .01 seconds
-#screen.fill((255, 255, 255))  # Clear the screen with a white background
+
+                pygame.display.update()
+
+
+click_sound = pygame.mixer.Sound("click.mp3")
+startup_sound = pygame.mixer.Sound("startup.mp3")
+
+def click():
+    ####################################
+    pygame.mixer.Sound.play(click_sound)
+
+def start_up():
+        pygame.mixer.Sound.play(startup_sound)
+
+def bgm():
+    pygame.mixer.music.load("background.mp3")
+    pygame.mixer.music.play(-1)  # Loop the music indefinitely
+
+                       # pygame.display.update()
+                       # pygame.time.delay(10)# delay .01 seconds#screen.fill((255, 255, 255))  # Clear the screen with a white background
 #txt_input(0,0)
+
