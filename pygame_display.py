@@ -2,11 +2,7 @@ import pygame
 import csv
 import random
 from spanish import lessons
-<<<<<<< HEAD
 from basic_functions import *
-=======
-from basic_functions import btn, display, click, start_up, bgm
->>>>>>> c33cff1d01d89f7dc731f86ef46874d6a179c1d0
 from log_in import get_log_in
 from account_creation import new_account
 from account_handler import load
@@ -61,28 +57,13 @@ def main_menu():
                         click()
                         running = False
 
-<<<<<<< HEAD
-                    elif if_clicked(Account_create_btn,event) == True: # If Account Create button clicked
-                        name=new_account()
-                        if name == None:
-                            main_menu()
-                        else:
-                            acc=load(name)
-                            lessons()
-=======
                     elif Account_create_btn['StartPos']['x'] <= event.pos[0] <= Account_create_btn['StartPos']['x'] + Account_create_btn['width'] and Account_create_btn['StartPos']['y'] <= event.pos[1] <= Account_create_btn['StartPos']['y'] + Account_create_btn['height']: # If Account Create button clicked
                         click()
                         lessons()
->>>>>>> c33cff1d01d89f7dc731f86ef46874d6a179c1d0
                         
 
-<<<<<<< HEAD
                     elif if_clicked(Log_in_btn,event) == True: # If Log In button clicked
                         running = False
-=======
-                    elif Log_in_btn['StartPos']['x'] <= event.pos[0] <= Log_in_btn['StartPos']['x'] + Log_in_btn['width'] and Log_in_btn['StartPos']['y'] <= event.pos[1] <= Log_in_btn['StartPos']['y'] + Log_in_btn['height']: # If Log In button clicked
-                        click()
->>>>>>> c33cff1d01d89f7dc731f86ef46874d6a179c1d0
                         get_log_in()
 
             pygame.display.flip()  # Update the display
@@ -92,12 +73,5 @@ def main_menu():
         #display("Thank you for playing!",3)
         pygame.quit()
         break
-<<<<<<< HEAD
-
-=======
-start_up()
-display("Welcome to Spanish or Vanish!",2)
-display("Keep up your streak by doing Spanish language lessons everyday",4)
->>>>>>> c33cff1d01d89f7dc731f86ef46874d6a179c1d0
 
 main_menu()
