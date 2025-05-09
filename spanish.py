@@ -2,8 +2,19 @@ import pygame
 import csv
 import random
 from unit import unit_select
+<<<<<<< HEAD
 from basic_functions import *
 from account_handler import leaderboard
+=======
+
+from basic_functions import *
+
+
+from basic_functions import btn, display, pystart, button, if_clicked, clear
+from basic_functions import click
+from misc import display_streaks
+
+>>>>>>> 3bb0c01f4fb49436861f2bd3a27556a9e2e65b0b
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
 # The game will display a lesson and multiple options, and the user has to select the correct one.
@@ -12,7 +23,17 @@ def lessons(acc):
     while True:
         
         # Initialize Pygame
+
         pystart()
+
+        pygame.init()
+
+        # Set up the display
+        screen = pygame.display.set_mode((1200, 800))
+        pygame.display.set_caption('Spanish or Vanish')
+        pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
+        #pygame.display.set_caption('Spanish or Vanish')
+
 
 
         # Image background
@@ -65,11 +86,21 @@ def lessons(acc):
                 if event.type == pygame.QUIT:
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3bb0c01f4fb49436861f2bd3a27556a9e2e65b0b
                     if if_clicked(Quit_btn,event) == True: # If  quit button clicked
                         # Go back to the main menu
                         running = False
 
                     elif if_clicked(Start_btn,event) == True: # If Start button clicked
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 3bb0c01f4fb49436861f2bd3a27556a9e2e65b0b
                         unit_select()
 
                     
@@ -81,5 +112,20 @@ def lessons(acc):
             pygame.time.delay(100)  # Delay to control frame rate
 
         # End of the game loop
+<<<<<<< HEAD
         display("Returning to Main Menu!",2)
+=======
+
+        final_message = "Returning to Main Menu!"
+        final_surface = font.render(final_message, True, (0, 0, 0))
+        clear()
+        screen.blit(final_surface, (50, 50))
+        pygame.display.flip()  # Update the display
+        pygame.time.delay(2000)  # Wait for 2 seconds before quitting
+
+        display("Returning to Main Menu!",2)
+
+>>>>>>> 3bb0c01f4fb49436861f2bd3a27556a9e2e65b0b
         break
+acc= ''
+lessons(acc)

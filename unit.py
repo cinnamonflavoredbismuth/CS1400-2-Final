@@ -2,8 +2,8 @@ import pygame
 import csv
 import random
 from basic_functions import btn
-from lesson_select import lesson_select
-from basic_functions import click
+from lesson_select import lesson_select, if_clicked, clear, button, click
+from basic_functions import *
 
 
 # Define the Spanish or Vanish game
@@ -30,71 +30,11 @@ def unit_select():
         title_font = pygame.font.Font(None, 72)  # Larger font for the title
 
         #Set up buttons
-        unit1_btn = {
-        "width" : 500, # width of the button
-        "height" : 50, # height of the button
-        "StartPos": {"x" :  325,"y" : 330}, # Top left is 0,0
-        "text": "Unit 1", 
-        "font": "Arial",
-        "fontsize": 35,
-        "hover_color": (80,80,80),
-        "main_color": (40,40,40),
-        "text_offset": 215,
-        "verticle_text_offset": 0,
-        "text_color": (255,255,255)
-        }
-        unit2_btn = {
-        "width" : 500, # width of the button
-        "height" : 50, # height of the button
-        "StartPos": {"x" :  325,"y" : 430}, # Top left is 0,0
-        "text": "Unit 2", 
-        "font": "Arial",
-        "fontsize": 35,
-        "hover_color": (80,80,80),
-        "main_color": (40,40,40),
-        "text_offset": 215,
-        "verticle_text_offset": 0,
-        "text_color": (255,255,255)
-        }
-        unit3_btn = {
-        "width" : 500, # width of the button
-        "height" : 50, # height of the button
-        "StartPos": {"x" :  325,"y" : 530}, # Top left is 0,0
-        "text": "Unit 3", 
-        "font": "Arial",
-        "fontsize": 35,
-        "hover_color": (80,80,80),
-        "main_color": (40,40,40),
-        "text_offset": 215,
-        "verticle_text_offset": 0,
-        "text_color": (255,255,255)
-        }
-        unit4_btn = {
-        "width" : 500, # width of the button
-        "height" : 50, # height of the button
-        "StartPos": {"x" :  325,"y" : 630}, # Top left is 0,0
-        "text": "Unit 4", 
-        "font": "Arial",
-        "fontsize": 35,
-        "hover_color": (80,80,80),
-        "main_color": (40,40,40),
-        "text_offset": 215,
-        "verticle_text_offset": 0,
-        "text_color": (255,255,255)
-        }
-        return_btn = {
-        "width" : 250, # width of the button
-        "height" : 50, # height of the button
-        "StartPos": {"x" :  10,"y" : 730}, # Top left is 0,0
-        "text": "Return", 
-        "font": "Arial",
-        "fontsize": 35,
-        "hover_color": (80,80,80),
-        "main_color": (40,40,40),
-        "text_offset": 75,
-        "verticle_text_offset": 0,
-        "text_color": (255,255,255)
-        }
+        unit1_btn = button(500,50,{"x" :  325,"y" : 330},"Unit 1", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255))
+        unit2_btn = button(500,50,{"x" :  325,"y" : 430},"Unit 2", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255))
+        unit3_btn = button(500,50,{"x" :  325,"y" : 530},"Unit 3", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255))
+        unit4_btn = button(500,50,{"x" :  325,"y" : 630},"Unit 4", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255))
+        return_btn = button(250, 50, {"x" :  10,"y" : 730},"Return", "Arial",35,(80,80,80),(40,40,40),75,0,(255,255,255))
 
         
 
@@ -128,32 +68,32 @@ def unit_select():
                 if event.type == pygame.QUIT:
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if unit1_btn['StartPos']['x'] <= event.pos[0] <= unit1_btn['StartPos']['x'] + unit1_btn['width'] and unit1_btn['StartPos']['y'] <= event.pos[1] <= unit1_btn['StartPos']['y'] + unit1_btn['height']:
+                    if if_clicked(unit1_btn,event) == True:
                         # Go back to the main menu
                         unit = 'Basics'
                         click()
                         lesson_select(unit)
                         running = False
 
-                    elif unit2_btn['StartPos']['x'] <= event.pos[0] <= unit2_btn['StartPos']['x'] + unit2_btn['width'] and unit2_btn['StartPos']['y'] <= event.pos[1] <= unit2_btn['StartPos']['y'] + unit2_btn['height']:
+                    elif if_clicked(unit2_btn,event) == True:
                         unit = 'Directions'
                         click()
                         lesson_select(unit)
                         running = False
 
-                    elif unit3_btn['StartPos']['x'] <= event.pos[0] <= unit3_btn['StartPos']['x'] + unit3_btn['width'] and unit3_btn['StartPos']['y'] <= event.pos[1] <= unit3_btn['StartPos']['y'] + unit3_btn['height']:
+                    elif if_clicked(unit3_btn,event) == True:
                         unit = 'Small Talk'
                         click()
                         lesson_select(unit)
                         running = False
                     
-                    elif unit4_btn['StartPos']['x'] <= event.pos[0] <= unit4_btn['StartPos']['x'] + unit4_btn['width'] and unit4_btn['StartPos']['y'] <= event.pos[1] <= unit4_btn['StartPos']['y'] + unit4_btn['height']:
+                    elif if_clicked(unit4_btn,event) == True:
                         unit = 'Food'
                         click()
                         lesson_select(unit)
                         running = False
 
-                    elif return_btn['StartPos']['x'] <= event.pos[0] <= return_btn['StartPos']['x'] + return_btn['width'] and return_btn['StartPos']['y'] <= event.pos[1] <= return_btn['StartPos']['y'] + return_btn['height']:
+                    elif if_clicked(return_btn,event) == True:
                         # Go back to the main menu
                         click()
                         running = False
@@ -173,3 +113,5 @@ def unit_select():
         pygame.display.flip()  # Update the display
         pygame.time.delay(2000)  # Wait for 2 seconds before quitting
         break
+
+

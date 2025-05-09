@@ -2,7 +2,7 @@ import pygame
 import csv
 import random
 from spanish import lessons
-from basic_functions import *
+from basic_functions import btn, display, click, start_up, bgm, if_clicked, clear, button, pystart
 from log_in import get_log_in
 from account_creation import new_account
 from account_handler import load
@@ -12,7 +12,7 @@ from account_handler import load
 # The game will display a lesson and multiple options, and the user has to select the correct one.
 # The game will be played using Pygame, a popular library for creating games in Python.
 
-pystart()
+screen = pystart()
 
 # Image background
 bird1 = pygame.image.load("logo_uwu.png")
@@ -57,19 +57,19 @@ def main_menu():
                         click()
                         running = False
 
-                    
                     elif if_clicked(Account_create_btn,event) == True: # If Account Create button clicked
+                        click()
                         name=new_account()
                         if name == None:
                             main_menu()
                         else:
                             acc=load(name)
-                            lessons()
+                            lessons(acc)
 
                         
+
                     elif if_clicked(Log_in_btn,event) == True: # If Log In button clicked
-                        click()
-                        get_log_in()
+                        lessons()
 
             pygame.display.flip()  # Update the display
             pygame.time.delay(100)  # Delay to control frame rate
@@ -78,5 +78,9 @@ def main_menu():
         #display("Thank you for playing!",3)
         pygame.quit()
         break
+
+
+start_up()
+
 
 main_menu()

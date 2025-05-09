@@ -1,4 +1,5 @@
 # Miscellaneus
+import csv
 import pygame
 import matplotlib.pyplot as plt
 from basic_functions import pystart
