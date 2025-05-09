@@ -17,13 +17,47 @@ def clear(screen=pystart()):
 screen=pystart()
 
 #screen = pygame.display.set_mode((1200, 800))
+
+class button:
+        def __init__(self, width, height, StartPos, text, font, fontsize, hover_color, main_color, text_offset, verticle_text_offset, text_color):
+                self.width = width
+                self.height = height
+                self.StartPos = StartPos
+                self.text = text
+                self.font = font
+                self.fontsize = fontsize
+                self.hover_color = hover_color
+                self.main_color = main_color
+                self.text_offset = text_offset
+                self.verticle_text_offset = verticle_text_offset
+                self.text_color = text_color
+        def __str__(self):
+                return f"""
+                Width: {self.width}
+                Height: {self.height}
+                StartPos: {self.StartPos}
+                Text: {self.text}
+                Font: {self.font}
+                Fontsize: {self.fontsize}
+                Hover_color: {self.hover_color}
+                Main_color: {self.main_color}
+                Text_offset: {self.text_offset}
+                Verticle_text_offset: {self.verticle_text_offset}
+                Text_color: {self.text_color}"""
+
 def btn(dict):
         mouse = pygame.mouse.get_pos() # Stores mouse coordinates
-        if dict['StartPos']['x'] <= mouse[0] <= dict['StartPos']['x'] + dict['width'] and dict['StartPos']['y'] <= mouse[1] <= dict['StartPos']['y']+dict['height']: 
-            pygame.draw.rect(screen,dict['hover_color'],[dict['StartPos']['x'],dict['StartPos']['y'],dict['width'],dict['height']]) # If mouse is hovering
+        if dict.StartPos['x'] <= mouse[0] <= dict.StartPos['x'] + dict.width and dict.StartPos['y'] <= mouse[1] <= dict.StartPos['y']+dict.height: 
+            pygame.draw.rect(screen,dict.hover_color,[dict.StartPos['x'],dict.StartPos['y'],dict.width,dict.height]) # If mouse is hovering
         else: 
-            pygame.draw.rect(screen,dict['main_color'],[dict['StartPos']['x'],dict['StartPos']['y'],dict['width'],dict['height']]) # If mouse is not touching
-        screen.blit(pygame.font.SysFont(dict['font'],dict['fontsize']).render(dict['text'] , True , dict["text_color"]),(dict['StartPos']['x']+dict["text_offset"],dict['StartPos']['y']+dict['verticle_text_offset'])) # Putting text on the button
+            pygame.draw.rect(screen,dict.main_color,[dict.StartPos['x'],dict.StartPos['y'],dict.width,dict.height]) # If mouse is not touching
+        screen.blit(pygame.font.SysFont(dict.font,dict.fontsize).render(dict.text , True , dict.text_color),(dict.StartPos['x']+dict.text_offset,dict.StartPos['y']+dict.verticle_text_offset)) # Putting text on the button
+
+def if_clicked(btn,event): # If the button is clicked
+        if btn.StartPos['x'] <= event.pos[0] <= btn.StartPos['x'] + btn.width and btn.StartPos['y'] <= event.pos[1] <= btn.StartPos['y'] + btn.height:
+                return True
+        else:
+                return False
 
 
 def display(message, sec, x=50, y=50): # Displays a message on the screen by itself for a certain amount of seconds
@@ -160,14 +194,13 @@ def letter_input(txt=[],x=0,y=0,event=None):
                         screen.blit(text(f'{txt}'), (x,y))
                         return 'enter'
                 else:
-                        screen.blit(text(f'Invalid character'),(x,y+20))
-                        return None
+                        display(f'Invalid character',1)
+                        return 'invalid'
         else: 
                 return None
 
-
 def txt_input(x,y):
-        x=x-40
+        x2=x-40
         user_txt=[]
         run=True
         while run==True:
@@ -177,12 +210,16 @@ def txt_input(x,y):
                                 quit()
                                 break
                         else:  
-                                x=x+5
-                                letter=letter_input(txt=user_txt,x=x,y=y,event=event)
+                                x2=x2+5
+                                letter=letter_input(txt=user_txt,x=x2,y=y,event=event)
                                 if letter != None:
                                         if letter=='enter':
                                                 user_txt=''.join(user_txt)
                                                 return user_txt
+                                        elif letter=='invalid':
+                                                clear()
+                                                x2=x2-5
+                                                screen.blit(text(''.join(user_txt)), (x,y))
                                         else: 
                                                 user_txt.append(letter)
 

@@ -2,29 +2,25 @@ import pygame
 import csv
 import random
 from spanish import lessons
+<<<<<<< HEAD
+from basic_functions import *
+=======
 from basic_functions import btn, display, click, start_up, bgm
+>>>>>>> c33cff1d01d89f7dc731f86ef46874d6a179c1d0
 from log_in import get_log_in
+from account_creation import new_account
+from account_handler import load
 
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
 # The game will display a lesson and multiple options, and the user has to select the correct one.
 # The game will be played using Pygame, a popular library for creating games in Python.
 
-# Initialize Pygame
-pygame.init()
-
-# Set up the display
-screen = pygame.display.set_mode((1200, 800))  #This sets the screen size
-pygame.display.set_caption('Spanish or Vanish') #This sets the tab name
-pygame.display.set_icon(pygame.image.load('logo_uwu.png')) #This sets the logo
-
+pystart()
 
 # Image background
-background_image = pygame.image.load('BG.webp')  # Load the image
-background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
 bird1 = pygame.image.load("logo_uwu.png")
-bird2 = pygame.image.load("logo_uwu.png")
-bird2 = pygame.transform.flip(bird2, True, False)  # Flip the image horizontally
+bird2 = pygame.transform.flip(bird1, True, False)  # Flip the image horizontally
 bird1 = pygame.transform.scale(bird1, (200, 200))  # Scale the image to fit the screen 
 bird2 = pygame.transform.scale(bird2, (200, 200))  # Scale the image to fit the screen
 
@@ -39,52 +35,9 @@ title_text = title_font.render('Spanish or Vanish', True, (0, 0, 0))  # White co
 title_rect = title_text.get_rect(center=(600, 50))  # Centered at the top of the screen
 
 #Set up buttons
-Quit_btn = {
-"width" : 500, # width of the button
-"height" : 50, # height of the button
-"StartPos": {"x" :  325,"y" : 630}, # Top left is 0,0
-"text": "Quit", 
-"font": "Arial",
-"fontsize": 35,
-"hover_color": (80,80,80),
-"main_color": (40,40,40),
-"text_offset": 225,
-"verticle_text_offset": 0,
-"text_color": (255,255,255)
-}
-Account_create_btn = {
-"width" : 500, # width of the button
-"height" : 50, # height of the button
-"StartPos": {"x" :  325,"y" : 530}, # Top left is 0,0
-"text": "Create Account", 
-"font": "Arial",
-"fontsize": 35,
-"hover_color": (80,80,80),
-"main_color": (40,40,40),
-"text_offset": 150,
-"verticle_text_offset": 0,
-"text_color": (255,255,255)
-}
-Log_in_btn = {
-"width" : 500, # width of the button
-"height" : 50, # height of the button
-"StartPos": {"x" :  325,"y" : 430}, # Top left is 0,0
-"text": "Log In", 
-"font": "Arial",
-"fontsize": 35,
-"hover_color": (80,80,80),
-"main_color": (40,40,40),
-"text_offset": 200,
-"verticle_text_offset": 0,
-"text_color": (255,255,255)
-}
-
-
-
-
-
-
-# Define button positions
+Quit_btn = button(500, 50, {"x" :  325,"y" : 630},"Quit", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255))
+Account_create_btn = button(500, 50, {"x" :  325,"y" : 530},"Create Account", "Arial", 35, (80,80,80), (40,40,40), 150, 0, (255,255,255))
+Log_in_btn = button(500, 50, {"x" :  325,"y" : 430},"Log In", "Arial", 35, (80,80,80), (40,40,40), 200, 0, (255,255,255))
 
 # Main loop
 def main_menu():
@@ -92,9 +45,7 @@ def main_menu():
     while True:
         running = True
         while running:
-            screen.fill((255, 255, 255))  # Clear the screen with a white background
-            screen.blit(background_image, (0,0))
-            screen.blit(title_text, title_rect)
+            clear()
             # Display the options
             btn(Quit_btn)
             btn(Account_create_btn)
@@ -105,38 +56,48 @@ def main_menu():
                 if event.type == pygame.QUIT:
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if Quit_btn['StartPos']['x'] <= event.pos[0] <= Quit_btn['StartPos']['x'] + Quit_btn['width'] and Quit_btn['StartPos']['y'] <= event.pos[1] <= Quit_btn['StartPos']['y'] + Quit_btn['height']: # If  quit button clicked
+                    if if_clicked(Quit_btn,event) == True: # If  quit button clicked
                         # Go back to the main menu
                         click()
                         running = False
 
+<<<<<<< HEAD
+                    elif if_clicked(Account_create_btn,event) == True: # If Account Create button clicked
+                        name=new_account()
+                        if name == None:
+                            main_menu()
+                        else:
+                            acc=load(name)
+                            lessons()
+=======
                     elif Account_create_btn['StartPos']['x'] <= event.pos[0] <= Account_create_btn['StartPos']['x'] + Account_create_btn['width'] and Account_create_btn['StartPos']['y'] <= event.pos[1] <= Account_create_btn['StartPos']['y'] + Account_create_btn['height']: # If Account Create button clicked
                         click()
                         lessons()
+>>>>>>> c33cff1d01d89f7dc731f86ef46874d6a179c1d0
                         
-                        # # Sign Up code
-                        # name = input('\nUsername: ').strip()
-                        # password = input('Password: ').strip()
-                        # new_account(name, password)
 
+<<<<<<< HEAD
+                    elif if_clicked(Log_in_btn,event) == True: # If Log In button clicked
+                        running = False
+=======
                     elif Log_in_btn['StartPos']['x'] <= event.pos[0] <= Log_in_btn['StartPos']['x'] + Log_in_btn['width'] and Log_in_btn['StartPos']['y'] <= event.pos[1] <= Log_in_btn['StartPos']['y'] + Log_in_btn['height']: # If Log In button clicked
                         click()
+>>>>>>> c33cff1d01d89f7dc731f86ef46874d6a179c1d0
                         get_log_in()
-
-                    
-                    
-
-            
 
             pygame.display.flip()  # Update the display
             pygame.time.delay(100)  # Delay to control frame rate
 
 
-        display("Thank you for playing!",3)
+        #display("Thank you for playing!",3)
         pygame.quit()
         break
+<<<<<<< HEAD
+
+=======
 start_up()
 display("Welcome to Spanish or Vanish!",2)
 display("Keep up your streak by doing Spanish language lessons everyday",4)
+>>>>>>> c33cff1d01d89f7dc731f86ef46874d6a179c1d0
 
 main_menu()
