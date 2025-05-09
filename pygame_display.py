@@ -2,8 +2,7 @@ import pygame
 import csv
 import random
 from spanish import lessons
-from basic_functions import *
-from basic_functions import btn, display, click, start_up, bgm
+from basic_functions import btn, display, click, start_up, bgm, if_clicked, clear, button, pystart
 from log_in import get_log_in
 from account_creation import new_account
 from account_handler import load
@@ -13,7 +12,7 @@ from account_handler import load
 # The game will display a lesson and multiple options, and the user has to select the correct one.
 # The game will be played using Pygame, a popular library for creating games in Python.
 
-pystart()
+screen = pystart()
 
 # Image background
 bird1 = pygame.image.load("logo_uwu.png")
@@ -70,7 +69,7 @@ def main_menu():
                         
 
                     elif if_clicked(Log_in_btn,event) == True: # If Log In button clicked
-                        running = False
+                        lessons()
 
             pygame.display.flip()  # Update the display
             pygame.time.delay(100)  # Delay to control frame rate
@@ -82,8 +81,6 @@ def main_menu():
 
 
 start_up()
-display("Welcome to Spanish or Vanish!",2)
-display("Keep up your streak by doing Spanish language lessons everyday",4)
 
 
 main_menu()

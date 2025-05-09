@@ -6,7 +6,7 @@ from unit import unit_select
 from basic_functions import *
 
 
-from basic_functions import btn, display
+from basic_functions import btn, display, pystart, button, if_clicked, clear
 from basic_functions import click
 from misc import display_streaks
 
@@ -101,3 +101,5 @@ def lessons(acc):
         display("Returning to Main Menu!",2)
 
         break
+acc= ''
+lessons(acc)
