@@ -101,9 +101,10 @@ def new_account(name,password): #
         with open("users.csv", "a", newline='') as file:
             writer = csv.writer(file)
             writer.writerow(acc.export())
-        #print('account successfully created')
+        display('account successfully created',3)
     else:
-        #print('account already exists')
+        display('account already exists',3)
+
         return False
    
 def log_in(name, password): # Checks to see if the user's inputted account exists
@@ -114,7 +115,7 @@ def log_in(name, password): # Checks to see if the user's inputted account exist
             reader = csv.reader(file)
             for line in reader:
                 accs.append(User(line[0], line[1], line[2], line[3], line[4], line[5], line[6]))
-                return accs
+            return accs
             
     accs = load_all()
     for acc in accs:

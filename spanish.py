@@ -2,13 +2,14 @@ import pygame
 import csv
 import random
 from unit import unit_select
-from basic_functions import btn
+from basic_functions import btn, display
 from basic_functions import click
+from misc import display_streaks
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
 # The game will display a lesson and multiple options, and the user has to select the correct one.
 # The game will be played using Pygame, a popular library for creating games in Python.
-def lessons():
+def lessons(acc):
     while True:
         
         # Initialize Pygame
@@ -81,6 +82,7 @@ def lessons():
             # Display the options
             btn(Quit_btn)
             btn(Start_btn)
+            # display_streaks(acc)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
@@ -103,11 +105,5 @@ def lessons():
             pygame.time.delay(100)  # Delay to control frame rate
 
         # End of the game loop
-        final_message = "Returning to Main Menu!"
-        final_surface = font.render(final_message, True, (0, 0, 0))
-        screen.fill((255, 255, 255))  # Clear the screen for the final message
-        screen.blit(background_image, (0,0))
-        screen.blit(final_surface, (50, 50))
-        pygame.display.flip()  # Update the display
-        pygame.time.delay(2000)  # Wait for 2 seconds before quitting
+        display("Returning to Main Menu!",2)
         break

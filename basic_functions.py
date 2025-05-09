@@ -1,3 +1,4 @@
+# Basic Functions
 import pygame
 
 def pystart():
@@ -24,6 +25,7 @@ def btn(dict):
             pygame.draw.rect(screen,dict['main_color'],[dict['StartPos']['x'],dict['StartPos']['y'],dict['width'],dict['height']]) # If mouse is not touching
         screen.blit(pygame.font.SysFont(dict['font'],dict['fontsize']).render(dict['text'] , True , dict["text_color"]),(dict['StartPos']['x']+dict["text_offset"],dict['StartPos']['y']+dict['verticle_text_offset'])) # Putting text on the button
 
+
 def display(message, sec, x=50, y=50): # Displays a message on the screen by itself for a certain amount of seconds
     pystart()
     font = pygame.font.Font(None, 36)
@@ -33,9 +35,8 @@ def display(message, sec, x=50, y=50): # Displays a message on the screen by its
     clear()
     screen.blit(surface, (x, y))
     pygame.display.flip()  # Update the display
-    pygame.time.delay(sec * 1000)  # Wait for 3 seconds before quitting
-
-
+    if sec != 0:
+        pygame.time.delay(sec * 1000)  # Waits a certain amount of seconds before continuing
 
 
 def text(msg):
