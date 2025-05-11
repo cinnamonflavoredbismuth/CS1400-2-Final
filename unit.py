@@ -14,17 +14,12 @@ def unit_select():
     while True:
         # Initialize Pygame
         pystart()
-
         #Set up buttons
-        unit1_btn = button(500,50,{"x" :  325,"y" : 330},"Unit 1", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255))
-        unit2_btn = button(500,50,{"x" :  325,"y" : 430},"Unit 2", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255))
-        unit3_btn = button(500,50,{"x" :  325,"y" : 530},"Unit 3", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255))
-        unit4_btn = button(500,50,{"x" :  325,"y" : 630},"Unit 4", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255))
-        return_btn = button(250, 50, {"x" :  10,"y" : 730},"Return", "Arial",35,(80,80,80),(40,40,40),75,0,(255,255,255))
-
-        
-
-
+        buttons={'unit1_btn' : button(500,50,{"x" :  325,"y" : 330},"Unit 1", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255)),
+        'unit2_btn' : button(500,50,{"x" :  325,"y" : 430},"Unit 2", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255)),
+        'unit3_btn' : button(500,50,{"x" :  325,"y" : 530},"Unit 3", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255)),
+        'unit4_btn' : button(500,50,{"x" :  325,"y" : 630},"Unit 4", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255)),
+        'return_btn' : button(250, 50, {"x" :  10,"y" : 730},"Return", "Arial",35,(80,80,80),(40,40,40),75,0,(255,255,255))}
 
         # Load lessons and questions from CSV
         lessons = []
@@ -44,43 +39,39 @@ def unit_select():
         while running:
             clear()
             # Display the options
-            btn(unit1_btn)
-            btn(unit2_btn)
-            btn(unit3_btn)
-            btn(unit4_btn)
-            btn(return_btn)
+            display_buttons(buttons)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if if_clicked(unit1_btn,event) == True:
+                    if if_clicked(buttons['unit1_btn'],event) == True:
                         # Go back to the main menu
                         unit = 'Basics'
-                        click()
+                        
                         lesson_select(unit)
                         running = False
 
-                    elif if_clicked(unit2_btn,event) == True:
+                    elif if_clicked(buttons['unit2_btn'],event) == True:
                         unit = 'Directions'
-                        click()
+                        
                         lesson_select(unit)
                         running = False
 
-                    elif if_clicked(unit3_btn,event) == True:
+                    elif if_clicked(buttons['unit3_btn'],event) == True:
                         unit = 'Small Talk'
-                        click()
+                        
                         lesson_select(unit)
                         running = False
                     
-                    elif if_clicked(unit4_btn,event) == True:
+                    elif if_clicked(buttons['unit4_btn'],event) == True:
                         unit = 'Food'
-                        click()
+                        
                         lesson_select(unit)
                         running = False
 
-                    elif if_clicked(return_btn,event) == True:
+                    elif if_clicked(buttons['return_btn'],event) == True:
                         # Go back to the main menu
-                        click()
+                        
                         running = False
                     
 
@@ -91,12 +82,7 @@ def unit_select():
 
         # End of the game loop
         final_message = "Returning to Stat Page!"
-        final_surface = font.render(final_message, True, (0, 0, 0))
-        screen.fill((255, 255, 255))  # Clear the screen for the final message
-        screen.blit(background_image, (0,0))
-        screen.blit(final_surface, (50, 50))
-        pygame.display.flip()  # Update the display
-        pygame.time.delay(2000)  # Wait for 2 seconds before quitting
+        final_surface(final_message)
         break
 
 

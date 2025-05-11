@@ -4,11 +4,8 @@ import random
 from unit import unit_select
 from basic_functions import *
 from account_handler import leaderboard
-from basic_functions import *
-
-
-from basic_functions import btn, display, pystart, button, if_clicked, clear
-from basic_functions import click
+from account_handler import load
+from basic_functions import btn, display, pystart, button, if_clicked, clear,click
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
 # The game will display a lesson and multiple options, and the user has to select the correct one.
@@ -21,12 +18,11 @@ def lessons(acc):
 
 
         # Image background
-        background_image = pygame.image.load('BG.webp')  # Load the image
-        background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
+
 
         # Set up fonts
         font = pygame.font.Font(None, 36)
-        title_font = pygame.font.Font(None, 72)  # Larger font for the title
+
 
         #Set up buttons
         Quit_btn = button(500, 50, {"x" :  325,"y" : 630},"Quit", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255))
@@ -77,25 +73,13 @@ def lessons(acc):
                     elif if_clicked(Start_btn,event) == True: # If Start button clicked
                         unit_select()
 
-                    
-                    
-
-            
-
             pygame.display.flip()  # Update the display
             pygame.time.delay(100)  # Delay to control frame rate
 
         # End of the game loop
 
         final_message = "Returning to Main Menu!"
-        final_surface = font.render(final_message, True, (0, 0, 0))
-        clear()
-        screen.blit(final_surface, (50, 50))
-        pygame.display.flip()  # Update the display
-        pygame.time.delay(2000)  # Wait for 2 seconds before quitting
-
-        display("Returning to Main Menu!",2)
-
+        final_surface(final_message)
         break
-acc= ''
-lessons(acc)
+acc=load('cecily')
+#lessons(acc)

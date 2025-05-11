@@ -2,9 +2,8 @@
 import csv
 import pygame
 import matplotlib.pyplot as plt
-from basic_functions import pystart
+from basic_functions import *
 
-# Luke's dislocated Functions
 def accuracy_visual(correct, questions): # Displays a pie chart for the accuracy of an amount of questions with an amount of correctly answered ones
     
     correct_perc = round((int(correct) / int(questions)) * 100)
