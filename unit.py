@@ -13,21 +13,7 @@ from basic_functions import *
 def unit_select():
     while True:
         # Initialize Pygame
-        pygame.init()
-
-        # Set up the display
-        screen = pygame.display.set_mode((1200, 800))
-        pygame.display.set_caption('Spanish or Vanish')
-        pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
-
-
-        # Image background
-        background_image = pygame.image.load('BG.webp')  # Load the image
-        background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
-
-        # Set up fonts
-        font = pygame.font.Font(None, 36)
-        title_font = pygame.font.Font(None, 72)  # Larger font for the title
+        pystart()
 
         #Set up buttons
         unit1_btn = button(500,50,{"x" :  325,"y" : 330},"Unit 1", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255))
@@ -56,8 +42,7 @@ def unit_select():
         # Main loop
         running = True
         while running:
-            screen.fill((255, 255, 255))  # Clear the screen with a white background
-            screen.blit(background_image, (0,0))
+            clear()
             # Display the options
             btn(unit1_btn)
             btn(unit2_btn)
