@@ -122,3 +122,17 @@ def log_in(name, password): # Checks to see if the user's inputted account exist
         if acc.name == name and acc.password == password:
             return True
     return False
+
+def leaderboard():
+    accs=[]
+    with open("users.csv", "r") as file:
+        reader = csv.reader(file)
+        for line in reader:
+            accs.append(User(line[0], line[1], line[2], line[3], line[4], line[5], line[6]))
+        accs.pop(0)
+
+    streaks = []
+    for acc in accs:
+        streaks.append([acc.streak, acc.name])
+    return sorted(streaks, key=lambda acc: int(acc[0]), reverse=True)
+    

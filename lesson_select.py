@@ -3,7 +3,7 @@ import csv
 import random
 from basic_functions import *
 from lesson import lesson
-from basic_functions import click
+from basic_functions import click, button, pystart, clear, if_clicked, btn
 
 
 # Define the Spanish or Vanish game
@@ -17,7 +17,7 @@ def lesson_select(unit):
     # The game will be played using Pygame, a popular library for creating games in Python.
 
     # Initialize Pygame
-    pystart()
+    screen = pystart()
 
 
 
@@ -34,7 +34,7 @@ def lesson_select(unit):
     lesson_5_btn = lesson_btn({"x" :  650,"y" : 200},5)
     lesson_6_btn = lesson_btn({"x" :  650,"y" : 300},6)
     lesson_7_btn = lesson_btn({"x" :  650,"y" : 400},7)
-    return_btn = button(500, 50, {"x" :  325,"y" : 630},"Return", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255))
+    return_btn = button(500, 50, {"x" :  650,"y" : 500},"Return", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255))
 
     
 

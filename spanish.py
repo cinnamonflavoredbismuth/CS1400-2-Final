@@ -3,7 +3,12 @@ import csv
 import random
 from unit import unit_select
 from basic_functions import *
-from misc import display_streaks
+from account_handler import leaderboard
+from basic_functions import *
+
+
+from basic_functions import btn, display, pystart, button, if_clicked, clear
+from basic_functions import click
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
 # The game will display a lesson and multiple options, and the user has to select the correct one.
@@ -27,6 +32,7 @@ def lessons(acc):
         Quit_btn = button(500, 50, {"x" :  325,"y" : 630},"Quit", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255))
         Start_btn = button(500, 50, {"x" :  325,"y" : 530},"Start", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255))
 
+        Board = button(500, 50, {"x" :  325,"y" : 430},"Log In", "Arial", 35, (80,80,80), (40,40,40), 200, 0, (255,255,255))
 
 
         # Load lessons and questions from CSV
@@ -49,7 +55,17 @@ def lessons(acc):
             # Display the options
             btn(Quit_btn)
             btn(Start_btn)
-            # display_streaks(acc)
+
+            surface = font.render(f"{acc.name}'s Streak: {acc.streak}", True, (0, 0, 0))
+            screen.blit(surface, (450, 50))
+
+            # pygame.draw.rect(screen,Board.main_color,[Board.StartPos['x'],Board.StartPos['y'],Board.width,Board.height]) # If mouse is not touching
+            # "Streak Leaderboard"
+            ranked_streaks = leaderboard()
+            for rank, streak in enumerate(ranked_streaks[:5]):
+                surface = font.render(f"{rank+1}. {streak[1]} - {streak[0]} days", True, (0, 0, 0))
+                screen.blit(surface, (450, 150 + (rank*50)))
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
@@ -70,5 +86,16 @@ def lessons(acc):
             pygame.time.delay(100)  # Delay to control frame rate
 
         # End of the game loop
+
+        final_message = "Returning to Main Menu!"
+        final_surface = font.render(final_message, True, (0, 0, 0))
+        clear()
+        screen.blit(final_surface, (50, 50))
+        pygame.display.flip()  # Update the display
+        pygame.time.delay(2000)  # Wait for 2 seconds before quitting
+
         display("Returning to Main Menu!",2)
+
         break
+acc= ''
+lessons(acc)

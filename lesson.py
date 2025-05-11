@@ -2,24 +2,18 @@ import pygame
 import csv
 import random
 import time
-from basic_functions import btn
-from basic_functions import click
+from basic_functions import btn,click,clear,pystart,if_clicked,button
 
 # from sign_up_screen import * 
 
 # Define the Spanish or Vanish game
 # Initialize Pygame
-pygame.init()
 
 # Set up the display
-screen = pygame.display.set_mode((1200, 800))
-pygame.display.set_caption('Spanish or Vanish')
-pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
+screen = pystart()
 
 
 # Image background
-background_image = pygame.image.load('BG.webp')  # Load the image
-background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
 bird1 = pygame.image.load("logo_uwu.png")     #Load Image
 bird2 = pygame.image.load("logo_uwu.png")     #Load Image
 bird2 = pygame.transform.flip(bird2, True, False)  # Flip the image horizontally
@@ -55,31 +49,18 @@ def answer_gather(question):
                 answer = line[3]
     return answer
 
-def option_define(unit, _lesson, answered_questions):
+def option_define(unit, _lesson):
     # Gather all options for the given unit and lesson
     options = option_gather(unit, _lesson)
     
-    # Filter out already answered questions
-    unanswered_questions = [option for option in options if option not in answered_questions]
-    
-    # If there are fewer than 4 unanswered questions, return as many as possible
-    if len(unanswered_questions) < 4:
-        return unanswered_questions + [None] * (4 - len(unanswered_questions))
-    
-    if len (unanswered_questions) == 0:
-        return None, None, None, None
-    # Randomly select 4 unique options from the unanswered questions
-    option1 = random.choice(unanswered_questions)
-    unanswered_questions.remove(option1)
-    
-    option2 = random.choice(unanswered_questions)
-    unanswered_questions.remove(option2)
-    
-    option3 = random.choice(unanswered_questions)
-    unanswered_questions.remove(option3)
-    
-    option4 = random.choice(unanswered_questions)
-    
+    option1 = random.choice(options)
+        
+    option2 = random.choice(options)
+        
+    option3 = random.choice(options)
+        
+    option4 = random.choice(options)
+        
     return option1, option2, option3, option4
 
 def xoffset_gather(option):
@@ -108,95 +89,34 @@ title_font = pygame.font.Font(None, 72)  # Larger font for the title
 
 
 def lesson(unit, _lesson, correct, incorrect):
-    status = 'incomplete'
     questions = question_gather(unit, _lesson)
     question = random.choice(questions)
     answered_questions = correct + incorrect
-    option1, option2, option3, option4 = option_define(unit, _lesson, answered_questions)
-    if option1 == None or option2 == None or option3 == None or option4 == None:
-        status = 'complete'
-    while option3 == option1 or option3 == option2 or option3 == option4:
-        option1, option2, option3, option4 = option_define(unit, _lesson, answered_questions)
-    question_text = title_font.render(question, True, (0, 0, 0)) # White color
-    option3 = answer_gather(question)
-    if status == 'complete':
+    if len(answered_questions) == 5:
         question_text = title_font.render("All questions answered!", True, (0, 0, 0))
         question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
-        screen.fill((255, 255, 255))  # Clear the screen with a white background
-        screen.blit(background_image, (0,0))   #This Places the background
+        clear()   #This Places the background
         screen.blit(question_text, question_rect)   #This will display the question
         pygame.display.flip()  # Update the display
-        pygame.time.delay(2000)  # Wait for 2 seconds before quitting
-        return  
+        pygame.time.delay(2000)  # Wait for 2 seconds before quitting 
+    option1, option2, option3, option4 = option_define(unit, _lesson)   
+    
+    question_text = title_font.render(question, True, (0, 0, 0)) # White color
+    option3 = answer_gather(question)
     if question in correct or question:
         lesson(unit, _lesson, correct, incorrect)
     options = [option1, option2, option3, option4]
     random.shuffle(options)
-    option1_btn = {
-            "width" : 300, # width of the button
-            "height" : 150, # height of the button
-            "StartPos": {"x" :  250,"y" : 330}, # Top left is 0,0
-            "text": options[0], 
-            "font": "Arial",
-            "fontsize": 35,
-            "hover_color": (200,200,200),
-            "main_color": (255,255,255),
-            "text_offset": int(xoffset_gather(options[0])),
-            "verticle_text_offset": int(yoffset_gather(options[0])),
-            "text_color": (50,50,50)
-            }
-    option2_btn = {
-            "width" : 300, # width of the button
-            "height" : 150, # height of the button
-            "StartPos": {"x" :  650,"y" : 330}, # Top left is 0,0
-            "text": options[1], 
-            "font": "Arial",
-            "fontsize": 35,
-            "hover_color": (200,200,200),
-            "main_color": (255,255,255),
-           "text_offset": int(xoffset_gather(options[1])),
-            "verticle_text_offset": int(yoffset_gather(options[1])),
-            "text_color": (50,50,50)
-            }
-    option3_btn = {
-            "width" : 300, # width of the button
-            "height" : 150, # height of the button
-            "StartPos": {"x" :  250,"y" : 530}, # Top left is 0,0
-            "text": options[2], 
-            "font": "Arial",
-            "fontsize": 35,
-            "hover_color": (200,200,200),
-            "main_color": (255,255,255),
-            "text_offset": int(xoffset_gather(options[2])),
-            "verticle_text_offset": int(yoffset_gather(options[2])),
-            "text_color": (50,50,50)
-            }
-    option4_btn = {
-            "width" : 300, # width of the button
-            "height" : 150, # height of the button
-            "StartPos": {"x" :  650,"y" : 530}, # Top left is 0,0
-            "text": options[3], 
-            "font": "Arial",
-            "fontsize": 35,
-            "hover_color": (200,200,200),
-            "main_color": (255,255,255),
-            "text_offset": int(xoffset_gather(options[3])),
-            "verticle_text_offset": int(yoffset_gather(options[3])),
-            "text_color": (50,50,50)
-            }
-    quit_btn = {
-            "width" : 250, # width of the button
-            "height" : 50, # height of the button
-            "StartPos": {"x" :  10,"y" : 730}, # Top left is 0,0
-            "text": "Quit", 
-            "font": "Arial",
-            "fontsize": 35,
-            "hover_color": (200,200,200),
-            "main_color": (255,255,255),
-            "text_offset": 90,
-            "verticle_text_offset": 0,
-            "text_color": (50,50,50)
-            }
+
+    option1_btn = button(300,150,{"x" :  250,"y" : 330},options[0],"Arial",35,(200,200,200),(255,255,255), int(xoffset_gather(options[0])),int(yoffset_gather(options[0])),(50,50,50))
+    
+    option2_btn = button(300,150,{"x" :  650,"y" : 330},options[1],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[1])),int(yoffset_gather(options[1])),(50,50,50))
+
+    option3_btn = button(300, 150,{"x" :  250,"y" : 530},options[2],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[2])), int(yoffset_gather(options[2])),(50,50,50))
+            
+    option4_btn = (300,150,{"x" :  650,"y" : 530}, options[3],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[3])),int(yoffset_gather(options[3])),(50,50,50))
+            
+    quit_btn = (250,50,{"x" :  10,"y" : 730},"Quit", "Arial",35,(200,200,200),(255,255,255),90,0,(50,50,50))
 
      #Position the title at the top center of the screen
     question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
@@ -204,8 +124,7 @@ def lesson(unit, _lesson, correct, incorrect):
     while True:
         running = True
         while running:
-            screen.fill((255, 255, 255))  # Clear the screen with a white background
-            screen.blit(background_image, (0,0))   #This Places the background
+            clear()
             screen.blit(question_text, question_rect)   #This will display the question
 
             #This is where we will call the buttons 
@@ -219,14 +138,13 @@ def lesson(unit, _lesson, correct, incorrect):
                 if event.type == pygame.QUIT:
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if option1_btn['StartPos']['x'] <= event.pos[0] <= option1_btn['StartPos']['x'] + option1_btn['width'] and option1_btn['StartPos']['y'] <= event.pos[1] <= option1_btn['StartPos']['y'] + option1_btn['height']:
+                    if if_clicked(option1_btn,event) == True:
                         # Go back to the main menu
                         click()
                         if options[0] == option3:
                             question_text = title_font.render("Correct!", True, (0, 255, 0))
                             question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
-                            screen.fill((255, 255, 255))  # Clear the screen with a white background
-                            screen.blit(background_image, (0,0))   #This Places the background
+                            clear()
                             screen.blit(question_text, question_rect)   #This will display the question
                             time.sleep(1)
                             correct.append(question)
@@ -234,19 +152,18 @@ def lesson(unit, _lesson, correct, incorrect):
                         elif options[0] != option3:
                             question_text = title_font.render("Incorrect!", True, (0, 255, 0))
                             question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
-                            screen.fill((255, 255, 255))  # Clear the screen with a white background
-                            screen.blit(background_image, (0,0))   #This Places the background
+                            clear()  #This Places the background
                             screen.blit(question_text, question_rect)   #This will display the question
                             time.sleep(1)
                             incorrect.append(question)
                             lesson(unit, _lesson, correct, incorrect)
 
-                    elif option2_btn['StartPos']['x'] <= event.pos[0] <= option2_btn['StartPos']['x'] + option2_btn['width'] and option2_btn['StartPos']['y'] <= event.pos[1] <= option2_btn['StartPos']['y'] + option2_btn['height']:
+                    elif if_clicked(option2_btn,event):
                         click()
                         if options[0] == option3:
                             question_text = title_font.render("Correct!", True, (0, 255, 0))
                             question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
-                            screen.blit(background_image, (0,0))   #This Places the background
+                            clear()   #This Places the background
                             screen.blit(question_text, question_rect)   #This will display the question
                             time.sleep(1)
                             correct.append(question)
@@ -254,19 +171,19 @@ def lesson(unit, _lesson, correct, incorrect):
                         elif options[0] != option3:
                             question_text = title_font.render("Incorrect!", True, (0, 255, 0))
                             question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
-                            screen.blit(background_image, (0,0))   #This Places the background
+                            clear()  #This Places the background
                             screen.blit(question_text, question_rect)   #This will display the question
                             time.sleep(1)
                             incorrect.append(question)
                             lesson(unit, _lesson, correct, incorrect)
                         running = False
 
-                    elif option3_btn['StartPos']['x'] <= event.pos[0] <= option3_btn['StartPos']['x'] + option3_btn['width'] and option3_btn['StartPos']['y'] <= event.pos[1] <= option3_btn['StartPos']['y'] + option3_btn['height']:
+                    elif if_clicked(option3_btn,event) ==  True:
                         click()
                         if options[0] == option3:
                             question_text = title_font.render("Correct!", True, (0, 255, 0))
                             question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
-                            screen.blit(background_image, (0,0))   #This Places the background
+                            clear()   #This Places the background
                             screen.blit(question_text, question_rect)   #This will display the question
                             time.sleep(1)
                             correct.append(question)
@@ -274,19 +191,19 @@ def lesson(unit, _lesson, correct, incorrect):
                         elif options[0] != option3:
                             question_text = title_font.render("Incorrect!", True, (0, 255, 0))
                             question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
-                            screen.blit(background_image, (0,0))   #This Places the background
+                            clear   #This Places the background
                             screen.blit(question_text, question_rect)   #This will display the question
                             time.sleep(1)
                             incorrect.append(question)
                             lesson(unit, _lesson, correct, incorrect)
                         running = False
                     
-                    elif option4_btn['StartPos']['x'] <= event.pos[0] <= option4_btn['StartPos']['x'] + option4_btn['width'] and option4_btn['StartPos']['y'] <= event.pos[1] <= option4_btn['StartPos']['y'] + option4_btn['height']:
+                    elif if_clicked(option4_btn,event) ==  True:
                         click()
                         if options[0] == option3:
                             question_text = title_font.render("Correct!", True, (0, 255, 0))
                             question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
-                            screen.blit(background_image, (0,0))   #This Places the background
+                            clear()   #This Places the background
                             screen.blit(question_text, question_rect)   #This will display the question
                             time.sleep(1)
                             correct.append(question)
@@ -294,14 +211,14 @@ def lesson(unit, _lesson, correct, incorrect):
                         elif options[0] != option3:
                             question_text = title_font.render("Incorrect!", True, (0, 255, 0))
                             question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
-                            screen.blit(background_image, (0,0))   #This Places the background
+                            clear()   #This Places the background
                             screen.blit(question_text, question_rect)   #This will display the question
                             time.sleep(1)
                             incorrect.append(question)
                             lesson(unit, _lesson, correct, incorrect)
                         running = False
 
-                    elif quit_btn['StartPos']['x'] <= event.pos[0] <= quit_btn['StartPos']['x'] + quit_btn['width'] and quit_btn['StartPos']['y'] <= event.pos[1] <= quit_btn['StartPos']['y'] + quit_btn['height']:
+                    elif if_clicked(quit_btn,event) == True:
                         # Go back to the main menu
                         correct.clear()
                         incorrect.clear()
@@ -316,8 +233,7 @@ def lesson(unit, _lesson, correct, incorrect):
         # End of the game loop
         final_message = "Thank you for playing!"
         final_surface = font.render(final_message, True, (0, 0, 0))
-        screen.fill((255, 255, 255))  # Clear the screen for the final message
-        screen.blit(background_image, (0,0))
+        clear()
         screen.blit(final_surface, (50, 50))
         pygame.display.flip()  # Update the display
         pygame.time.delay(2000)  # Wait for 2 seconds before quitting
