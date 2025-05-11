@@ -1,6 +1,8 @@
 # Basic Functions
 import pygame
 
+# THINGS TO DO WITH SCREEN
+
 def pystart():
         pygame.init()
         # Set up the display
@@ -14,9 +16,18 @@ def clear(screen=pystart()):
         background_image = pygame.image.load('BG.webp')  # Load the image
         background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
         screen.blit(background_image, (0,0))
+
+def final_surface(final_message):
+        font = pygame.font.Font(None, 36)
+        final_surface = font.render(final_message, True, (0, 0, 0))
+        clear()
+        screen.blit(final_surface, (50, 50))
+        pygame.display.flip()  # Update the display
+        pygame.time.delay(2000)  # Wait for 2 seconds before quitting
+
 screen=pystart()
 
-#screen = pygame.display.set_mode((1200, 800))
+# THINGS TO DO WITH BUTTONS
 
 class button:
         def __init__(self, width, height, StartPos, text, font, fontsize, hover_color, main_color, text_offset, verticle_text_offset, text_color):
@@ -55,10 +66,16 @@ def btn(dict):
 
 def if_clicked(btn,event): # If the button is clicked
         if btn.StartPos['x'] <= event.pos[0] <= btn.StartPos['x'] + btn.width and btn.StartPos['y'] <= event.pos[1] <= btn.StartPos['y'] + btn.height:
+                click()
                 return True
         else:
                 return False
+        
+def display_buttons(buttons):
+        for x in list(buttons.values()):
+                btn(x)
 
+# THINGS TO DO WITH TEXT DISPLAY 
 
 def display(message, sec, x=50, y=50): # Displays a message on the screen by itself for a certain amount of seconds
     pystart()
@@ -225,15 +242,15 @@ def txt_input(x,y):
 
                 pygame.display.update()
 
-
-click_sound = pygame.mixer.Sound("click.mp3")
-startup_sound = pygame.mixer.Sound("startup.mp3")
+# THINGS TO DO WITH MUSIC
 
 def click():
+    click_sound = pygame.mixer.Sound("click.mp3")
     ####################################
     pygame.mixer.Sound.play(click_sound)
 
 def start_up():
+        startup_sound = pygame.mixer.Sound("startup.mp3")
         pygame.mixer.Sound.play(startup_sound)
 
 def bgm():
@@ -242,5 +259,3 @@ def bgm():
 
                        # pygame.display.update()
                        # pygame.time.delay(10)# delay .01 seconds#screen.fill((255, 255, 255))  # Clear the screen with a white background
-#txt_input(0,0)
-
