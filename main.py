@@ -2,10 +2,9 @@ import pygame
 import csv
 import random
 from spanish import lessons
-from basic_functions import btn, display, click, start_up, bgm, if_clicked, clear, button, pystart
+from basic_functions import  display, start_up, bgm, if_clicked, clear, button, pystart, display_buttons
 from basic_functions import *
-from log_in import get_log_in
-from account_creation import new_account
+from account_screens import new_account, get_log_in
 from account_handler import load
 
 # Define the Spanish or Vanish game
@@ -16,10 +15,7 @@ from account_handler import load
 screen = pystart()
 
 # Image background
-bird1 = pygame.image.load("logo_uwu.png")
-bird2 = pygame.transform.flip(bird1, True, False)  # Flip the image horizontally
-bird1 = pygame.transform.scale(bird1, (200, 200))  # Scale the image to fit the screen 
-bird2 = pygame.transform.scale(bird2, (200, 200))  # Scale the image to fit the screen
+
 buttons={
 'Quit_btn' :button(500, 50, {"x" :  325,"y" : 630},"Quit", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255)),
 'Account_create_btn' : button(500, 50, {"x" :  325,"y" : 530},"Create Account", "Arial", 35, (80,80,80), (40,40,40), 150, 0, (255,255,255)),
@@ -33,9 +29,7 @@ def main_menu():
         while running:
             clear()
             display_buttons(buttons)
-
-            screen.blit(bird1, (30, 0)) # Draw the first bird image at (0, 0)
-            screen.blit(bird2, (900,0))
+            birds()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
@@ -58,6 +52,9 @@ def main_menu():
                         
 
                     elif if_clicked(buttons['Log_in_btn'],event) == True: # If Log In button clicked
+                        #name = get_log_in()
+                        name = 'cecily'
+                        acc = load(name)
                         lessons(acc)
 
             pygame.display.flip()  # Update the display

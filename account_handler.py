@@ -84,12 +84,11 @@ def load(name): # loads account from csv
         for line in reader:
             if line[0] == name:
                user = User(line[0], line[1], line[2], line[3], line[4], line[5], line[6])
+               #streak_update(user)
                return user
         else: # stupid proofing
             #print("Account not found.")
             return False
-        
-
 
 def new_account(name,password): # 
     name=name.strip()

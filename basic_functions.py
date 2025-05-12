@@ -8,12 +8,12 @@ def pystart():
         # Set up the display
         screen = pygame.display.set_mode((1200, 800))
         pygame.display.set_caption('Spanish or Vanish')
-        pygame.display.set_icon(pygame.image.load('logo_uwu.png'))
+        pygame.display.set_icon(pygame.image.load('images/logo_uwu.png'))
         return(screen)
 
 def clear(screen=pystart()):
         screen.fill((255, 255, 255))
-        background_image = pygame.image.load('BG.webp')  # Load the image
+        background_image = pygame.image.load('images/BG.webp')  # Load the image
         background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
         screen.blit(background_image, (0,0))
 
@@ -24,6 +24,14 @@ def final_surface(final_message):
         screen.blit(final_surface, (50, 50))
         pygame.display.flip()  # Update the display
         pygame.time.delay(2000)  # Wait for 2 seconds before quitting
+
+def birds():
+        bird1 = pygame.image.load("images/logo_uwu.png")
+        bird2 = pygame.transform.flip(bird1, True, False)  # Flip the image horizontally
+        bird1 = pygame.transform.scale(bird1, (200, 200))  # Scale the image to fit the screen 
+        bird2 = pygame.transform.scale(bird2, (200, 200))  # Scale the image to fit the screen
+        screen.blit(bird1, (30, 0)) # Draw the first bird image at (0, 0)
+        screen.blit(bird2, (900,0))
 
 screen=pystart()
 
@@ -245,16 +253,16 @@ def txt_input(x,y):
 # THINGS TO DO WITH MUSIC
 
 def click():
-    click_sound = pygame.mixer.Sound("click.mp3")
+    click_sound = pygame.mixer.Sound("sounds/click.mp3")
     ####################################
     pygame.mixer.Sound.play(click_sound)
 
 def start_up():
-        startup_sound = pygame.mixer.Sound("startup.mp3")
+        startup_sound = pygame.mixer.Sound("sounds/startup.mp3")
         pygame.mixer.Sound.play(startup_sound)
 
 def bgm():
-    pygame.mixer.music.load("background.mp3")
+    pygame.mixer.music.load("sounds/background.mp3")
     pygame.mixer.music.play(-1)  # Loop the music indefinitely
 
                        # pygame.display.update()

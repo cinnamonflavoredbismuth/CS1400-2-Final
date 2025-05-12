@@ -3,7 +3,7 @@ import csv
 import random
 from basic_functions import *
 from lesson import lesson
-from basic_functions import  button, pystart, clear, if_clicked, btn
+from basic_functions import  button, pystart, clear, if_clicked, btn, display_buttons, final_surface
 
 
 # Define the Spanish or Vanish game
@@ -32,8 +32,6 @@ def lesson_select(unit):
     'lesson_7_btn' : lesson_btn({"x" :  650,"y" : 400},7),
     'return_btn' : button(500, 50, {"x" :  650,"y" : 500},"Return", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255))
 }
-    
-
 
 
     # Load lessons and questions from CSV
@@ -59,7 +57,7 @@ def lesson_select(unit):
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                if if_clicked(['lesson_1_btn'],event) == True: # If  quit button clicked
+                if if_clicked(buttons['lesson_1_btn'],event) == True: # If  quit button clicked
                     # Go back to the main menu
                     _lesson = ' 1'
                     
@@ -73,7 +71,7 @@ def lesson_select(unit):
                     running = False
 
                 elif if_clicked(buttons['lesson_3_btn'],event) == True:
-                    _lesson = '3'
+                    _lesson = ' 3'
                     
                     lesson(unit, _lesson, [], [])
                     running = False
@@ -97,7 +95,7 @@ def lesson_select(unit):
                     running = False
 
                 elif if_clicked(buttons['lesson_7_btn'],event) == True:
-                    _lesson = '7'
+                    _lesson = ' 7'
                     
                     lesson(unit, _lesson, [], [])
                     running = False
