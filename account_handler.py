@@ -61,7 +61,7 @@ Name: {self.name}
 
     def edit(self,delete=False): # FIX THIS LATER
         toWrite = []
-        with open("users.csv", "r") as file:
+        with open("csv_files/users.csv", "r") as file:
             reader = csv.reader(file)
             for row in reader:
                 if row[0] == self.name:
@@ -72,14 +72,14 @@ Name: {self.name}
                 else:
                     toWrite.append({'name':row[0], 'password':row[1], 'unit':row[2], 'lesson':row[3], 'streak':row[4], 'date':row[5], 'lives':row[6]})
         print(toWrite)
-        with open("users.csv", "w", newline='') as file:
+        with open("csv_files/users.csv", "w", newline='') as file:
             writer = csv.DictWriter(file, fieldnames=["name", "password", "unit", "lesson", "streak", "date", "lives"])
             writer.writerows(toWrite)
 
 
 
 def load(name): # loads account from csv
-    with open("users.csv", "r") as file:
+    with open("csv_files/users.csv", "r") as file:
         reader = csv.reader(file)
         for line in reader:
             if line[0] == name:
@@ -97,7 +97,7 @@ def new_account(name,password): #
     acc.basic()
     exists=load(name)
     if exists==False:
-        with open("users.csv", "a", newline='') as file:
+        with open("csv_files/users.csv", "a", newline='') as file:
             writer = csv.writer(file)
             writer.writerow(acc.export())
         display('account successfully created',3)
@@ -110,7 +110,7 @@ def log_in(name, password): # Checks to see if the user's inputted account exist
 
     def load_all(): # loads all accounts from csv
         accs=[]
-        with open("users.csv", "r") as file:
+        with open("csv_files/users.csv", "r") as file:
             reader = csv.reader(file)
             for line in reader:
                 accs.append(User(line[0], line[1], line[2], line[3], line[4], line[5], line[6]))
@@ -124,7 +124,7 @@ def log_in(name, password): # Checks to see if the user's inputted account exist
 
 def leaderboard():
     accs=[]
-    with open("users.csv", "r") as file:
+    with open("csv_files/users.csv", "r") as file:
         reader = csv.reader(file)
         for line in reader:
             accs.append(User(line[0], line[1], line[2], line[3], line[4], line[5], line[6]))

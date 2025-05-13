@@ -1,9 +1,6 @@
 import pygame
-import csv
-import random
-from spanish import lessons
-from basic_functions import  display, start_up, bgm, if_clicked, clear, button, pystart, display_buttons
-from basic_functions import *
+from stat_screen import lessons
+from basic_functions import  display, start_up, bgm, if_clicked, clear, button, pystart, display_buttons, birds
 from account_screens import new_account, get_log_in
 from account_handler import load
 
@@ -16,10 +13,10 @@ screen = pystart()
 
 # Image background
 
-buttons={
-'Quit_btn' :button(500, 50, {"x" :  325,"y" : 630},"Quit", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255)),
-'Account_create_btn' : button(500, 50, {"x" :  325,"y" : 530},"Create Account", "Arial", 35, (80,80,80), (40,40,40), 150, 0, (255,255,255)),
-'Log_in_btn' : button(500, 50, {"x" :  325,"y" : 430},"Log In", "Arial", 35, (80,80,80), (40,40,40), 200, 0, (255,255,255)),
+buttons = {
+'Quit_btn' :button(500, 50, {"x" :  325,"y" : 630},"Quit", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255),False),
+'Account_create_btn' : button(500, 50, {"x" :  325,"y" : 530},"Create Account", "Arial", 35, (80,80,80), (40,40,40), 150, 0, (255,255,255),False),
+'Log_in_btn' : button(500, 50, {"x" :  325,"y" : 430},"Log In", "Arial", 35, (80,80,80), (40,40,40), 200, 0, (255,255,255),False),
 }
 # Main loop
 def main_menu():
@@ -49,8 +46,6 @@ def main_menu():
                             print(acc)
                             lessons(acc)
 
-                        
-
                     elif if_clicked(buttons['Log_in_btn'],event) == True: # If Log In button clicked
                         #name = get_log_in()
                         name = 'cecily'
@@ -61,7 +56,7 @@ def main_menu():
             pygame.time.delay(100)  # Delay to control frame rate
 
 
-        #display("Thank you for playing!",3)
+        #display("Thank you for playing!",2) ----------------------------------------------------------------------------------------
         pygame.quit()
         break
 

@@ -3,14 +3,14 @@ import csv
 import random
 from basic_functions import *
 from lesson import lesson
-from basic_functions import  button, pystart, clear, if_clicked, btn, display_buttons, final_surface
+from basic_functions import  button, pystart, clear, if_clicked, display_buttons, display, wrong_sound
 
 
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
 # The game will display a lesson and multiple options, and the user has to select the correct one.
 # The game will be played using Pygame, a popular library for creating games in Python.
-def lesson_select(unit):
+def lesson_select(unit, acc):
     # Define the Spanish or Vanish game
     # This is a simple game where the user selects the correct answer from multiple options.
     # The game will display a lesson and multiple options, and the user has to select the correct one.
@@ -19,24 +19,24 @@ def lesson_select(unit):
     # Initialize Pygame
     pystart()
 
-    def lesson_btn(coords,num):
-        return button(500, 50, coords,f"Lesson {num}", "Arial", 35, (80,80,80), (40,40,40), 175, 0, (255,255,255))
+    def lesson_btn(coords,num,status):
+        return button(500, 50, coords,f"Lesson {num}", "Arial", 35, (80,80,80), (40,40,40), 175, 0, (255,255,255),status)
     #Set up buttons
     buttons={
-    'lesson_1_btn' : lesson_btn({"x" :  50,"y" : 200},1),
-    'lesson_2_btn' : lesson_btn({"x" :  50,"y" : 300}, 2),
-    'lesson_3_btn': lesson_btn({"x" :  50,"y" : 400},3),
-    'lesson_4_btn' : lesson_btn({"x" :  50,"y" : 500},4),
-    'lesson_5_btn' : lesson_btn({"x" :  650,"y" : 200},5),
-    'lesson_6_btn' : lesson_btn({"x" :  650,"y" : 300},6),
-    'lesson_7_btn' : lesson_btn({"x" :  650,"y" : 400},7),
-    'return_btn' : button(500, 50, {"x" :  650,"y" : 500},"Return", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255))
+    'lesson_1_btn' : lesson_btn({"x" :  50,"y" : 200},1,False),
+    'lesson_2_btn' : lesson_btn({"x" :  50,"y" : 300}, 2,False),
+    'lesson_3_btn': lesson_btn({"x" :  50,"y" : 400},3,False),
+    'lesson_4_btn' : lesson_btn({"x" :  50,"y" : 500},4,False),
+    'lesson_5_btn' : lesson_btn({"x" :  650,"y" : 200},5,False),
+    'lesson_6_btn' : lesson_btn({"x" :  650,"y" : 300},6,False),
+    'lesson_7_btn' : lesson_btn({"x" :  650,"y" : 400},7,False),
+    'return_btn' : button(500, 50, {"x" :  650,"y" : 500},"Return", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255),False)
 }
 
 
     # Load lessons and questions from CSV
     lessons = []
-    with open('Lessons.csv', 'r') as file:
+    with open('csv_files/Lessons.csv', 'r') as file:
         reader = csv.reader(file)
         for row in reader:
             lessons.append(row)
@@ -59,47 +59,69 @@ def lesson_select(unit):
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if if_clicked(buttons['lesson_1_btn'],event) == True: # If  quit button clicked
                     # Go back to the main menu
-                    _lesson = ' 1'
-                    
-                    lesson(unit, _lesson, [], [])
-                    running = False
+                    if int(acc.lesson) >= 1:
+                        _lesson = ' 1'
+                        
+                        lesson(unit, _lesson, [], [],acc)
+                        running = False
+                    else:
+                        wrong_sound()
+                        pass
 
                 elif if_clicked(buttons['lesson_2_btn'],event) == True:
-                    _lesson = ' 2'
-                    
-                    lesson(unit, _lesson, [], [])
-                    running = False
-
+                    if int(acc.lesson) >= 2:
+                        _lesson = ' 2'
+                        
+                        lesson(unit, _lesson, [], [],acc)
+                        running = False
+                    else:
+                        wrong_sound()
+                        pass
                 elif if_clicked(buttons['lesson_3_btn'],event) == True:
-                    _lesson = ' 3'
-                    
-                    lesson(unit, _lesson, [], [])
-                    running = False
-                
+                    if int(acc.lesson) >= 3:
+                        _lesson = ' 3'
+                        
+                        lesson(unit, _lesson, [], [],acc)
+                        running = False
+                    else:
+                        wrong_sound()
+                        pass
                 elif if_clicked(buttons['lesson_4_btn'],event) == True:
-                    _lesson = ' 4'
-                    
-                    lesson(unit, _lesson, [], [])
-                    running = False
-
+                    if int(acc.lesson) >= 4:
+                        _lesson = ' 4'
+                        
+                        lesson(unit, _lesson, [], [],acc)
+                        running = False
+                    else:
+                        wrong_sound()
+                        pass
                 elif if_clicked(buttons['lesson_5_btn'],event) == True:
-                    _lesson = ' 5'
-                    
-                    lesson(unit, _lesson, [], [])
-                    running = False
-
+                    if int(acc.lesson) >= 5:
+                        _lesson = ' 5'
+                        
+                        lesson(unit, _lesson, [], [],acc)
+                        running = False
+                    else:
+                        wrong_sound()
+                        pass
                 elif if_clicked(buttons['lesson_6_btn'],event) == True:
-                    _lesson = ' 6'
-                    
-                    lesson(unit, _lesson, [], [])
-                    running = False
-
+                    if int(acc.lesson) >= 6:
+                        _lesson = ' 6'
+                        
+                        lesson(unit, _lesson, [], [],acc)
+                        running = False
+                    else:
+                        wrong_sound()
+                        pass
                 elif if_clicked(buttons['lesson_7_btn'],event) == True:
-                    _lesson = ' 7'
-                    
-                    lesson(unit, _lesson, [], [])
-                    running = False
-
+                    if int(acc.lesson) >= 7:
+                        _lesson = ' 7'
+                        
+                        lesson(unit, _lesson, [], [],acc)
+                        running = False
+                    else:
+                        wrong_sound()
+                        pass
                 if if_clicked(buttons['return_btn'],event) == True:
                     # Go back to the main menu
                     
@@ -109,5 +131,4 @@ def lesson_select(unit):
         pygame.time.delay(100)  # Delay to control frame rate
 
     # End of the game loop
-    final_message = "Returning to Unit Select Page!"
-    final_surface(final_message)
+    display("Returning to Unit Select Page!", 2)

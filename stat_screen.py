@@ -2,7 +2,7 @@ import pygame
 import csv
 import random
 from unit import unit_select
-from basic_functions import pystart, clear, if_clicked, final_surface, display_buttons, button #imported from basic_functions.py
+from basic_functions import pystart, clear, if_clicked, display, display_buttons, button #imported from basic_functions.py
 from account_handler import leaderboard, load
 
 # Define the Spanish or Vanish game
@@ -26,14 +26,14 @@ def lessons(acc):
 
         #Set up buttons
         buttons={
-        'Quit_btn' : button(500, 50, {"x" :  325,"y" : 630},"Quit", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255)),
-        'Start_btn' : button(500, 50, {"x" :  325,"y" : 530},"Start", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255)),
+        'Quit_btn' : button(500, 50, {"x" :  325,"y" : 630},"Quit", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255),False),
+        'Start_btn' : button(500, 50, {"x" :  325,"y" : 530},"Start", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255),False),
 
-        'Board' : button(325, 325, {"x" :  425,"y" : 125},"", "Arial", 35, (80,80,80), (80,80,80), 200, 0, (255,255,255))}
+        'Board' : button(325, 325, {"x" :  425,"y" : 125},"", "Arial", 35, (80,80,80), (80,80,80), 200, 0, (255,255,255),False)}
 
         # Load lessons and questions from CSV
         lessons = []
-        with open('Lessons.csv', 'r') as file:
+        with open('csv_files/Lessons.csv', 'r') as file:
             reader = csv.reader(file)
             for row in reader:
                 lessons.append(row)
@@ -72,15 +72,14 @@ def lessons(acc):
                         running = False
 
                     elif if_clicked(buttons['Start_btn'],event) == True: # If Start button clicked
-                        unit_select()
+                        unit_select(acc)
 
             pygame.display.flip()  # Update the display
             pygame.time.delay(100)  # Delay to control frame rate
 
         # End of the game loop
 
-        final_message = "Returning to Main Menu!"
-        final_surface(final_message)
+        display("Returning to Main Menu!", 2)
         break
 acc=load('cecily')
 #lessons(acc)
