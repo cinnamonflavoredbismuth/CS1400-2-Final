@@ -30,7 +30,7 @@ screen=pystart()
 # THINGS TO DO WITH BUTTONS
 
 class button: #       0     1       2       3         4     5     6        7        8         9         10                11              12        13
-        def __init__(self, width, height, StartPos, text, font, fontsize, hover_color, main_color, text_offset, verticle_text_offset, text_color, locked, line2='', line3=''): # This is the button class
+        def __init__(self, width, height, StartPos, text, font, fontsize, hover_color, main_color, text_offset, verticle_text_offset, text_color, locked): # This is the button class
                 self.width = width
                 self.height = height
                 self.StartPos = StartPos
@@ -43,8 +43,6 @@ class button: #       0     1       2       3         4     5     6        7    
                 self.verticle_text_offset = verticle_text_offset
                 self.text_color = text_color
                 self.locked = locked
-                self.line2 = line2
-                self.line3 = line3
         def __str__(self):
                 return f"""
                 Width: {self.width}
@@ -67,9 +65,7 @@ class button: #       0     1       2       3         4     5     6        7    
                 else: 
                         pygame.draw.rect(screen,self.main_color,[self.StartPos['x'],self.StartPos['y'],self.width,self.height]) # If mouse is not touching
                         screen.blit(pygame.font.SysFont(self.font,self.fontsize).render(self.text , True , self.text_color),(self.StartPos['x']+self.text_offset,self.StartPos['y']+self.verticle_text_offset)) # Putting text on the button
-                        screen.blit(pygame.font.SysFont(self.font,self.fontsize).render(self.line2 , True , self.text_color),(self.StartPos['x']+self.text_offset,self.StartPos['y']+self.verticle_text_offset+10)) # Putting text on the button
-                        screen.blit(pygame.font.SysFont(self.font,self.fontsize).render(self.line2 , True , self.text_color),(self.StartPos['x']+self.text_offset,self.StartPos['y']+self.verticle_text_offset+20)) # Putting text on the button
-
+        
 def if_clicked(btn,event): # If the button is clicked
         if btn.StartPos['x'] <= event.pos[0] <= btn.StartPos['x'] + btn.width and btn.StartPos['y'] <= event.pos[1] <= btn.StartPos['y'] + btn.height:
                 click()

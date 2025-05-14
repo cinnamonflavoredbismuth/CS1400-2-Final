@@ -33,7 +33,7 @@ def option_gather(unit, _lesson):
         for line in reader:
             if line[0] == unit:
                 if line[1] == _lesson:
-                    options.append([line[3],line[6],line[7]])
+                    options.append(line[3])
                     if len(options) == 5:
                         return options
     return options
@@ -155,10 +155,10 @@ def lesson(unit, _lesson, correct, incorrect,acc):
     random.shuffle(options)
 
     buttons={
-    'option1_btn' : button(300,150,{"x" :  250,"y" : 330},options[0[0]],"Arial",35,(200,200,200),(255,255,255), int(xoffset_gather(options[0])),int(yoffset_gather(options[0])),(50,50,50),False,options[0[1]],options[0[2]]),
-    'option2_btn' : button(300,150,{"x" :  650,"y" : 330},options[1[0]],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[1])),int(yoffset_gather(options[1])),(50,50,50),False,options[1[1]],options[1[2]]),
-    'option3_btn' :button(300, 150,{"x" :  250,"y" : 530},options[2[0]],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[2])), int(yoffset_gather(options[2])),(50,50,50),False,options[2[1]],options[2[2]]),
-    'option4_btn' : button(300,150,{"x" :  650,"y" : 530}, options[3[0]],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[3])),int(yoffset_gather(options[3])),(50,50,50),False,options[3[1]],options[3[2]]),
+    'option1_btn' : button(300,150,{"x" :  250,"y" : 330},options[0[0]],"Arial",35,(200,200,200),(255,255,255), int(xoffset_gather(options[0])),int(yoffset_gather(options[0])),(50,50,50),False),
+    'option2_btn' : button(300,150,{"x" :  650,"y" : 330},options[1[0]],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[1])),int(yoffset_gather(options[1])),(50,50,50),False),
+    'option3_btn' :button(300, 150,{"x" :  250,"y" : 530},options[2[0]],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[2])), int(yoffset_gather(options[2])),(50,50,50),False),
+    'option4_btn' : button(300,150,{"x" :  650,"y" : 530}, options[3[0]],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[3])),int(yoffset_gather(options[3])),(50,50,50),False),
     
     'quit_btn': button(250,50,{"x" :  10,"y" : 730},"Quit", "Arial",35,(200,200,200),(255,255,255),90,0,(50,50,50),False)
     }
