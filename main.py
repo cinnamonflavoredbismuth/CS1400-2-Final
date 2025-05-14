@@ -12,6 +12,8 @@ from account_handler import load
 screen = pystart()
 
 # Image background
+font = pygame.font.Font(None, 36)
+title_font = pygame.font.Font(None, 72)  # Larger font for the title
 
 buttons = {
 'Quit_btn' :button(500, 50, {"x" :  325,"y" : 630},"Quit", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255),False),
@@ -24,9 +26,13 @@ def main_menu():
     while True:
         running = True
         while running:
+            
             clear()
             display_buttons(buttons)
             birds()
+            title_text = title_font.render("Spanish or Vanish", True, (255, 255, 255))
+            title_rect = title_text.get_rect(center=(575, 100))  # Centered at the top of the screen
+            screen.blit(title_text, title_rect)   #This will display the question
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False

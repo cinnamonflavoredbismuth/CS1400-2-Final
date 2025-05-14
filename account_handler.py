@@ -33,8 +33,7 @@ class User: #
         if self.date == yesterday:
             self.streak=int(self.streak)+1
         else:
-            self.streak=0
-            self.subtract_life()
+            pass
 
     def unit_update(self, unit): #update unit
         self.unit = unit

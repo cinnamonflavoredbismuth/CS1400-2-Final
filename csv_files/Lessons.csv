@@ -1,44 +1,44 @@
-unit, lesson, question, answer,x-offset,y-offset
-Basics, 1, What is 'Yes' in spanish, Si,120,60
-Basics, 1, What is 'No' in spanish, No,120,60
-Basics, 1, What is 'Please' in spanish, Por favor,75,60
-Basics, 1, What is 'Thank you' in spanish, Gracias,75,60
-Basics, 1, What is 'Excuse me' in spanish, Disculpe me,50,60
-Basics, 2, What is 'Hello' in spanish, Hola,100,60
-Basics, 2, What is 'Goodbye' in spanish, Adios,100,60
-Basics, 2, What is 'My name is' in spanish, Me llamo,75,60
-Basics, 2, What is 'What is your name?' in spanish, Como te llamas?,10,60
-Basics, 2, What is 'What is your social security number?' in spanish, Cual es tu numero de seguro social?,0,60   
-Basics, 3, What is 'How are you?' in spanish, Como estas?,50,60
-Basics, 3, What is 'I'm good' in spanish, Estoy bien,65,60
-Basics, 3, What is 'I'm bad' in spanish, Estoy mal,65,60
-Basics, 3, What is 'I'm tired' in spanish, Estoy cansado,30,60
-Basics, 3, What is 'I'm hungry' in spanish, Tengo hambre,30,60
-Basics, 4, What is 'I hate you' in spanish, Te odio,75,60
-Basics, 4, What is 'I love you' in spanish, Te quiero,60,60
-Basics, 4, What is 'I miss you' in spanish, Te extrano,60,60
-Basics, 4, What is 'I like you' in spanish, Me gustas,60,60
-Basics, 4, What is 'I don't like you' in spanish, No me gustas,30,60
-Basics, 5, What is 'I am' in spanish, Soy,120,60
-Basics, 5, What is 'I am from' in spanish, Soy de,85,60
-Basics, 5, What is 'I am going to' in spanish, Voy a,85,60
-Basics, 5, What is 'Where are you from?' in spanish, De donde eres?,20,60
-Basics, 5, What is 'Where are you going?' in spanish, A donde vas?,40,60
-Basics, 6, What is 'Gracias' in english, Thank you,60,60
-Basics, 6, What is 'Por favor' in english, Please,90,60
-Basics, 6, What is 'Hola' in english, Hello,100,60
-Basics, 6, What is 'Adios' in english, Goodbye,75,60
-Basics, 6, What is 'Cual es tu numero de seguro social?' in english, What is your social security number?,0,60
-Basics, 7, What is 'Como estas?' in english, How are you?,40,60
-Basics, 7, What is 'Estoy bien' in english, I'm good,75,60
-Basics, 7, What is 'Te quiero' in english, I love you,75,60
-Basics, 7, What is 'Me gustas' in english, I like you,75,60
-Basics, 7, What is 'Soy de' in english, I am from,75,60
-Directions, 1, What is 'It is right here' in spanish, Esta justo aqui?,20,60
-Directions, 1, What is 'Where is that?' in spanish, Donde esta eso?,20,60
-Directions, 1, What is 'It's over there' in spanish, Esta por alla,40,60
-Directions, 1, What is 'It's over here' in spanish, por aqui,60,60
-Directions, 1, What is 'It's in front of you' in spanish, Esta enfrente de ti,0,60
+unit, lesson, question, answer,x-offset,y-offset,line 2,line 3
+Basics, 1, What is 'Yes' in spanish, Si,120,60, , 
+Basics, 1, What is 'No' in spanish, No,120,60, ,
+Basics, 1, What is 'Please' in spanish, Por favor,75,60, ,
+Basics, 1, What is 'Thank you' in spanish, Gracias,75,60, ,
+Basics, 1, What is 'Excuse me' in spanish, Disculpe me,50,60, ,
+Basics, 2, What is 'Hello' in spanish, Hola,100,60, ,
+Basics, 2, What is 'Goodbye' in spanish, Adios,100,60, ,
+Basics, 2, What is 'My name is' in spanish, Me llamo,75,60, ,
+Basics, 2, What is 'What is your name?' in spanish,Como te llamas?,10,60, ,
+Basics, 2, What is 'What is your social security number?' in spanish, Cual es tu,10,60, numero de seguro, social?
+Basics, 3, What is 'How are you?' in spanish, Como estas?,50,60, ,
+Basics, 3, What is 'I'm good' in spanish, Estoy bien,65,60, ,
+Basics, 3, What is 'I'm bad' in spanish, Estoy mal,65,60, ,
+Basics, 3, What is 'I'm tired' in spanish, Estoy cansado,30,60, ,
+Basics, 3, What is 'I'm hungry' in spanish, Tengo hambre,30,60, ,
+Basics, 4, What is 'I hate you' in spanish, Te odio,75,60, ,
+Basics, 4, What is 'I love you' in spanish, Te quiero,60,60, ,
+Basics, 4, What is 'I miss you' in spanish, Te extrano,60,60, ,
+Basics, 4, What is 'I like you' in spanish, Me gustas,60,60, ,
+Basics, 4, What is 'I don't like you' in spanish, No me gustas,30,60, ,
+Basics, 5, What is 'I am' in spanish, Soy,120,60, ,
+Basics, 5, What is 'I am from' in spanish, Soy de,85,60, ,
+Basics, 5, What is 'I am going to' in spanish, Voy a,85,60, ,
+Basics, 5, What is 'Where are you from?' in spanish, De donde eres?,20,60, ,
+Basics, 5, What is 'Where are you going?' in spanish, A donde vas?,40,60, ,
+Basics, 6, What is 'Gracias' in english, Thank you,60,60, ,
+Basics, 6, What is 'Por favor' in english, Please,90,60, ,
+Basics, 6, What is 'Hola' in english, Hello,100,60, ,
+Basics, 6, What is 'Adios' in english, Goodbye,75,60, ,                                         
+Basics, 6, What is 'Cual es tu numero de seguro social?' in english, What is your social,10,60, security number?,
+Basics, 7, What is 'Como estas?' in english, How are you?,40,60, ,
+Basics, 7, What is 'Estoy bien' in english, I'm good,75,60, ,
+Basics, 7, What is 'Te quiero' in english, I love you,75,60, ,
+Basics, 7, What is 'Me gustas' in english, I like you,75,60, ,
+Basics, 7, What is 'Soy de' in english, I am from,75,60, ,
+Directions, 1, What is 'It is right here' in spanish, Esta justo aqui?,20,60, ,
+Directions, 1, What is 'Where is that?' in spanish, Donde esta eso?,20,60, ,
+Directions, 1, What is 'It's over there' in spanish, Esta por alla,40,60, ,
+Directions, 1, What is 'It's over here' in spanish, por aqui,60,60, , Como te llamas?
+Directions, 1, What is 'It's in front of you' in spanish, Esta enfrente de,10,60, ti,
 Directions, 2, What is 'Where is the bathroom?' in spanish, Donde esta el bano?,0,0
 Directions, 2, What is 'Where is the airport?' in spanish, Donde esta el aeropuerto?,0,0
 Directions, 2, What is 'Where is the doctor's office?' in spanish, Donde esta la oficina del doctor?,0,0

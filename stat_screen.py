@@ -4,6 +4,7 @@ import random
 from unit import unit_select
 from basic_functions import pystart, clear, if_clicked, display, display_buttons, button #imported from basic_functions.py
 from account_handler import leaderboard, load
+import time
 
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
@@ -71,7 +72,8 @@ def lessons(acc):
                         # Go back to the main menu
                         running = False
 
-                    elif if_clicked(buttons['Start_btn'],event) == True: # If Start button clicked
+                    elif if_clicked(buttons['Start_btn'],event) == True: # If Start button 
+                        time.sleep(0.5)
                         unit_select(acc)
 
             pygame.display.flip()  # Update the display
