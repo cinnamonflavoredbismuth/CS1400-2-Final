@@ -157,19 +157,18 @@ def lesson(unit, _lesson, correct, incorrect,acc):
         options = [option1, option2, option3, option4]
         random.shuffle(options)
 
-        buttons={
-        'option1_btn' : button(300,150,{"x" :  250,"y" : 330},options[0],"Arial",35,(200,200,200),(255,255,255), int(xoffset_gather(options[0])),int(yoffset_gather(options[0])),(50,50,50),False),
-        'option2_btn' : button(300,150,{"x" :  650,"y" : 330},options[1],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[1])),int(yoffset_gather(options[1])),(50,50,50),False),
-        'option3_btn' : button(300, 150,{"x" :  250,"y" : 530},options[2],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[2])), int(yoffset_gather(options[2])),(50,50,50),False),
-        'option4_btn' : button(300,150,{"x" :  650,"y" : 530}, options[3],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[3])),int(yoffset_gather(options[3])),(50,50,50),False),
-        'quit_btn': button(250,50,{"x" :  10,"y" : 730},"Quit", "Arial",35,(200,200,200),(255,255,255),90,0,(50,50,50),False)
-        }
-        question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
-        while True:
-            running = True
-            while running:
-                clear()
-                screen.blit(question_text, question_rect)   #This will display the question
+    buttons={
+    'option1_btn' : button(300,150,{"x" :  250,"y" : 330},options[0],"Arial",35,(200,200,200),(255,255,255), int(xoffset_gather(options[0])),int(yoffset_gather(options[0])),(50,50,50),False),
+    'option2_btn' : button(300,150,{"x" :  650,"y" : 330},options[1],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[1])),int(yoffset_gather(options[1])),(50,50,50),False),
+    'option3_btn' :button(300, 150,{"x" :  250,"y" : 530},options[2],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[2])), int(yoffset_gather(options[2])),(50,50,50),False),
+    'option4_btn' : button(300,150,{"x" :  650,"y" : 530}, options[3],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[3])),int(yoffset_gather(options[3])),(50,50,50),False),
+    
+    'quit_btn': button(250,50,{"x" :  10,"y" : 730},"Quit", "Arial",35,(200,200,200),(255,255,255),90,0,(50,50,50),False)
+    }
+    question_rect = question_text.get_rect(center=(600, 100))  # Centered at the top of the screen
+    while running:
+        clear()
+        screen.blit(question_text, question_rect)   #This will display the question
 
                 #This is where we will call the buttons 
                 display_buttons(buttons)
@@ -197,7 +196,6 @@ def lesson(unit, _lesson, correct, incorrect,acc):
                             
                             running = False
 
-                            
 
                 pygame.display.flip()  # Update the display
                 pygame.time.delay(100)  # Delay to control frame rat
@@ -209,3 +207,10 @@ def lesson(unit, _lesson, correct, incorrect,acc):
 lesson('Basics',' 1',[],[],acc)'''
 #print(question_gather())
 
+    # End of the game loop
+    display("Thank you for playing!", 2)
+    
+#lesson()
+#print(question_gather())
+acc = load('cecily')
+lesson('Basics', " 1", [], [], acc)

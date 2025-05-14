@@ -66,12 +66,13 @@ class button: #       0     1       2       3         4     5     6        7    
                         pygame.draw.rect(screen,self.main_color,[self.StartPos['x'],self.StartPos['y'],self.width,self.height]) # If mouse is not touching
                         screen.blit(pygame.font.SysFont(self.font,self.fontsize).render(self.text , True , self.text_color),(self.StartPos['x']+self.text_offset,self.StartPos['y']+self.verticle_text_offset)) # Putting text on the button
         
-def if_clicked(btn,event): # If the button is clicked
-        if btn.StartPos['x'] <= event.pos[0] <= btn.StartPos['x'] + btn.width and btn.StartPos['y'] <= event.pos[1] <= btn.StartPos['y'] + btn.height:
-                click()
-                return True
-        else:
-                return False
+def if_clicked(btn, event):
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        x, y = event.pos  # This is safe now
+        if btn.StartPos['x'] <= x <= btn.StartPos['x'] + btn.width and btn.StartPos['y'] <= y <= btn.StartPos['y'] + btn.height:
+            click()
+            return True
+    return False
         
 def display_buttons(buttons): # 
         for x in list(buttons.values()):

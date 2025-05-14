@@ -15,10 +15,10 @@ def unit_select(acc):
         # Initialize Pygame
         pystart()
         #Set up buttons
-        buttons={'unit1_btn' : button(500,50,{"x" :  325,"y" : 330},"Unit 1", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255),False),
-        'unit2_btn' : button(500,50,{"x" :  325,"y" : 430},"Unit 2", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255),False),
-        'unit3_btn' : button(500,50,{"x" :  325,"y" : 530},"Unit 3", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255),False),
-        'unit4_btn' : button(500,50,{"x" :  325,"y" : 630},"Unit 4", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255),False),
+        buttons={'unit1_btn' : button(500,50,{"x" :  325,"y" : 130},"Unit 1", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255),False),
+        'unit2_btn' : button(500,50,{"x" :  325,"y" : 230},"Unit 2", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255),False),
+        'unit3_btn' : button(500,50,{"x" :  325,"y" : 330},"Unit 3", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255),False),
+        'unit4_btn' : button(500,50,{"x" :  325,"y" : 430},"Unit 4", "Arial", 35, (80,80,80), (40,40,40), 215, 0, (255,255,255),False),
         'return_btn' : button(250, 50, {"x" :  10,"y" : 730},"Return", "Arial",35,(80,80,80),(40,40,40),75,0,(255,255,255),False)}
 
         # Load lessons and questions from CSV

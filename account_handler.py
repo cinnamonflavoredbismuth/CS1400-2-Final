@@ -43,7 +43,7 @@ class User: # The class that creates user account objects
 
     def __str__(self): #Show account info
         return f"""
-Name: {self.name}
+    Name: {self.name}
     Password: {self.password}
     Unit: {self.unit}
     Streak: {self.streak} days
