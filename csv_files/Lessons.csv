@@ -1,4 +1,4 @@
-unit, lesson, question, answer,x-offset,y-offset,line 2,line 3
+unit, lesson, question, answer,x-offset,y-offset
 Basics, 1, What is 'Yes' in spanish, Si,120,60 
 Basics, 1, What is 'No' in spanish, No,120,60
 Basics, 1, What is 'Please' in spanish, Por favor,75,60
@@ -37,7 +37,7 @@ Basics, 7, What is 'Soy de' in english, I am from,75,60
 Directions, 1, What is 'It is right here' in spanish, Esta justo aqui?,20,60
 Directions, 1, What is 'Where is that?' in spanish, Donde esta eso?,20,60
 Directions, 1, What is 'It's over there' in spanish, Esta por alla,40,60
-Directions, 1, What is 'It's over here' in spanish, por aqui,60,60 Como te llamas?
+Directions, 1, What is 'It's over here' in spanish, por aqui,60,60
 Directions, 1, What is 'It's in front of you' in spanish, Esta enfrente de ti,5,60,
 Directions, 2, What is 'Where is the bathroom?' in spanish, Donde esta el bano?,5,60
 Directions, 2, What is 'Where is the store?' in spanish, Donde esta la tienda?,5,60

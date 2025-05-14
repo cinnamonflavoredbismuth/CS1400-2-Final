@@ -4,6 +4,7 @@ import random
 from basic_functions import birds, pystart, display_buttons, display, wrong_sound
 from lesson_select import lesson_select, if_clicked, clear, button, click
 import time
+from account_handler import load
 
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
@@ -46,14 +47,12 @@ def unit_select(acc):
                     if if_clicked(buttons['unit1_btn'],event) == True:
                         # Go back to the main menu
                         unit = 'Basics'
-                        time.sleep(0.5)
                         lesson_select(unit, acc)
                         running = False
 
                 elif if_clicked(buttons['unit2_btn'],event) == True:
                     if int(acc.unit) >= 2:
                         unit = 'Directions'
-                        time.sleep(0.5)
                         lesson_select(unit, acc)
                         running = False
                     else:
@@ -63,7 +62,6 @@ def unit_select(acc):
                 elif if_clicked(buttons['unit3_btn'],event) == True:
                     if int(acc.unit) >= 3:
                         unit = 'Small Talk'
-                        time.sleep(0.5)
                         lesson_select(unit, acc)
                         running = False
                     else:
@@ -73,7 +71,6 @@ def unit_select(acc):
                 elif if_clicked(buttons['unit4_btn'],event) == True:
                     if int(acc.unit) > 4:
                         unit = 'Food'
-                        time.sleep(0.5)
                         lesson_select(unit, acc)
                         running = False
                     else:
@@ -95,4 +92,5 @@ def unit_select(acc):
         display("Returning to Stat Page!", 2)
         break
 
-
+'''acc=load('cecily')
+unit_select(acc)'''
