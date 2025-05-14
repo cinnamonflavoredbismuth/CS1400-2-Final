@@ -1,22 +1,18 @@
 import pygame
 import csv
 import random
-from basic_functions import *
-from lesson import lesson
-from basic_functions import  button, pystart, clear, if_clicked, display_buttons, display, wrong_sound
 import time
+from basic_functions import pystart, clear, display_buttons, if_clicked, display, wrong_sound, button
+from lesson import lesson
 
 
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
 # The game will display a lesson and multiple options, and the user has to select the correct one.
 # The game will be played using Pygame, a popular library for creating games in Python.
-def lesson_select(unit, acc):
+
+def lesson_select(unit, acc): # Lets the user pick which lesson they want to do
     time.sleep(0.5)
-    # Define the Spanish or Vanish game
-    # This is a simple game where the user selects the correct answer from multiple options.
-    # The game will display a lesson and multiple options, and the user has to select the correct one.
-    # The game will be played using Pygame, a popular library for creating games in Python.
 
     # Initialize Pygame
     pystart()

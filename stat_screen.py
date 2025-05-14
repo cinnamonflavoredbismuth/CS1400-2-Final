@@ -11,7 +11,7 @@ import time
 # The game will display a lesson and multiple options, and the user has to select the correct one.
 # The game will be played using Pygame, a popular library for creating games in Python.
 
-def lessons(acc):
+def lessons(acc): # Displays the user's streak, the streak leaderboard, and the options to start or quit
     while True:
         
         # Initialize Pygame

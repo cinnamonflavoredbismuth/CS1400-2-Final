@@ -1,4 +1,4 @@
-# Miscellaneus
+# Accuracy Graph -Luke Murdock
 import matplotlib.pyplot as plt
 from basic_functions import *
 

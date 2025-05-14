@@ -5,7 +5,7 @@ import csv
 from basic_functions import display
 
 class User: # The class that creates user account objects
-    def __init__(self, name,password,unit,lesson,streak,date,lives): # 
+    def __init__(self, name,password,unit,lesson,streak,date,lives): # User Class object creator
         self.name = name
         self.password = password
         self.unit = unit

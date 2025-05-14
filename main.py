@@ -21,12 +21,11 @@ buttons = {
 'Log_in_btn' : button(500, 50, {"x" :  325,"y" : 430},"Log In", "Arial", 35, (80,80,80), (40,40,40), 200, 0, (255,255,255),False),
 }
 # Main loop
-def main_menu():
+def main_menu(): # This creates the starting screen with the options of log_in, create_account, and quit.
     bgm()
     while True:
         running = True
         while running:
-            
             clear()
             display_buttons(buttons)
             birds()
@@ -66,7 +65,7 @@ def main_menu():
         pygame.quit()
         break
 
-def main():
+def main(): # Plays start up sound and then starts the program's main menu
     start_up()
     main_menu()
 

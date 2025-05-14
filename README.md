@@ -1,8 +1,12 @@
 # CS1400-2-Final
 
 ## Project Description
----
-Paragraph describing the purpose of your project and what it does.  
+---  
+Spanish or Vanish
+This is a simple game where the user can increase a streak for every day they do a Spanish lesson.
+This game has the following units: 
+The game will display a lesson and multiple options, and the user has to select the correct one.
+This program will be played using Pygame, a popular library for creating games in Python.
 
 ## Installation
 ---
@@ -10,7 +14,7 @@ Not used for this class
 
 ## Execution and Usage
 ---
-Paragraph describing how to use the project
+To use this project one must play the main file with pygame and matplotlib already installed. This will open up a pygame window with options to create a new account, log in, or quit. Once signed in, you can see your streak and the leaderboard composed of the people with the top five streak lengths. You can press the start button to then be able to pick which unit and lesson you want to do. You will take a short quiz on how well you know your Spanish in this lesson's category of concepts. After finishing a lesson, your streak will increase for the day and you can then come back the next day to increase your Spanish langauge understanding.
 
 ![image](relative path to the image NOTE: Image has to be saved in the repository REMINDER: Show what the project looks like when running)  
 
@@ -19,15 +23,13 @@ Paragraph describing how to use the project
 + Pygame
 `pip install pygame`
 + Matplotlib
-`pip install matplotlib`
-+ Third library in the repository
-`pip install code for the library`  
+`pip install matplotlib`  
 
 ## Current Features
 ---
-+ First feature I am proud of
-+ Second feature I am proud of
-+ Third feature I am proud of  
++ First feature I am proud of is using pygame and making it work
++ Second feature I am proud of is making text input for pygame
++ Third feature I am proud of is making sounds play when certain things happen
 
 ## Contributions
 ---
@@ -35,9 +37,10 @@ Not used for this class
 
 ## Contributors
 ---
-+ Person who helped - what they did
-+ Person who helped - what they did
-+ Person who helped - what they did  
++ Ms. LaRose - what they did
++ Copilot - what they did
++ Documentation of Libraries - what they did  
++ The Internet? - what they did  
 
 ## Author's Information
 ---
