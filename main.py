@@ -70,4 +70,4 @@ def main(): # Plays start up sound and then starts the program's main menu
     start_up()
     main_menu()
 
-main()
+#main()

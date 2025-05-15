@@ -10,12 +10,13 @@ def new_account(): # Lets the user input their name amd password for their new a
         clear()
         # find the x and y for acc creation
         display("Name:", 0,x=0,y=0)
-        name=(txt_input(0,20))
+        name=(txt_input(-30,20))
         print(name)
         clear()
         display("Password", 0,x=0,y=0)
-        password=(txt_input(0,20))
+        password=(txt_input(30,20))
         acc=new(name,password)
+        clear()
         if acc == False:
             display("Account already exists", 3,x=0,y=0)
             return None
@@ -23,7 +24,7 @@ def new_account(): # Lets the user input their name amd password for their new a
             display("Account created", 3,x=0,y=0)
             return name
 #new_account()
-
+new_account()
 
 # Log In -Luke Murdock
 

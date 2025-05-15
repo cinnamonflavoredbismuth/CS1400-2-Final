@@ -73,13 +73,15 @@ class User: # The class that creates user account objects
         with open("csv_files/users.csv", "r") as file:
             reader = csv.reader(file)
             for row in reader:
-                if row[0] == self.name:
-                    if delete==False:
-                        exported=self.export()
-                        toWrite.append({'name':exported[0], 'password':exported[1], 'unit':exported[2], 'lesson':exported[3], 'streak':exported[3], 'date':exported[4], 'lives':exported[5]})
-                    else: pass
-                else:
-                    toWrite.append({'name':row[0], 'password':row[1], 'unit':row[2], 'lesson':row[3], 'streak':row[4], 'date':row[5], 'lives':row[6]})
+                try:
+                    if row[0] == self.name:
+                        if delete==False:
+                            exported=self.export()
+                            toWrite.append({'name':exported[0], 'password':exported[1], 'unit':exported[2], 'lesson':exported[3], 'streak':exported[3], 'date':exported[4], 'lives':exported[5]})
+                        else: pass
+                    else:
+                        toWrite.append({'name':row[0], 'password':row[1], 'unit':row[2], 'lesson':row[3], 'streak':row[4], 'date':row[5], 'lives':row[6]})
+                except: pass
         print(toWrite)
         with open("csv_files/users.csv", "w", newline='') as file:
             writer = csv.DictWriter(file, fieldnames=["name", "password", "unit", "lesson", "streak", "date", "lives"])
@@ -91,10 +93,12 @@ def load(name): # loads account from csv
     with open("csv_files/users.csv", "r") as file:
         reader = csv.reader(file)
         for line in reader:
-            if line[0] == name:
-               user = User(line[0], line[1], line[2], line[3], line[4], line[5], line[6])
-               #streak_update(user)
-               return user
+            try:
+                if line[0] == name:
+                    user = User(line[0], line[1], line[2], line[3], line[4], line[5], line[6])
+                #streak_update(user)
+                return user
+            except: pass
         else: # stupid proofing
             #print("Account not found.")
             return False
@@ -109,9 +113,9 @@ def new_account(name,password): # Creates a new user account with given informat
         with open("csv_files/users.csv", "a", newline='') as file:
             writer = csv.writer(file)
             writer.writerow(acc.export())
-        display('account successfully created',3)
+        #display('account successfully created',3)
     else:
-        display('account already exists',3)
+        #display('account already exists',3)
 
         return False
    
@@ -122,7 +126,9 @@ def log_in(name, password): # Checks to see if the user's inputted account exist
         with open("csv_files/users.csv", "r") as file:
             reader = csv.reader(file)
             for line in reader:
-                accs.append(User(line[0], line[1], line[2], line[3], line[4], line[5], line[6]))
+                try:
+                    accs.append(User(line[0], line[1], line[2], line[3], line[4], line[5], line[6]))
+                except: pass
             return accs
             
     accs = load_all()
@@ -136,7 +142,9 @@ def leaderboard(): # Returns a sorted list of all of the users by their streak a
     with open("csv_files/users.csv", "r") as file:
         reader = csv.reader(file)
         for line in reader:
-            accs.append(User(line[0], line[1], line[2], line[3], line[4], line[5], line[6]))
+            try:
+                accs.append(User(line[0], line[1], line[2], line[3], line[4], line[5], line[6]))
+            except: pass
         accs.pop(0)
 
     streaks = []
