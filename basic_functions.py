@@ -66,6 +66,7 @@ class button: #       0     1       2       3         4     5     6        7    
                 mouse = pygame.mouse.get_pos() # Stores mouse coordinates
                 if self.StartPos['x'] <= mouse[0] <= self.StartPos['x'] + self.width and self.StartPos['y'] <= mouse[1] <= self.StartPos['y']+self.height: 
                         pygame.draw.rect(screen,self.hover_color,[self.StartPos['x'],self.StartPos['y'],self.width,self.height]) # If mouse is hovering
+                        screen.blit(pygame.font.SysFont(self.font,self.fontsize).render(self.text , True , self.text_color),(self.StartPos['x']+self.text_offset,self.StartPos['y']+self.verticle_text_offset)) # Putting text on the button
                 else: 
                         pygame.draw.rect(screen,self.main_color,[self.StartPos['x'],self.StartPos['y'],self.width,self.height]) # If mouse is not touching
                         screen.blit(pygame.font.SysFont(self.font,self.fontsize).render(self.text , True , self.text_color),(self.StartPos['x']+self.text_offset,self.StartPos['y']+self.verticle_text_offset)) # Putting text on the button
