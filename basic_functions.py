@@ -254,6 +254,7 @@ def txt_input(prompt, x=50,y=50):
     active = False
     text = ''
     done = False
+    font = pygame.font.Font(None, 36)
 
     while not done:
         for event in pygame.event.get():
@@ -274,7 +275,7 @@ def txt_input(prompt, x=50,y=50):
                     else:
                         text += event.unicode
 
-        screen.fill((255, 255, 255))
+        clear()
         pygame.draw.rect(screen, color, input_box, 2)
 
         txt_surface = font.render(prompt + text, True, (0, 0, 0))
