@@ -24,7 +24,7 @@ def new_account(): # Lets the user input their name amd password for their new a
             display("Account created", 3,x=0,y=0)
             return name
 #new_account()
-new_account()
+#new_account()
 
 # Log In -Luke Murdock
 
