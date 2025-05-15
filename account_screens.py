@@ -28,13 +28,17 @@ def new_account(): # Lets the user input their name amd password for their new a
 # Log In -Luke Murdock
 
 def get_log_in(): # Lets the user input their name amd password to find if their account exists and then tells them the result
-    display('Username: ',0,x=0,y=0)
-    name = txt_input(50,50).strip()
-    display('Password: ',0,x=0,y=0)
-    password = txt_input(50,50).strip()
+    pystart()
+    running = True
+    while running:
+        clear()
+        display('Username: ',0,x=0,y=0)
+        name = (txt_input(20,50).strip())
+        display('Password: ',0,x=0,y=0)
+        password = txt_input(0,20).strip()
 
-    if log_in(name, password) == True:
-        display(f'You have logged in as {name}!',2)
-        return name
-    else:
-        display('Username or password could not be found',4)
+        if log_in(name, password) == True:
+            display(f'You have logged in as {name}!',2)
+            return name
+        else:
+            display('Username or password could not be found',4)

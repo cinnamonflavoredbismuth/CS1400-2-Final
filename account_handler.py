@@ -35,6 +35,16 @@ class User: # The class that creates user account objects
         else:
             pass
 
+    def progress_update(self): #update progress
+        if int(self.unit) < 4:
+            if int(self.lesson) < 8:
+                self.lesson=int(self.lesson)+1
+            if int(self.lesson) == 8:
+                self.unit=int(self.unit)+1
+                self.lesson=1
+        else:
+            pass
+
     def unit_update(self, unit): #update unit
         self.unit = unit
 

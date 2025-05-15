@@ -68,7 +68,7 @@ def unit_select(acc): # Lets the user pick which unit they want to do
                         pass
                     
                 elif if_clicked(buttons['unit4_btn'],event) == True:
-                    if int(acc.unit) > 4:
+                    if int(acc.unit) == 4:
                         unit = 'Food'
                         lesson_select(unit, acc)
                         running = False
