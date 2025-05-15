@@ -87,7 +87,6 @@ def display_buttons(buttons): # Makes multiple buttons displayed
 def display(message, sec, x=50, y=50): # Displays a message on the screen by itself for a certain amount of seconds
     font = pygame.font.Font(None, 36)
     surface = font.render(message, True, (0, 0, 0))
-    clear()
     screen.blit(surface, (x, y))
     pygame.display.flip()  # Update the display
     if sec != 0:
