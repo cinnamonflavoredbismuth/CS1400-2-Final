@@ -308,5 +308,5 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
             return
 
 # FOR TESTING
-acc=load('cecily')
-print(lesson('Basics',' 1',[],[],acc))
+#acc=load('cecily')
+#print(lesson('Basics',' 1',[],[],acc))
