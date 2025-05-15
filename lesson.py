@@ -189,5 +189,5 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
             display("Thank you for playing!", 0, 600, 100)
 
 # FOR TESTING
-acc=load('cecily')
-print(lesson('Basics',' 1',[],[],acc))
+#acc=load('cecily')
+#print(lesson('Basics',' 1',[],[],acc))
