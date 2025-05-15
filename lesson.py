@@ -135,6 +135,7 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
     lesson_complete = False
     answered_questions = correct + incorrect
     #print(answered_questions)
+    #print(answered_questions)
     if _lesson == 'quiz':
         if len(answered_questions) >= 35:
             # Set state
@@ -176,6 +177,7 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                             incorrect.clear()
                             lesson_complete = True  # Exit the lesson
     else:
+        print(lesson_complete)
         if len(answered_questions) >= 5:
             # Set state
             results_screen = True
@@ -203,11 +205,14 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
 
                     elif event.type == pygame.MOUSEBUTTONDOWN:
                         if if_clicked(graph_button['graph_btn'], event):
-                            clear()
+                            #clear()
                             accuracy_visual(correct, len(answered_questions)) 
                             pygame.display.flip()
                             pygame.time.delay(1000)
+                            
                             lesson_complete = True
+                            print(lesson_complete)
+                            return
 
                         elif if_clicked(graph_button['quit_btn'], event):
                             acc.streak_update()
@@ -215,9 +220,10 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                             correct.clear()
                             incorrect.clear()
                             lesson_complete = True  # Exit the lesson
+                            print(lesson_complete)
                             return lesson_complete
-
-        elif lesson_complete == False:
+            
+        elif lesson_complete != True:
             option1, option2, option3, option4, question = get_questions(unit, _lesson,correct, incorrect)
             options = [option1, option2, option3, option4]
             random.shuffle(options)
@@ -299,6 +305,7 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
 
                     pygame.display.flip()  # Update the display
                     pygame.time.delay(100)  # Delay to control frame 
+                
                 break
         else:
         # End of the game loop
