@@ -3,7 +3,7 @@ import pygame
 from account_handler import new_account as new, log_in
 from basic_functions import txt_input, display,clear, pystart
 
-def new_account(): # 
+def new_account(): # Lets the user input their name amd password for their new account and then tells them if it was created
     pystart()
     running = True
     while running:
@@ -27,7 +27,7 @@ def new_account(): #
 
 # Log In -Luke Murdock
 
-def get_log_in(): # 
+def get_log_in(): # Lets the user input their name amd password to find if their account exists and then tells them the result
     display('Username: ',0,x=0,y=0)
     name = txt_input(50,50).strip()
     display('Password: ',0,x=0,y=0)

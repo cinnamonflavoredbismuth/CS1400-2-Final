@@ -3,7 +3,7 @@ import pygame
 
 # THINGS TO DO WITH SCREEN
 
-def pystart():
+def pystart(): # 
         pygame.init()
         # Set up the display
         screen = pygame.display.set_mode((1200, 800))
@@ -11,13 +11,17 @@ def pystart():
         pygame.display.set_icon(pygame.image.load('images/logo_uwu.png'))
         return(screen)
 
-def clear(screen=pystart()):
+
+screen=pystart()
+
+
+def clear(screen=pystart()): # 
         screen.fill((255, 255, 255))
         background_image = pygame.image.load('images/BG.webp')  # Load the image
         background_image = pygame.transform.scale(background_image, (1200, 800))  # Scale to fit the screen
         screen.blit(background_image, (0,0))
 
-def birds():
+def birds(): # 
         bird1 = pygame.image.load("images/logo_uwu.png")
         bird2 = pygame.transform.flip(bird1, True, False)  # Flip the image horizontally
         bird1 = pygame.transform.scale(bird1, (200, 200))  # Scale the image to fit the screen 
@@ -25,7 +29,7 @@ def birds():
         screen.blit(bird1, (30, 0)) # Draw the first bird image at (0, 0)
         screen.blit(bird2, (900,0))
 
-screen=pystart()
+
 
 # THINGS TO DO WITH BUTTONS
 
@@ -43,7 +47,7 @@ class button: #       0     1       2       3         4     5     6        7    
                 self.verticle_text_offset = verticle_text_offset
                 self.text_color = text_color
                 self.locked = locked
-        def __str__(self):
+        def __str__(self): # String of information for the button object
                 return f"""
                 Width: {self.width}
                 Height: {self.height}
@@ -58,7 +62,7 @@ class button: #       0     1       2       3         4     5     6        7    
                 Text_color: {self.text_color}
                 Locked: {self.locked}"""
 
-        def btn(self):
+        def btn(self): # Creates the button with pygame and displays it on the pygame window
                 mouse = pygame.mouse.get_pos() # Stores mouse coordinates
                 if self.StartPos['x'] <= mouse[0] <= self.StartPos['x'] + self.width and self.StartPos['y'] <= mouse[1] <= self.StartPos['y']+self.height: 
                         pygame.draw.rect(screen,self.hover_color,[self.StartPos['x'],self.StartPos['y'],self.width,self.height]) # If mouse is hovering
@@ -66,14 +70,15 @@ class button: #       0     1       2       3         4     5     6        7    
                         pygame.draw.rect(screen,self.main_color,[self.StartPos['x'],self.StartPos['y'],self.width,self.height]) # If mouse is not touching
                         screen.blit(pygame.font.SysFont(self.font,self.fontsize).render(self.text , True , self.text_color),(self.StartPos['x']+self.text_offset,self.StartPos['y']+self.verticle_text_offset)) # Putting text on the button
         
-def if_clicked(btn,event): # If the button is clicked
-        if btn.StartPos['x'] <= event.pos[0] <= btn.StartPos['x'] + btn.width and btn.StartPos['y'] <= event.pos[1] <= btn.StartPos['y'] + btn.height:
-                click()
-                return True
-        else:
-                return False
+def if_clicked(btn, event): # 
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        x, y = event.pos  # This is safe now
+        if btn.StartPos['x'] <= x <= btn.StartPos['x'] + btn.width and btn.StartPos['y'] <= y <= btn.StartPos['y'] + btn.height:
+            click()
+            return True
+    return False
         
-def display_buttons(buttons):
+def display_buttons(buttons): # Makes multiple buttons displayed
         for x in list(buttons.values()):
                 x.btn()
 
@@ -82,20 +87,19 @@ def display_buttons(buttons):
 def display(message, sec, x=50, y=50): # Displays a message on the screen by itself for a certain amount of seconds
     font = pygame.font.Font(None, 36)
     surface = font.render(message, True, (0, 0, 0))
-    clear()
     screen.blit(surface, (x, y))
     pygame.display.flip()  # Update the display
     if sec != 0:
         pygame.time.delay(sec * 1000)  # Waits a certain amount of seconds before continuing
 
 
-def text(msg):
+def text(msg): # Formats inputted text for txt_input
     black = (0, 0, 0)
     font = pygame.font.Font(None, 36)
     return font.render(msg, True, black)
 
 
-def letter_input(txt=[],x=0,y=0,event=None):
+def letter_input(txt=[],x=0,y=0,event=None): # Finds which key/letter was pressed by the user
         if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_a:
                         screen.blit(text(f'a'), (x,y))
@@ -215,7 +219,7 @@ def letter_input(txt=[],x=0,y=0,event=None):
         else: 
                 return None
 
-def txt_input(x,y):
+def txt_input(x,y): # Lets the user input text on pygame, displays it in a certain spot, and then returns it
         x2=x-40
         user_txt=[]
         run=True
@@ -243,22 +247,22 @@ def txt_input(x,y):
 
 # THINGS TO DO WITH MUSIC
 
-def click():
+def click(): # For playing a sound when a button is clicked
     click_sound = pygame.mixer.Sound("sounds/click.mp3")
     ####################################
     pygame.mixer.Sound.play(click_sound)
 
-def start_up():
+def start_up(): # For playing a sound when the program starts
         startup_sound = pygame.mixer.Sound("sounds/startup.mp3")
         pygame.mixer.Sound.play(startup_sound)
 
-def bgm():
+def bgm(): # For playing a sound in the background
     pygame.mixer.music.load("sounds/background.mp3")
     pygame.mixer.music.play(-1)  # Loop the music indefinitely
 
                        # pygame.display.update()
                        # pygame.time.delay(10)# delay .01 seconds#screen.fill((255, 255, 255))  # Clear the screen with a white background
 
-def wrong_sound():
+def wrong_sound(): # For playing a sound when a wrong button is clicked
         pygame.mixer.music.load("sounds/answer-wrong.mp3")
         pygame.mixer.music.play(0)  # Play the sound once

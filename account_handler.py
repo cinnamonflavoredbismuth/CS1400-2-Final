@@ -4,8 +4,8 @@ from datetime import datetime, timedelta
 import csv
 from basic_functions import display
 
-class User: # 
-    def __init__(self, name,password,unit,lesson,streak,date,lives): # 
+class User: # The class that creates user account objects
+    def __init__(self, name,password,unit,lesson,streak,date,lives): # User Class object creator
         self.name = name
         self.password = password
         self.unit = unit
@@ -43,7 +43,7 @@ class User: #
 
     def __str__(self): #Show account info
         return f"""
-Name: {self.name}
+    Name: {self.name}
     Password: {self.password}
     Unit: {self.unit}
     Streak: {self.streak} days
@@ -89,7 +89,7 @@ def load(name): # loads account from csv
             #print("Account not found.")
             return False
 
-def new_account(name,password): # 
+def new_account(name,password): # Creates a new user account with given information and writes it to the users file
     name=name.strip()
     password=password.strip()
     acc=User(name,password,1,1,0,datetime.today(),3)
@@ -121,7 +121,7 @@ def log_in(name, password): # Checks to see if the user's inputted account exist
             return True
     return False
 
-def leaderboard():
+def leaderboard(): # Returns a sorted list of all of the users by their streak amount
     accs=[]
     with open("csv_files/users.csv", "r") as file:
         reader = csv.reader(file)

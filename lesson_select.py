@@ -1,22 +1,18 @@
 import pygame
 import csv
 import random
-from basic_functions import *
-from lesson import lesson
-from basic_functions import  button, pystart, clear, if_clicked, display_buttons, display, wrong_sound
 import time
+from basic_functions import pystart, clear, display_buttons, if_clicked, display, wrong_sound, button
+from lesson import lesson
 
 
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
 # The game will display a lesson and multiple options, and the user has to select the correct one.
 # The game will be played using Pygame, a popular library for creating games in Python.
-def lesson_select(unit, acc):
+
+def lesson_select(unit, acc): # Lets the user pick which lesson they want to do
     time.sleep(0.5)
-    # Define the Spanish or Vanish game
-    # This is a simple game where the user selects the correct answer from multiple options.
-    # The game will display a lesson and multiple options, and the user has to select the correct one.
-    # The game will be played using Pygame, a popular library for creating games in Python.
 
     # Initialize Pygame
     pystart()
@@ -32,7 +28,8 @@ def lesson_select(unit, acc):
     'lesson_5_btn' : lesson_btn({"x" :  650,"y" : 200},5,False),
     'lesson_6_btn' : lesson_btn({"x" :  650,"y" : 300},6,False),
     'lesson_7_btn' : lesson_btn({"x" :  650,"y" : 400},7,False),
-    'return_btn' : button(500, 50, {"x" :  650,"y" : 500},"Return", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255),False)
+    'quiz_btn' : button(500, 50, {"x" :  650,"y" : 500},"Quiz", "Arial", 35, (80,80,80), (40,40,40), 175, 0, (255,255,255),False),
+    'return_btn' : button(500, 50, {"x" :  350,"y" : 600},"Return", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255),False)
 }
 
 
@@ -119,6 +116,15 @@ def lesson_select(unit, acc):
                     if int(acc.lesson) >= 7:
                         _lesson = ' 7'
                         
+                        lesson(unit, _lesson, [], [],acc)
+                        running = False
+                    else:
+                        wrong_sound()
+                        pass
+                elif if_clicked(buttons['quiz_btn'],event) == True:
+                    if int(acc.lesson) >= 8:
+                        _lesson = 'quiz'
+        
                         lesson(unit, _lesson, [], [],acc)
                         running = False
                     else:
