@@ -9,19 +9,17 @@ def new_account(): # Lets the user input their name amd password for their new a
     while running:
         clear()
         # find the x and y for acc creation
-        display("Name:", 0,x=0,y=0)
-        name=(txt_input(-30,20))
+        name=(txt_input("Username: ",x=50,y=50).strip())
         print(name)
         clear()
-        display("Password", 0,x=0,y=0)
-        password=(txt_input(30,20))
+        password=(txt_input("Password: ",x=50,y=50).strip())
         acc=new(name,password)
         clear()
         if acc == False:
-            display("Account already exists", 3,x=0,y=0)
+            display("Account already exists", 3,x=100,y=100)
             return None
         else: 
-            display("Account created", 3,x=0,y=0)
+            display("Account created", 3,x=100,y=100)
             return name
 #new_account()
 #new_account()
@@ -34,12 +32,14 @@ def get_log_in(): # Lets the user input their name amd password to find if their
     while running:
         clear()
         display('Username: ',0,x=0,y=0)
-        name = (txt_input(20,50).strip())
-        display('Password: ',0,x=0,y=0)
-        password = txt_input(0,20).strip()
+        name=(txt_input("Username: ",x=50,y=50).strip())
+        password=(txt_input("Password: ",x=50,y=50).strip())
 
         if log_in(name, password) == True:
-            display(f'You have logged in as {name}!',2)
+            clear()
+            display(f'You have logged in as {name}!',2,100)
             return name
         else:
-            display('Username or password could not be found',4)
+            clear()
+            display('Username or password could not be found',4,100)
+            return None

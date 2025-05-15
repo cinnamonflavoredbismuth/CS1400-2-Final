@@ -47,13 +47,11 @@ def unit_select(acc): # Lets the user pick which unit they want to do
                         # Go back to the main menu
                         unit = 'Basics'
                         lesson_select(unit, acc)
-                        running = False
 
                 elif if_clicked(buttons['unit2_btn'],event) == True:
                     if int(acc.unit) >= 2:
                         unit = 'Directions'
                         lesson_select(unit, acc)
-                        running = False
                     else:
                         wrong_sound()
                         pass
@@ -62,7 +60,6 @@ def unit_select(acc): # Lets the user pick which unit they want to do
                     if int(acc.unit) >= 3:
                         unit = 'Small Talk'
                         lesson_select(unit, acc)
-                        running = False
                     else:
                         wrong_sound()
                         pass
@@ -71,7 +68,6 @@ def unit_select(acc): # Lets the user pick which unit they want to do
                     if int(acc.unit) == 4:
                         unit = 'Food'
                         lesson_select(unit, acc)
-                        running = False
                     else:
                         wrong_sound()
                         pass
