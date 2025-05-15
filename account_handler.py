@@ -103,7 +103,7 @@ def load(name): # loads account from csv
             #print("Account not found.")
             return False
 
-def new_account(name,password): # Creates a new user account with given information and writes it to the users file
+def new_acc(name,password): # Creates a new user account with given information and writes it to the users file
     name=name.strip()
     password=password.strip()
     acc=User(name,password,1,1,0,datetime.today(),3)
