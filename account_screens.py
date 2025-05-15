@@ -17,7 +17,7 @@ def new_account(): # Lets the user input their name amd password for their new a
         clear()
         if acc == False:
             display("Account already exists", 3,x=100,y=100)
-            return None
+            return False
         else: 
             display("Account created", 3,x=100,y=100)
             return name
@@ -41,5 +41,5 @@ def get_log_in(): # Lets the user input their name amd password to find if their
             return name
         else:
             clear()
-            display('Username or password could not be found',4,100)
-            return None
+            display('Username or password could not be found',2,100)
+            return False

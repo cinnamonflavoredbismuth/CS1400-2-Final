@@ -44,7 +44,7 @@ def main_menu(): # This creates the starting screen with the options of log_in, 
                     elif if_clicked(buttons['Account_create_btn'],event) == True: # If Account Create button clicked
                         
                         name=new_account()
-                        if name != False:
+                        if name != False and name != '' and name != None:
                             acc=load(name)
                             print(acc)
                             lessons(acc)
@@ -52,7 +52,7 @@ def main_menu(): # This creates the starting screen with the options of log_in, 
                     elif if_clicked(buttons['Log_in_btn'],event) == True: # If Log In button clicked
 
                         name = get_log_in()
-                        if name != False:
+                        if name != False and name != '' and name != None:
                             acc = load(name)
                             lessons(acc)
 
@@ -60,7 +60,7 @@ def main_menu(): # This creates the starting screen with the options of log_in, 
             pygame.time.delay(100)  # Delay to control frame rate
 
 
-        #display("Thank you for playing!",2) ----------------------------------------------------------------------------------------
+        display("Thank you for playing!",2)
         pygame.quit()
         break
 
