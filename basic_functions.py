@@ -219,7 +219,7 @@ def letter_input(txt=[],x=0,y=0,event=None): # Finds which key/letter was presse
         else: 
                 return None
 
-def txt_input(x,y): # Lets the user input text on pygame, displays it in a certain spot, and then returns it
+def inputting(x,y): # Lets the user input text on pygame, displays it in a certain spot, and then returns it
         x2=x-40
         user_txt=[]
         run=True
@@ -244,6 +244,45 @@ def txt_input(x,y): # Lets the user input text on pygame, displays it in a certa
                                                 user_txt.append(letter)
 
                 pygame.display.update()
+
+def txt_input(prompt, x=50,y=50):
+
+    input_box = pygame.Rect(x, y, 250, 30)
+    color_inactive = pygame.Color('lightskyblue3')
+    color_active = pygame.Color('dodgerblue2')
+    color = color_inactive
+    active = False
+    text = ''
+    done = False
+
+    while not done:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                done = True
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if input_box.collidepoint(event.pos):
+                    active = not active
+                else:
+                    active = False
+                color = color_active if active else color_inactive
+            if event.type == pygame.KEYDOWN:
+                if active:
+                    if event.key == pygame.K_RETURN:
+                        done = True
+                    elif event.key == pygame.K_BACKSPACE:
+                        text = text[:-1]
+                    else:
+                        text += event.unicode
+
+        screen.fill((255, 255, 255))
+        pygame.draw.rect(screen, color, input_box, 2)
+
+        txt_surface = font.render(prompt + text, True, (0, 0, 0))
+        width = max(250, txt_surface.get_width()+10)
+        input_box.w = width
+        screen.blit(txt_surface, (input_box.x+5, input_box.y+5))
+        pygame.display.flip()
+    return text
 
 # THINGS TO DO WITH MUSIC
 
