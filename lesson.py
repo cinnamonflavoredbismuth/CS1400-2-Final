@@ -215,6 +215,7 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                             correct.clear()
                             incorrect.clear()
                             lesson_complete = True  # Exit the lesson
+                            return lesson_complete
 
         if lesson_complete == False:
             option1, option2, option3, option4, question = get_questions(unit, _lesson,correct, incorrect)
@@ -299,9 +300,10 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                     pygame.display.flip()  # Update the display
                     pygame.time.delay(100)  # Delay to control frame 
                 break
-
-        # End of the game loop
-        display("Thank you for playing!", 0, 450, 100)
+        else:
+            # End of the game loop
+            display("Thank you for playing!", 0, 450, 100)
+            return
 
 # FOR TESTING
 #acc=load('cecily')
