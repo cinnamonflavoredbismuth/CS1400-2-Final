@@ -53,8 +53,8 @@ def main_menu(): # This creates the starting screen with the options of log_in, 
 
                     elif if_clicked(buttons['Log_in_btn'],event) == True: # If Log In button clicked
                         #clear()
-                        #name = get_log_in()
-                        name = 'cecily'
+                        name = get_log_in()
+                        #name = 'cecily'
                         acc = load(name)
                         lessons(acc)
 
