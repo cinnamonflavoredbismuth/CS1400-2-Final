@@ -3,7 +3,7 @@ import csv
 import random
 import time
 import matplotlib.pyplot
-from basic_functions import pystart, clear, button, display_buttons, if_clicked,display
+from basic_functions import pystart, clear, button, display_buttons, if_clicked, display, wrong_sound
 from graphs import accuracy_visual  # Assuming you have a graphs.py file with the necessary functions
 from account_handler import load
 # from sign_up_screen import * 
@@ -255,6 +255,7 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                                     correct.append(question)
                                     lesson(unit, _lesson, correct, incorrect,acc)
                                 elif options[0] != option3:
+                                    wrong_sound()
                                     clear()
                                     option_chosen('Incorrect!')
                                     incorrect.append(question)
@@ -267,6 +268,7 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                                     correct.append(question)
                                     lesson(unit, _lesson, correct, incorrect,acc)
                                 elif options[1] != option3:
+                                    wrong_sound()
                                     clear()
                                     option_chosen('Incorrect!')
                                     incorrect.append(question)
@@ -279,6 +281,7 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                                     correct.append(question)
                                     lesson(unit, _lesson, correct, incorrect,acc)
                                 elif options[2] != option3:
+                                    wrong_sound()
                                     clear()
                                     option_chosen('Incorrect!')
                                     incorrect.append(question)
@@ -291,6 +294,7 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                                     correct.append(question)
                                     lesson(unit, _lesson, correct, incorrect,acc)
                                 elif options[3] != option3:
+                                    wrong_sound()
                                     clear()
                                     option_chosen('Incorrect!')
                                     incorrect.append(question)

@@ -15,7 +15,7 @@ class User: # The class that creates user account objects
         self.lives = lives
 
     def basic(self): # Basic account for new users
-        self.unit=0
+        self.unit=1
         self.lesson=1
         self.streak=0
         self.date = datetime.today()
