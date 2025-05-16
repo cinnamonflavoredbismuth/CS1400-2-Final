@@ -6,7 +6,7 @@ from account_handler import load
 
 
 # Define the Spanish or Vanish game
-# This is a simple game where the user selects the correct answer from multiple options.
+# This is a simple game where the user selects the correct answer from multiple options.    
 # The game will display a lesson and multiple options, and the user has to select the correct one.
 # The game will be played using Pygame, a popular library for creating games in Python.
 

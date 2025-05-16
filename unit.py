@@ -44,25 +44,23 @@ def unit_select(acc): # Lets the user pick which unit they want to do
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     if if_clicked(buttons['unit1_btn'],event) == True:
-                        # Go back to the main menu
                         unit = 'Basics'
                         lesson_select(unit, acc)
 
-                elif if_clicked(buttons['unit2_btn'],event) == True:
-                    if int(acc.unit) >= 2:
+                    elif if_clicked(buttons['unit2_btn'],event) == True:
                         unit = 'Directions'
                         lesson_select(unit, acc)
-                    else:
-                        wrong_sound()
-                        pass
 
-                elif if_clicked(buttons['unit3_btn'],event) == True:
-                    if int(acc.unit) >= 3:
+                    elif if_clicked(buttons['unit3_btn'],event) == True:
                         unit = 'Small Talk'
                         lesson_select(unit, acc)
-                    else:
-                        wrong_sound()
-                        pass
+                    
+                    elif if_clicked(buttons['unit4_btn'],event) == True:
+                        unit = 'Food'
+                        lesson_select(unit, acc)
+
+                    elif if_clicked(buttons['return_btn'],event) == True:
+                        running = False
                     
                 elif if_clicked(buttons['unit4_btn'],event) == True:
                     if int(acc.unit) == 4:
