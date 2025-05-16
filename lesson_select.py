@@ -93,6 +93,7 @@ def lesson_select(unit, acc): # Lets the user pick which lesson they want to do
 
                 elif if_clicked(buttons['quiz_btn'],event) == True:
                     _lesson = 'quiz'
+                    
                     lesson(unit, _lesson, [], [],acc)
                     running = False
 
