@@ -31,7 +31,6 @@ def unit_select(acc): # Lets the user pick which unit they want to do
         current_lesson = 0
         selected_option = -1  # No option selected initially
 
-        # Define button positions
 
         # Main loop
         running = True
@@ -54,26 +53,14 @@ def unit_select(acc): # Lets the user pick which unit they want to do
                     elif if_clicked(buttons['unit3_btn'],event) == True:
                         unit = 'Small Talk'
                         lesson_select(unit, acc)
-                    
                     elif if_clicked(buttons['unit4_btn'],event) == True:
                         unit = 'Food'
                         lesson_select(unit, acc)
 
                     elif if_clicked(buttons['return_btn'],event) == True:
                         running = False
-                    
-                elif if_clicked(buttons['unit4_btn'],event) == True:
-                    if int(acc.unit) == 4:
-                        unit = 'Food'
-                        lesson_select(unit, acc)
-                    else:
-                        wrong_sound()
-                        pass
-
-                elif if_clicked(buttons['return_btn'],event) == True:
                     # Go back to the main menu
                     
-                    running = False
                 
 
             
