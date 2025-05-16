@@ -82,7 +82,6 @@ class User: # The class that creates user account objects
                     else:
                         toWrite.append({'name':row[0], 'password':row[1], 'unit':row[2], 'lesson':row[3], 'streak':row[4], 'date':row[5], 'lives':row[6]})
                 except: pass
-        print(toWrite)
         with open("csv_files/users.csv", "w", newline='') as file:
             writer = csv.DictWriter(file, fieldnames=["name", "password", "unit", "lesson", "streak", "date", "lives"])
             writer.writerows(toWrite)

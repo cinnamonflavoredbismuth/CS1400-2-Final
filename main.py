@@ -4,6 +4,7 @@ from basic_functions import  display, start_up, bgm, if_clicked, clear, button, 
 from account_screens import new_account, get_log_in
 from account_handler import load
 
+
 # Define the Spanish or Vanish game
 # This is a simple game where the user selects the correct answer from multiple options.
 # The game will display a lesson and multiple options, and the user has to select the correct one.
