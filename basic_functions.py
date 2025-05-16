@@ -307,4 +307,8 @@ def bgm(): # For playing a sound in the background
 def wrong_sound(): # For playing a sound when a wrong button is clicked
         pygame.mixer.music.load("sounds/answer-wrong.mp3")
         pygame.mixer.music.play(0)  # Play the sound once
+        pygame.time.delay(1000)
 
+        # Starting the background music up again
+        pygame.mixer.music.load("sounds/background.mp3")
+        pygame.mixer.music.play(-1)  # Loop the music indefinitely
