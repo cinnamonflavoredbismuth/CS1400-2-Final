@@ -35,12 +35,10 @@ def get_log_in(): # Lets the user input their name amd password to find if their
         display('Username: ',0,x=0,y=0)
         name=(txt_input("Username: ",x=50,y=50).strip())
         password=(txt_input("Password: ",x=50,y=50).strip())
-
+        clear()
         if log_in(name, password) == True:
-            clear()
             display(f'You have logged in as {name}!',2,100)
             return name
         else:
-            clear()
             display('Username or password could not be found',2,100)
             return False

@@ -174,6 +174,16 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                             pygame.time.delay(1000)
                             lesson_complete = True
 
+                            acc.streak_update()
+                            acc.edit()
+                            correct.clear()
+                            incorrect.clear()
+                            clear()
+                            display("Thank you for playing!", 3, 450, 100)
+                            pygame.quit()
+                            exit()
+                            return
+
                         elif if_clicked(graph_button['quit_btn'], event):
                             acc.streak_update()
                             acc.edit()
@@ -182,6 +192,8 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                             clear()
                             display("Thank you for playing!", 3, 450, 100)
                             pygame.quit()
+                            exit()
+                            return
     else:
         if len(answered_questions) >= 5:
             # Set state
@@ -220,8 +232,16 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                             accuracy_visual(correct, len(answered_questions)) 
                             pygame.display.flip()
                             pygame.time.delay(1000)
-                            
                             lesson_complete = True
+                            
+                            acc.streak_update()
+                            acc.edit()
+                            correct.clear()
+                            incorrect.clear()
+                            clear()
+                            display("Thank you for playing!", 3, 450, 100)
+                            pygame.quit()
+                            exit()
                             return
 
                         elif if_clicked(graph_button['quit_btn'], event):
@@ -233,6 +253,7 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                             display("Thank you for playing!", 3, 450, 100)
                             pygame.quit()
                             exit()
+                            return
         else:
             if lesson_complete == False:
                 option1, option2, option3, option4, question = get_questions(unit, _lesson,correct, incorrect)
@@ -309,12 +330,19 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                                     option_chosen('Incorrect!')
                                     incorrect.append(question)
                                     lesson(unit, _lesson, correct, incorrect,acc)
-                            elif if_clicked(buttons['quit_btn'],event) == True:
-                                # Go back to the main menu
+                            elif if_clicked(buttons['quit_btn'], event):
+                                acc.streak_update()
+                                acc.edit()
                                 correct.clear()
                                 incorrect.clear()
-                                
+                                clear()
+                                display("Thank you for playing!", 3, 450, 100)
                                 running = False
+                                pygame.quit()
+                                exit()
+                                return
+                                
+                                
 
 
                         pygame.display.flip()  # Update the display
