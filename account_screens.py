@@ -1,6 +1,6 @@
 #Spanish or Vanish Account Creation screen
 import pygame
-from account_handler import new_account as new, log_in
+from account_handler import new_acc, log_in
 from basic_functions import txt_input, display,clear, pystart
 
 def new_account(): # Lets the user input their name amd password for their new account and then tells them if it was created
@@ -13,13 +13,14 @@ def new_account(): # Lets the user input their name amd password for their new a
         print(name)
         clear()
         password=(txt_input("Password: ",x=50,y=50).strip())
-        acc=new(name,password)
+        acc=new_acc(name,password)
         clear()
         if acc == False:
             display("Account already exists", 3,x=100,y=100)
             return False
         else: 
             display("Account created", 3,x=100,y=100)
+            new_acc(name,password)
             return name
 #new_account()
 #new_account()

@@ -130,7 +130,7 @@ def lesson_select(unit, acc): # Lets the user pick which lesson they want to do
                     else:
                         wrong_sound()
                         pass
-                if if_clicked(buttons['return_btn'],event) == True:
+                elif if_clicked(buttons['return_btn'],event) == True:
                     # Go back to the main menu
                     
                     running = False
