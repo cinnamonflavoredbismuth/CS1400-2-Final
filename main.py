@@ -4,8 +4,9 @@ from basic_functions import  display, start_up, bgm, if_clicked, clear, button, 
 from account_screens import new_account, get_log_in
 from account_handler import load
 
+
 # Define the Spanish or Vanish game
-# This is a simple game where the user selects the correct answer from multiple options.
+# This is a simple game where the user selects the correct answer from multiple options.    
 # The game will display a lesson and multiple options, and the user has to select the correct one.
 # The game will be played using Pygame, a popular library for creating games in Python.
 
@@ -19,7 +20,7 @@ buttons = {
 'Quit_btn' :button(500, 50, {"x" :  325,"y" : 630},"Quit", "Arial", 35, (80,80,80), (40,40,40), 225, 0, (255,255,255),False),
 'Account_create_btn' : button(500, 50, {"x" :  325,"y" : 530},"Create Account", "Arial", 35, (80,80,80), (40,40,40), 150, 0, (255,255,255),False),
 'Log_in_btn' : button(500, 50, {"x" :  325,"y" : 430},"Log In", "Arial", 35, (80,80,80), (40,40,40), 200, 0, (255,255,255),False),
-}
+}       
 # Main loop
 def main_menu(): # This creates the starting screen with the options of log_in, create_account, and quit.
     bgm()
@@ -59,8 +60,8 @@ def main_menu(): # This creates the starting screen with the options of log_in, 
             pygame.display.flip()  # Update the display
             pygame.time.delay(100)  # Delay to control frame rate
 
-
-        #display("Thank you for playing!",2) ----------------------------------------------------------------------------------------
+        clear()
+        display("Thank you for playing!",2)
         pygame.quit()
         break
 

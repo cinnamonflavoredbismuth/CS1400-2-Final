@@ -56,81 +56,48 @@ def lesson_select(unit, acc): # Lets the user pick which lesson they want to do
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                if if_clicked(buttons['lesson_1_btn'],event) == True: # If  quit button clicked
-                    # Go back to the main menu
-                    if int(acc.lesson) >= 1:
-                        _lesson = ' 1'
-                        
-                        lesson(unit, _lesson, [], [],acc)
-                        running = False
-                    else:
-                        wrong_sound()
-                        pass
+                if if_clicked(buttons['lesson_1_btn'],event) == True:
+                    _lesson = ' 1'
+                    lesson(unit, _lesson, [], [],acc)
+                    running = False
 
                 elif if_clicked(buttons['lesson_2_btn'],event) == True:
-                    if int(acc.lesson) >= 2:
-                        _lesson = ' 2'
-                        
-                        lesson(unit, _lesson, [], [],acc)
-                        running = False
-                    else:
-                        wrong_sound()
-                        pass
+                    _lesson = ' 2'
+                    lesson(unit, _lesson, [], [],acc)
+                    running = False
+
                 elif if_clicked(buttons['lesson_3_btn'],event) == True:
-                    if int(acc.lesson) >= 3:
-                        _lesson = ' 3'
-                        
-                        lesson(unit, _lesson, [], [],acc)
-                        running = False
-                    else:
-                        wrong_sound()
-                        pass
+                    _lesson = ' 3'
+                    lesson(unit, _lesson, [], [],acc)
+                    running = False
+
                 elif if_clicked(buttons['lesson_4_btn'],event) == True:
-                    if int(acc.lesson) >= 4:
-                        _lesson = ' 4'
-                        
-                        lesson(unit, _lesson, [], [],acc)
-                        running = False
-                    else:
-                        wrong_sound()
-                        pass
+                    _lesson = ' 4'
+                    lesson(unit, _lesson, [], [],acc)
+                    running = False
+
                 elif if_clicked(buttons['lesson_5_btn'],event) == True:
-                    if int(acc.lesson) >= 5:
-                        _lesson = ' 5'
-                        
-                        lesson(unit, _lesson, [], [],acc)
-                        running = False
-                    else:
-                        wrong_sound()
-                        pass
+                    _lesson = ' 5'
+                    lesson(unit, _lesson, [], [],acc)
+                    running = False
+
                 elif if_clicked(buttons['lesson_6_btn'],event) == True:
-                    if int(acc.lesson) >= 6:
-                        _lesson = ' 6'
-                        
-                        lesson(unit, _lesson, [], [],acc)
-                        running = False
-                    else:
-                        wrong_sound()
-                        pass
+                    _lesson = ' 6'
+                    lesson(unit, _lesson, [], [],acc)
+                    running = False
+
                 elif if_clicked(buttons['lesson_7_btn'],event) == True:
-                    if int(acc.lesson) >= 7:
-                        _lesson = ' 7'
-                        
-                        lesson(unit, _lesson, [], [],acc)
-                        running = False
-                    else:
-                        wrong_sound()
-                        pass
+                    _lesson = ' 7'
+                    lesson(unit, _lesson, [], [],acc)
+                    running = False
+
                 elif if_clicked(buttons['quiz_btn'],event) == True:
-                    if int(acc.lesson) >= 8:
-                        _lesson = 'quiz'
-        
-                        lesson(unit, _lesson, [], [],acc)
-                        running = False
-                    else:
-                        wrong_sound()
-                        pass
-                if if_clicked(buttons['return_btn'],event) == True:
+                    _lesson = 'quiz'
+                    
+                    lesson(unit, _lesson, [], [],acc)
+                    running = False
+
+                elif if_clicked(buttons['return_btn'],event) == True:
                     # Go back to the main menu
                     
                     running = False

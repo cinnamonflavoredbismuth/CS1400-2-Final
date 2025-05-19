@@ -3,7 +3,7 @@ import csv
 import random
 import time
 import matplotlib.pyplot
-from basic_functions import pystart, clear, button, display_buttons, if_clicked,display
+from basic_functions import pystart, clear, button, display_buttons, if_clicked, wrong_sound, display
 from graphs import accuracy_visual  # Assuming you have a graphs.py file with the necessary functions
 from account_handler import load
 # from sign_up_screen import * 
@@ -159,8 +159,12 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
                         acc.streak_update()
+                        acc.edit()
+                        correct.clear()
+                        incorrect.clear()
+                        clear()
+                        display("Thank you for playing!", 3, 450, 100)
                         pygame.quit()
-                        exit()
 
                     elif event.type == pygame.MOUSEBUTTONDOWN:
                         if if_clicked(graph_button['graph_btn'], event):
@@ -170,14 +174,27 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                             pygame.time.delay(1000)
                             lesson_complete = True
 
-                        elif if_clicked(graph_button['quit_btn'], event):
                             acc.streak_update()
-                            results_screen = False  # Exit this screen
+                            acc.edit()
                             correct.clear()
                             incorrect.clear()
-                            lesson_complete = True  # Exit the lesson
+                            clear()
+                            display("Thank you for playing!", 3, 450, 100)
+                            pygame.quit()
+                            exit()
+                            return
+
+                        elif if_clicked(graph_button['quit_btn'], event):
+                            acc.streak_update()
+                            acc.edit()
+                            correct.clear()
+                            incorrect.clear()
+                            clear()
+                            display("Thank you for playing!", 3, 450, 100)
+                            pygame.quit()
+                            exit()
+                            return
     else:
-        print(lesson_complete)
         if len(answered_questions) >= 5:
             # Set state
             results_screen = True
@@ -194,12 +211,18 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                 question_text = title_font.render("You completed your lesson!", True, (0, 0, 0))
                 screen.blit(question_text, question_text.get_rect(center=(600, 100)))
                 acc.progress_update()
+                acc.edit()
                 display_buttons(graph_button)
                 pygame.display.flip()
 
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
                         acc.streak_update()
+                        acc.edit()
+                        correct.clear()
+                        incorrect.clear()
+                        clear()
+                        display("Thank you for playing!", 100, 450, 100)
                         pygame.quit()
                         exit()
 
@@ -209,35 +232,43 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                             accuracy_visual(correct, len(answered_questions)) 
                             pygame.display.flip()
                             pygame.time.delay(1000)
-                            
                             lesson_complete = True
-                            print(lesson_complete)
+                            
+                            acc.streak_update()
+                            acc.edit()
+                            correct.clear()
+                            incorrect.clear()
+                            clear()
+                            display("Thank you for playing!", 3, 450, 100)
+                            pygame.quit()
+                            exit()
                             return
 
                         elif if_clicked(graph_button['quit_btn'], event):
                             acc.streak_update()
-                            results_screen = False  # Exit this screen
+                            acc.edit()
                             correct.clear()
                             incorrect.clear()
-                            lesson_complete = True  # Exit the lesson
-                            print(lesson_complete)
-                            return lesson_complete
-            
-        elif lesson_complete != True:
-            option1, option2, option3, option4, question = get_questions(unit, _lesson,correct, incorrect)
-            options = [option1, option2, option3, option4]
-            random.shuffle(options)
-            buttons={
-            'option1_btn' : button(300,150,{"x" :  250,"y" : 330},options[0],"Arial",35,(200,200,200),(255,255,255), int(xoffset_gather(options[0])),int(yoffset_gather(options[0])),(50,50,50),False),
-            'option2_btn' : button(300,150,{"x" :  650,"y" : 330},options[1],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[1])),int(yoffset_gather(options[1])),(50,50,50),False),
-            'option3_btn' :button(300, 150,{"x" :  250,"y" : 530},options[2],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[2])), int(yoffset_gather(options[2])),(50,50,50),False),
-            'option4_btn' : button(300,150,{"x" :  650,"y" : 530}, options[3],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[3])),int(yoffset_gather(options[3])),(50,50,50),False),
-            
-            'quit_btn': button(250,50,{"x" :  10,"y" : 730},"Quit", "Arial",35,(200,200,200),(255,255,255),90,0,(50,50,50),False)
-            }
-            while True:
-                running = True
+                            clear()
+                            display("Thank you for playing!", 3, 450, 100)
+                            pygame.quit()
+                            exit()
+                            return
+        else:
+            if lesson_complete == False:
+                option1, option2, option3, option4, question = get_questions(unit, _lesson,correct, incorrect)
+                options = [option1, option2, option3, option4]
+                random.shuffle(options)
+                buttons={
+                'option1_btn' : button(300,150,{"x" :  250,"y" : 330},options[0],"Arial",35,(200,200,200),(255,255,255), int(xoffset_gather(options[0])),int(yoffset_gather(options[0])),(50,50,50),False),
+                'option2_btn' : button(300,150,{"x" :  650,"y" : 330},options[1],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[1])),int(yoffset_gather(options[1])),(50,50,50),False),
+                'option3_btn' :button(300, 150,{"x" :  250,"y" : 530},options[2],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[2])), int(yoffset_gather(options[2])),(50,50,50),False),
+                'option4_btn' : button(300,150,{"x" :  650,"y" : 530}, options[3],"Arial",35,(200,200,200),(255,255,255),int(xoffset_gather(options[3])),int(yoffset_gather(options[3])),(50,50,50),False),
+                
+                'quit_btn': button(250,50,{"x" :  10,"y" : 730},"Quit", "Arial",35,(200,200,200),(255,255,255),90,0,(50,50,50),False)
+                }
                 clear()
+                running = True
                 while running:
                     display(question, 0, 450, 100)
                     #This is where we will call the buttons 
@@ -256,6 +287,7 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                                     lesson(unit, _lesson, correct, incorrect,acc)
                                 elif options[0] != option3:
                                     clear()
+                                    wrong_sound()
                                     option_chosen('Incorrect!')
                                     incorrect.append(question)
                                     lesson(unit, _lesson, correct, incorrect,acc)
@@ -268,6 +300,7 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                                     lesson(unit, _lesson, correct, incorrect,acc)
                                 elif options[1] != option3:
                                     clear()
+                                    wrong_sound()
                                     option_chosen('Incorrect!')
                                     incorrect.append(question)
                                     lesson(unit, _lesson, correct, incorrect,acc)
@@ -280,6 +313,7 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                                     lesson(unit, _lesson, correct, incorrect,acc)
                                 elif options[2] != option3:
                                     clear()
+                                    wrong_sound()
                                     option_chosen('Incorrect!')
                                     incorrect.append(question)
                                     lesson(unit, _lesson, correct, incorrect,acc)
@@ -292,28 +326,35 @@ def lesson(unit, _lesson, correct, incorrect,acc): # Lets the user do a lesson
                                     lesson(unit, _lesson, correct, incorrect,acc)
                                 elif options[3] != option3:
                                     clear()
+                                    wrong_sound()
                                     option_chosen('Incorrect!')
                                     incorrect.append(question)
                                     lesson(unit, _lesson, correct, incorrect,acc)
-                            elif if_clicked(buttons['quit_btn'],event) == True:
-                                # Go back to the main menu
+                            elif if_clicked(buttons['quit_btn'], event):
+                                acc.streak_update()
+                                acc.edit()
                                 correct.clear()
                                 incorrect.clear()
-                                
+                                clear()
+                                display("Thank you for playing!", 3, 450, 100)
                                 running = False
+                                pygame.quit()
+                                exit()
+                                return
+                                
+                                
 
 
-                    pygame.display.flip()  # Update the display
-                    pygame.time.delay(100)  # Delay to control frame 
-                
-                break
-        else:
-        # End of the game loop
+                        pygame.display.flip()  # Update the display
+                        pygame.time.delay(100)  # Delay to control frame 
+                            
+                        break
+                # End of the game loop
             clear()
-            # End of the game loop
+                    # End of the game loop
             display("Thank you for playing!", 0, 450, 100)
             return
 
 # FOR TESTING
-acc=load('cecily')
-print(lesson('Basics',' 1',[],[],acc))
+#acc=load('cecily')
+#lesson('Basics',' 1',[],[],acc)
